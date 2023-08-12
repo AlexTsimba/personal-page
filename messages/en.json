@@ -1,0 +1,11 @@
+{
+  "Index": {
+    "title": "Hello world!"
+  },
+  "UI": {
+    "LightMode": "Light",
+    "DarkMode": "Dark",
+    "SystemMode": "System",
+    "Flag": "🇬🇧"
+  }
+}
