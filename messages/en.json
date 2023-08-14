@@ -7,5 +7,10 @@
     "DarkMode": "Dark",
     "SystemMode": "System",
     "Flag": "🇬🇧"
+  },
+  "NavLinks": {
+    "Skills": "Skills",
+    "Contact": "Contact",
+    "Dashboard": "Dashboard"
   }
 }

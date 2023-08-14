@@ -11,7 +11,8 @@ import {
   DropdownMenuTrigger,
 } from '../shadcn/dropdown-menu';
 
-import { ThemeOption } from '@/types/ThemeOptions';
+
+import { ThemeOption } from '@/types/ThemeOption';
 
 interface ThemeSwitchProps {
   options: ThemeOption[];
@@ -32,8 +33,14 @@ export default function ThemeSwitch({ options }: ThemeSwitchProps) {
       <DropdownMenuContent align="end">
         {options.map((option, index) => (
           <DropdownMenuItem key={index} onClick={() => setTheme(option.key)}>
-            {option.icon}
-            {option.name}
+            <div className='flex flex-col'>
+              <div className='flex mb-2 w-28'>
+                {option.icon}
+                {option.name}
+              </div>
+              {/* {options.length - index - 1 > 0 && <Separator className="my-1 text-foreground" />} */}
+              {/* <Separator  className='my-2'/> */}
+            </div>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
