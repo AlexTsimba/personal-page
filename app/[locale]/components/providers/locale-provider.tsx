@@ -1,7 +1,6 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
 
-
 interface LocaleLayoutProps {
   children: React.ReactNode;
   locale: string;

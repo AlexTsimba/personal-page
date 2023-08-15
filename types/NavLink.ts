@@ -1,5 +1,4 @@
-export interface NavLink {
-  key: string;
-  name: string;
+export default interface NavLink {
+  title: string;
   href: string;
 }

@@ -6,7 +6,9 @@
     "LightMode": "Light",
     "DarkMode": "Dark",
     "SystemMode": "System",
-    "Flag": "🇬🇧"
+    "Flag": "🇬🇧",
+    "UaLang": "Ukrainian",
+    "EnLang": "English"
   },
   "NavLinks": {
     "Skills": "Skills",

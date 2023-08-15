@@ -1,8 +1,10 @@
 'use client';
 
 import * as React from 'react';
+import { startTransition } from 'react';
+import { useLocale, useTranslations } from 'next-intl';
+import { usePathname, useRouter } from 'next-intl/client';
 
-import { Button } from '../shadcn/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,9 +12,7 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from '../shadcn/dropdown-menu';
-import { useLocale } from 'next-intl';
-import { startTransition } from 'react';
-import { usePathname, useRouter } from 'next-intl/client';
+import { Button } from '../shadcn/button';
 
 interface LangSwitchProps {
   flag: string;
@@ -22,6 +22,7 @@ export function LangSwitch({ flag }: LangSwitchProps) {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
+  const text = useTranslations('UI');
 
   function onSelectChange(newLocale: string) {
     startTransition(() => {
@@ -32,12 +33,14 @@ export function LangSwitch({ flag }: LangSwitchProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="text-xl" variant="ghost">{flag}</Button>
+        <Button className="text-xl" variant="ghost">
+          {flag}
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-[3rem]" align="end">
-        <DropdownMenuRadioGroup value={locale} onValueChange={onSelectChange}>
-          <DropdownMenuRadioItem value="ua">ua</DropdownMenuRadioItem>
-          <DropdownMenuRadioItem value="en">en</DropdownMenuRadioItem>
+        <DropdownMenuRadioGroup value={locale} onValueChange={onSelectChange} className='flex flex-col gap-2'>
+          <DropdownMenuRadioItem value="en">{text('EnLang')}</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="ua">{text('UaLang')}</DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenu>

@@ -1,27 +1,23 @@
-'use client';
-
-import { motion, useAnimation } from 'framer-motion';
+import { AnimationControls, motion } from 'framer-motion';
 import path from './path.json';
-import classNames from 'classnames';
+import { Button } from '../../shadcn/button';
 
 interface BurgerProps {
   isOpen: boolean;
   toggleMenu: () => void;
+  controls: AnimationControls;
 }
 
-export default function Burger({ isOpen, toggleMenu }: BurgerProps) {
+export default function Burger({ isOpen, toggleMenu, controls }: BurgerProps) {
   const { variantsTop, variantsMiddle, variantsBottom } = path;
   const variants = [variantsTop, variantsMiddle, variantsBottom];
-  const controls = useAnimation();
 
   return (
-    <button
-      className={classNames(
-        'z-20 cursor-pointer rounded-md border-none px-[0.5rem] hover:bg-input hover:scale-110 transition-all',
-        { 'bg-input' : isOpen}
-      )}
+    <Button
+      variant="ghost"
+      // !!! do not rewrite to classNames, it causes unexpected behaviour
+      className={isOpen ? 'bg-foreground lg:hidden' : 'lg:hidden'}
       onClick={() => {
-        controls.start(isOpen ? 'open' : 'closed');
         toggleMenu();
       }}
     >
@@ -29,7 +25,12 @@ export default function Burger({ isOpen, toggleMenu }: BurgerProps) {
         {variants.map((variant, index) => (
           <motion.path
             key={index}
-            className="fill-none stroke-foreground stroke-[0.3rem]"
+            // !!! do not rewrite to classNames, it causes unexpected behaviour
+            className={
+              isOpen
+                ? 'fill-none stroke-background stroke-[0.3rem]'
+                : 'fill-none stroke-foreground stroke-[0.3rem]'
+            }
             d={variant.closed.d[0]}
             animate={controls}
             variants={variant}
@@ -40,6 +41,6 @@ export default function Burger({ isOpen, toggleMenu }: BurgerProps) {
           />
         ))}
       </svg>
-    </button>
+    </Button>
   );
 }
