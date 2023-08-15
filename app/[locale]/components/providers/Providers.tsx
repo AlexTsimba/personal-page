@@ -1,5 +1,6 @@
-import { NextIntlClientProvider, useLocale } from 'next-intl';
 import { ThemeProvider } from './theme-provider';
+import LocaleProvider from './locale-provider';
+import { useLocale } from 'next-intl';
 
 interface ProvidersProps {
   children: React.ReactNode;
@@ -9,10 +10,10 @@ export default function Providers({ children }: ProvidersProps) {
   const locale = useLocale();
 
   return (
-    <NextIntlClientProvider locale={locale}>
+    <LocaleProvider locale={locale}>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         {children}
       </ThemeProvider>
-    </NextIntlClientProvider>
+    </LocaleProvider>
   );
 }

@@ -1,24 +1,29 @@
-'use client'
+'use client';
 
 import * as React from 'react';
-import { MoonIcon, SunIcon } from '@heroicons/react/24/solid';
 import { useTheme } from 'next-themes';
+import { MoonIcon, SunIcon } from '@heroicons/react/24/solid';
+import { ThemeOption } from '@/types/ThemeOption';
+
 import { Button } from '../shadcn/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from '../shadcn/dropdown-menu';
-
-import { ThemeOption } from '@/types/ThemeOptions';
 
 interface ThemeSwitchProps {
   options: ThemeOption[];
 }
 
 export default function ThemeSwitch({ options }: ThemeSwitchProps) {
-  const { setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
+
+  function onSelectChange(value: any) {
+    setTheme(value);
+  }
 
   return (
     <DropdownMenu>
@@ -30,12 +35,13 @@ export default function ThemeSwitch({ options }: ThemeSwitchProps) {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        {options.map((option, index) => (
-          <DropdownMenuItem key={index} onClick={() => setTheme(option.key)}>
-            {option.icon}
-            {option.name}
-          </DropdownMenuItem>
-        ))}
+        <DropdownMenuRadioGroup value={theme} onValueChange={onSelectChange}>
+          {options.map((option, index) => (
+            <DropdownMenuRadioItem key={index} value={option.key}>
+              {option.name}
+            </DropdownMenuRadioItem>
+          ))}
+        </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenu>
   );

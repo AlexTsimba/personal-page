@@ -5,8 +5,8 @@ import { Inter } from 'next/font/google';
 import { useLocale } from 'next-intl';
 import classNames from 'classnames';
 
-import Providers from './components/Providers';
-import Header from './components/Header';
+import Providers from './components/providers/Providers';
+import Header from './components/ui/Header';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,16 +23,19 @@ export default function RootLayout({
   const locale = useLocale();
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning className="scroll-smooth">
       <body
+        id="portal"
         className={classNames(
           inter.className,
           'flex min-h-screen flex-col items-center'
         )}
       >
         <Providers>
-          <Header />
-          {children}
+          <div className="h-screen w-full">
+            <Header />
+            {children}
+          </div>
         </Providers>
       </body>
     </html>
