@@ -5,14 +5,14 @@ import { useTheme } from 'next-themes';
 import { MoonIcon, SunIcon } from '@heroicons/react/24/solid';
 import { ThemeOption } from '@/types/ThemeOption';
 
-import { Button } from '../shadcn/button';
+import { Button } from './shadcn/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
-} from '../shadcn/dropdown-menu';
+} from './shadcn/dropdown-menu';
 
 interface ThemeSwitchProps {
   options: ThemeOption[];
@@ -20,10 +20,6 @@ interface ThemeSwitchProps {
 
 export default function ThemeSwitch({ options }: ThemeSwitchProps) {
   const { theme, setTheme } = useTheme();
-
-  function onSelectChange(value: any) {
-    setTheme(value);
-  }
 
   return (
     <DropdownMenu>
@@ -35,7 +31,7 @@ export default function ThemeSwitch({ options }: ThemeSwitchProps) {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuRadioGroup value={theme} onValueChange={onSelectChange}>
+        <DropdownMenuRadioGroup value={theme} onValueChange={setTheme}>
           {options.map((option, index) => (
             <DropdownMenuRadioItem key={index} value={option.key}>
               {option.name}

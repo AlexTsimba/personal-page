@@ -28,7 +28,7 @@ export default function PageControls() {
   ];
 
   return (
-    <div className='flex gap-2 items-center'>
+    <div className='hidden lg:flex gap-2 items-center'>
       <ThemeSwitch options={themeOptions} />
       <LangSwitch flag={currentFlag} />
     </div>
