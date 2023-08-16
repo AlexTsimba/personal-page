@@ -5,8 +5,8 @@ import { Inter } from 'next/font/google';
 import { useLocale } from 'next-intl';
 import classNames from 'classnames';
 
-import Providers from './components/providers/Providers';
-import Header from './components/ui/Header';
+import Providers from '../components/providers/Providers';
+import Header from '../components/Header';
 
 const inter = Inter({ subsets: ['latin'] });
 

@@ -1,6 +1,6 @@
 import { AnimationControls, motion } from 'framer-motion';
 import path from './path.json';
-import { Button } from '../../shadcn/button';
+import { Button } from '../shadcn/button';
 
 interface BurgerProps {
   isOpen: boolean;
