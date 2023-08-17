@@ -32,7 +32,7 @@ export default function RootLayout({
         )}
       >
         <Providers>
-          <div className="h-screen w-full">
+          <div className="relative h-screen w-full">
             <Header />
             {children}
           </div>

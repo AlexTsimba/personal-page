@@ -1,3 +1,5 @@
+'use client';
+
 import { AnimatePresence, motion } from 'framer-motion';
 import Portal from './Portal';
 import { motionControls } from '@/lib/motionControls';
