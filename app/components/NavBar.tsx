@@ -8,10 +8,10 @@ export default function NavBar() {
   const text = useTranslations('NavLinks');
 
   const navLinks: NavLink[] = [
-    { title: text('Hello'), href: '/' },
     { title: text('Skills'), href: '/skills' },
-    { title: text('Dashboard'), href: '/dashboard' },
     { title: text('Contact'), href: '/contact' },
+    { title: text('Dashboard'), href: '/dashboard' },
+    { title: text('Hello'), href: '/' },
   ];
   return (
     <nav className="hidden gap-4 lg:flex">
