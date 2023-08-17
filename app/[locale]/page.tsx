@@ -1,11 +1,11 @@
 import Container from '../components/Container';
-import Contact from './contact/page';
+import Hello from './hello/page';
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-between">
-      <Container>
-        <Contact />
+    <main className="flex w-full flex-col items-center justify-between">
+      <Container className="w-full">
+        <Hello />
       </Container>
     </main>
   );

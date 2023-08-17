@@ -27,4 +27,7 @@ export const motionControls = {
     variants: { hidden: { y: '-100%' } },
     transition: { ease: easeInOutQuart, duration: durations.md },
   },
+  burger: {
+    transition: { ease: 'linear', duration: durations.md },
+  },
 };

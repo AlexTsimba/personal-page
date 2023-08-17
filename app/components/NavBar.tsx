@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { useTranslations } from 'next-intl';
 
@@ -10,11 +8,11 @@ export default function NavBar() {
   const text = useTranslations('NavLinks');
 
   const navLinks: NavLink[] = [
-    { title: text('Skills'), href: 'skills' },
-    { title: text('Dashboard'), href: 'dashboard' },
-    { title: text('Contact'), href: 'contact' },
+    { title: text('Hello'), href: '/' },
+    { title: text('Skills'), href: '/skills' },
+    { title: text('Dashboard'), href: '/dashboard' },
+    { title: text('Contact'), href: '/contact' },
   ];
-
   return (
     <nav className="hidden gap-4 lg:flex">
       {navLinks.map((link) => (

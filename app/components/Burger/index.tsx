@@ -1,6 +1,9 @@
+'use client';
+
 import { AnimationControls, motion } from 'framer-motion';
 import path from './path.json';
 import { Button } from '../shadcn/button';
+import { motionControls } from '@/lib/motionControls';
 
 interface BurgerProps {
   isOpen: boolean;
@@ -11,7 +14,6 @@ interface BurgerProps {
 export default function Burger({ isOpen, toggleMenu, controls }: BurgerProps) {
   const { variantsTop, variantsMiddle, variantsBottom } = path;
   const variants = [variantsTop, variantsMiddle, variantsBottom];
-
   return (
     <Button
       variant="ghost"
@@ -34,10 +36,7 @@ export default function Burger({ isOpen, toggleMenu, controls }: BurgerProps) {
             d={variant.closed.d[0]}
             animate={controls}
             variants={variant}
-            transition={{
-              ease: 'linear',
-              duration: 0.35,
-            }}
+            {...motionControls.burger}
           />
         ))}
       </svg>

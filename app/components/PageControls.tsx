@@ -1,9 +1,13 @@
 import { ThemeOption } from '@/types/ThemeOption';
 import ThemeSwitch from './ThemeSwitch';
+// import LangSwitch from './LangSwitch';
 import { LangSwitch } from './LangSwitch';
-import {  MoonIcon, SunIcon, WrenchScrewdriverIcon } from '@heroicons/react/24/solid';
+import {
+  MoonIcon,
+  SunIcon,
+  WrenchScrewdriverIcon,
+} from '@heroicons/react/24/solid';
 import { useTranslations } from 'next-intl';
-
 
 export default function PageControls() {
   const text = useTranslations('UI');
@@ -28,7 +32,7 @@ export default function PageControls() {
   ];
 
   return (
-    <div className='hidden lg:flex gap-2 items-center'>
+    <div className="hidden items-center gap-2 lg:flex">
       <ThemeSwitch options={themeOptions} />
       <LangSwitch flag={currentFlag} />
     </div>
