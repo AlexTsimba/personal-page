@@ -1,40 +1,28 @@
-import { ThemeOption } from '@/types/ThemeOption';
-import ThemeSwitch from './ThemeSwitch';
-// import LangSwitch from './LangSwitch';
-import { LangSwitch } from './LangSwitch';
-import {
-  MoonIcon,
-  SunIcon,
-  WrenchScrewdriverIcon,
-} from '@heroicons/react/24/solid';
 import { useTranslations } from 'next-intl';
+
+import { ThemeOption } from '@/types/ThemeOption';
+import { LangSwitch } from './LangSwitch';
+import ThemeSwitch from './ThemeSwitch';
 
 export default function PageControls() {
   const text = useTranslations('UI');
   const currentFlag = text('Flag');
 
   const themeOptions: ThemeOption[] = [
-    {
-      key: 'light',
-      name: text('LightMode'),
-      icon: <SunIcon className="mr-3 h-[1.2rem]" />,
-    },
-    {
-      key: 'dark',
-      name: text('DarkMode'),
-      icon: <MoonIcon className="mr-3 h-[1.2rem]" />,
-    },
-    {
-      key: 'system',
-      name: text('SystemMode'),
-      icon: <WrenchScrewdriverIcon className="mr-3 h-[1rem]" />,
-    },
+    { value: 'light', title: text('LightMode') },
+    { value: 'dark', title: text('DarkMode') },
+    { value: 'system', title: text('SystemMode') },
+  ];
+
+  const langOptions = [
+    { value: 'en', title: text('EnLang') },
+    { value: 'ua', title: text('UaLang') },
   ];
 
   return (
     <div className="hidden items-center gap-2 lg:flex">
       <ThemeSwitch options={themeOptions} />
-      <LangSwitch flag={currentFlag} />
+      <LangSwitch flag={currentFlag} options={langOptions} />
     </div>
   );
 }
