@@ -21,13 +21,14 @@ export default function NavItem({ link }: NavItemProps) {
 
   const handleClick = () => {
     router.push(href, { locale: locale });
+
   };
 
   return (
     <button
       key={href}
       onClick={handleClick}
-      className={`relative rounded-lg px-4 py-1.5 text-lg font-semibold text-foreground transition `}
+      className={`relative rounded-full px-4 py-1.5 text-lg font-semibold text-foreground transition `}
       style={{
         WebkitTapHighlightColor: 'transparent',
       }}

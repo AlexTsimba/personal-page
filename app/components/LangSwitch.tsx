@@ -15,10 +15,9 @@ import {
 } from './shadcn/dropdown-menu';
 
 interface LangSwitchProps {
-  flag: string;
   options: { value: string; title: string }[];
 }
-export function LangSwitch({ flag, options }: LangSwitchProps) {
+export function LangSwitch({ options }: LangSwitchProps) {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -31,8 +30,8 @@ export function LangSwitch({ flag, options }: LangSwitchProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="text-xl" variant="ghost">
-          {flag}
+        <Button className="text-xl" variant="ghost" size="lg">
+          {locale}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-[3rem]" align="end">
