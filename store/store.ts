@@ -1,22 +1,23 @@
-import { create } from 'zustand';
+import { createWithEqualityFn } from 'zustand/traditional';
 import { devtools, persist } from 'zustand/middleware';
 
 interface UiState {
-  activeLink: string;
-  setActiveLink: (newActiveLink: string) => void;
+  isSidebarOpen: boolean;
+  toggleSidebar: () => void;
 }
 
-export const uiStore = create<UiState>()(
+export const useUiStore = createWithEqualityFn<UiState>()(
   devtools(
     persist(
       (set) => ({
-        activeLink: '/',
-        setActiveLink: (newActiveLink) =>
-          set(() => ({ activeLink: newActiveLink })),
+        isSidebarOpen: false,
+        toggleSidebar: () =>
+          set((state) => ({ isSidebarOpen: !state.isSidebarOpen })),
       }),
       {
-        name: 'ui-storage',
+        name: 'ui-store',
       }
     )
-  )
+  ),
+  Object.is
 );

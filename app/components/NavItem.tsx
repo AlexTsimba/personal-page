@@ -23,8 +23,6 @@ export default function NavItem({ link }: NavItemProps) {
     router.push(href, { locale: locale });
   };
 
-  console.log(pathName);
-
   return (
     <button
       key={href}

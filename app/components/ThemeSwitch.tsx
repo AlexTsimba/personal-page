@@ -33,8 +33,8 @@ export default function ThemeSwitch({ options }: ThemeSwitchProps) {
       <DropdownMenuContent align="end">
         <DropdownMenuRadioGroup value={theme} onValueChange={setTheme}>
           {options.map((option, index) => (
-            <DropdownMenuRadioItem key={index} value={option.key}>
-              {option.name}
+            <DropdownMenuRadioItem key={index} value={option.value}>
+              {option.title}
             </DropdownMenuRadioItem>
           ))}
         </DropdownMenuRadioGroup>

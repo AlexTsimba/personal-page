@@ -1,7 +1,10 @@
 'use client';
 
+import React, { useCallback } from 'react';
 import { useAnimation } from 'framer-motion';
-import React, { useCallback, useState } from 'react';
+
+import { useUiStore } from '@/store/store';
+import { shallow } from 'zustand/shallow';
 import Burger from './Burger';
 import SideBar from './Sidebar';
 
@@ -11,23 +14,30 @@ interface NavigationProps {
 
 export default function Navigation({ children }: NavigationProps) {
   const animationControls = useAnimation();
-  const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
+
+  const { isOpen, toggleSidebar } = useUiStore(
+    (state) => ({
+      isOpen: state.isSidebarOpen,
+      toggleSidebar: state.toggleSidebar,
+    }),
+    shallow
+  );
 
   const toggleMenu = useCallback(() => {
-    animationControls.start(isMenuOpen ? 'open' : 'closed');
-    setMenuOpen((prevOpen) => !prevOpen);
-  }, [animationControls, isMenuOpen]);
+    animationControls.start(isOpen ? 'open' : 'closed');
+    toggleSidebar();
+  }, [animationControls, isOpen, toggleSidebar]);
 
   return (
     <div>
       {children}
 
       <Burger
-        isOpen={isMenuOpen}
+        isOpen={isOpen}
         toggleMenu={toggleMenu}
         controls={animationControls}
       />
-      <SideBar isOpen={isMenuOpen} toggleMenu={toggleMenu} />
+      <SideBar isOpen={isOpen} toggleMenu={toggleMenu} />
     </div>
   );
 }
