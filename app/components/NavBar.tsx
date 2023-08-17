@@ -3,6 +3,7 @@ import { useTranslations } from 'next-intl';
 
 import NavLink from '@/types/NavLink';
 import NavItem from './NavItem';
+import SideBar from './Sidebar';
 
 export default function NavBar() {
   const text = useTranslations('NavLinks');
@@ -14,10 +15,13 @@ export default function NavBar() {
     { title: text('Contact'), href: '/contact' },
   ];
   return (
-    <nav className="hidden gap-4 lg:flex">
-      {navLinks.map((link) => (
-        <NavItem key={link.href} link={link} />
-      ))}
-    </nav>
+    <div>
+      <nav className="hidden gap-4 lg:flex">
+        {navLinks.map((link) => (
+          <NavItem key={link.href} link={link} />
+        ))}
+      </nav>
+      <SideBar navLinks={navLinks}/>
+    </div>
   );
 }

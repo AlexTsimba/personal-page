@@ -1,16 +1,20 @@
 import { useEffect } from 'react';
 
 const useOnClickOutside = (
-  ref: React.RefObject<HTMLDivElement> | React.RefObject<HTMLDialogElement>,
+  ref: React.RefObject<HTMLDivElement> | React.RefObject<HTMLBaseElement>,
   handler: () => void
 ) => {
   useEffect(() => {
     const listener = (event: MouseEvent) => {
-      if (!ref.current || ref.current.contains(event.target as Node)) {
-        return;
+      const target = event.target as HTMLElement;
+
+      const isButton = target.tagName === 'BUTTON' || target.closest('button');
+
+      if (!isButton && ref.current && !ref.current.contains(target)) {
+        handler();
       }
-      handler();
     };
+
     document.addEventListener('mousedown', listener);
     return () => {
       document.removeEventListener('mousedown', listener);

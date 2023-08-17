@@ -3,10 +3,14 @@ import { useTranslations } from 'next-intl';
 import { ThemeOption } from '@/types/ThemeOption';
 import { LangSwitch } from './LangSwitch';
 import ThemeSwitch from './ThemeSwitch';
+import classNames from 'classnames';
 
-export default function PageControls() {
+interface PageControlsProps {
+  className?: string;
+}
+
+export default function PageControls({ className = '' }: PageControlsProps) {
   const text = useTranslations('UI');
-  const currentFlag = text('Flag');
 
   const themeOptions: ThemeOption[] = [
     { value: 'light', title: text('LightMode') },
@@ -20,9 +24,9 @@ export default function PageControls() {
   ];
 
   return (
-    <div className="hidden items-center gap-2 lg:flex">
+    <div className={classNames('gap-5', className)}>
       <ThemeSwitch options={themeOptions} />
-      <LangSwitch flag={currentFlag} options={langOptions} />
+      <LangSwitch options={langOptions} />
     </div>
   );
 }
