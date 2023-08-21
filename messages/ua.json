@@ -11,9 +11,9 @@
     "EnLang": "Англ"
   },
   "NavLinks": {
-    "Skills": "Скіли",
-    "Contact": "Контакти",
-    "Dashboard": "Дешборд",
-    "Hello": "Привіт"
+    "skills": "Скіли",
+    "contact": "Контакти",
+    "dashboard": "Дешборд",
+    "hello": "Привіт"
   }
 }

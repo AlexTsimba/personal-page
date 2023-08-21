@@ -13,9 +13,10 @@ import NavItem from './NavItem';
 
 interface SideBarProps {
   navLinks: NavLink[];
+  handler: (href: string) => () => void;
 }
 
-export default function SideBar({ navLinks }: SideBarProps) {
+export default function SideBar({ navLinks, handler }: SideBarProps) {
   const { isOpen, toggleSidebar } = useUiStore(
     (state) => ({
       isOpen: state.isSidebarOpen,
@@ -41,7 +42,7 @@ export default function SideBar({ navLinks }: SideBarProps) {
 
               <nav className="flex flex-col">
                 {navLinks.map((link) => (
-                  <NavItem key={link.href} link={link} />
+                  <NavItem key={link.href} link={link} handler={handler} />
                 ))}
               </nav>
             </motion.aside>

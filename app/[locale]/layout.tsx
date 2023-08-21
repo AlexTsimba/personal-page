@@ -6,7 +6,6 @@ import { useLocale } from 'next-intl';
 import classNames from 'classnames';
 
 import Providers from '../components/providers/Providers';
-import Header from '../components/Header';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,7 +22,7 @@ export default function RootLayout({
   const locale = useLocale();
 
   return (
-    <html lang={locale} suppressHydrationWarning className="scroll-smooth">
+    <html lang={locale} suppressHydrationWarning>
       <body
         id="portal"
         className={classNames(
@@ -32,10 +31,7 @@ export default function RootLayout({
         )}
       >
         <Providers>
-          <div className="relative h-screen w-full">
-            <Header />
-            {children}
-          </div>
+          <div className="relative h-screen w-full">{children}</div>
         </Providers>
       </body>
     </html>

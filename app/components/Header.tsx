@@ -1,15 +1,18 @@
 import Container from './Container';
-import Navigation from './Navigation';
 import NavBar from './NavBar';
 import PageControls from './PageControls';
+import Burger from './BurgerButton';
 
-export default function Header() {
+interface HeaderProps {
+  scroller: LocomotiveScroll;
+}
+
+export default function Header({ scroller }: HeaderProps) {
   return (
-    <header className="fixed top-0 w-full bg-background/90 shadow-xl backdrop-blur-sm">
+    <header className="fixed top-0 z-10 w-full bg-background/90 shadow-xl backdrop-blur-sm">
       <Container className="flex h-[5rem] flex-row-reverse items-center justify-between lg:flex-row">
-        <Navigation>
-          <NavBar />
-        </Navigation>
+        <NavBar scroller={scroller} />
+        <Burger />
         <PageControls className="flex" />
       </Container>
     </header>

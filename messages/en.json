@@ -11,9 +11,9 @@
     "EnLang": "English"
   },
   "NavLinks": {
-    "Skills": "Skills",
-    "Contact": "Contact",
-    "Dashboard": "Dashboard",
-    "Hello": "Hello"
+    "skills": "Skills",
+    "contact": "Contact",
+    "dashboard": "Dashboard",
+    "hello": "Hello"
   }
 }
