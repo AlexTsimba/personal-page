@@ -1,0 +1,33 @@
+{
+  "Index": {
+    "title": "Привіт Світ!"
+  },
+  "theme": {
+    "lightMode": "Світла",
+    "darkMode": "Темна",
+    "systemMode": "Система"
+  },
+  "language": {
+    "flag": "🇺🇦",
+    "ua": "Укр",
+    "en": "Англ"
+  },
+  "navLinks": {
+    "skills": "Скіли",
+    "contact": "Контакти",
+    "dashboard": "Дешборд",
+    "hello": "Привіт"
+  },
+  "hello": {
+    "pageTitle": "Привіт"
+  },
+  "skills": {
+    "pageTitle": "Скіли"
+  },
+  "dashboard": {
+    "pageTitle": "Дешборд"
+  },
+  "contact": {
+    "pageTitle": "Контакт"
+  }
+}

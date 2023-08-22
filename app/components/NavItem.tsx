@@ -1,44 +1,39 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { usePathname } from 'next/navigation';
+import Lenis from '@studio-freight/lenis';
 
-import NavLink from '@/types/NavLink';
 import { motionControls } from '@/lib/motionControls';
-import { useRouter } from 'next-intl/client';
-import { useLocale } from 'next-intl';
+import { useLenis } from '@studio-freight/react-lenis';
 
 interface NavItemProps {
-  link: NavLink;
+  href: string;
+  isActive: boolean;
+  title: string;
 }
 
-export default function NavItem({ link }: NavItemProps) {
-  const { href, title } = link;
-  const pathName = usePathname();
-  const activeLink = pathName.replace('ua', '').endsWith(href);
-  const router = useRouter();
-  const locale = useLocale();
+export default function NavItem({ href, isActive, title }: NavItemProps) {
+  const scroller: Lenis = useLenis();
 
-  const handleClick = () => {
-    router.push(href, { locale: locale });
-
+  const handleScrollTo = (anchor: string) => {
+    scroller.scrollTo(anchor, {});
   };
 
   return (
     <button
       key={href}
-      onClick={handleClick}
+      onClick={() => handleScrollTo(href)}
       className={`relative rounded-full px-4 py-1.5 text-lg font-semibold text-foreground transition `}
       style={{
         WebkitTapHighlightColor: 'transparent',
       }}
     >
-      {activeLink && (
+      {isActive && (
         <motion.span
           layoutId="bubble"
           className="absolute inset-0 z-10 bg-white mix-blend-exclusion"
-          style={{ borderRadius: 9999 }}
-          {...motionControls.navItem}
+          style={{ borderRadius: '12px' }}
+          {...motionControls.navLinkMotionBubble}
         />
       )}
       {title}

@@ -1,4 +1,4 @@
 export default interface NavLink {
-  title: string;
   href: string;
+  key: 'hello' | 'dashboard' | 'contact' | 'skills' | string;
 }

@@ -1,27 +1,54 @@
-import React from 'react';
-import { useTranslations } from 'next-intl';
+'use client';
 
-import NavLink from '@/types/NavLink';
+import { shallow } from 'zustand/shallow';
+
 import NavItem from './NavItem';
 import SideBar from './Sidebar';
+import { useUiStore } from '@/store/store';
+import { navConfig } from '../../lib/navConfig';
+import { Dictionary } from '@/types/Dictionary';
 
-export default function NavBar() {
-  const text = useTranslations('NavLinks');
+interface NavBarProps {
+  navigationDict: Dictionary['navLinks'];
+}
 
-  const navLinks: NavLink[] = [
-    { title: text('Hello'), href: '/' },
-    { title: text('Skills'), href: '/skills' },
-    { title: text('Dashboard'), href: '/dashboard' },
-    { title: text('Contact'), href: '/contact' },
-  ];
+export default function NavBar({ navigationDict }: NavBarProps) {
+  const { activeSection } = useUiStore(
+    (state) => ({
+      activeSection: state.currentSection,
+    }),
+    shallow
+  );
+
   return (
-    <div>
-      <nav className="hidden gap-4 lg:flex">
-        {navLinks.map((link) => (
-          <NavItem key={link.href} link={link} />
-        ))}
+    <div className='hidden md:flex'>
+      <nav className="hidden gap-4 md:flex">
+        {navConfig.navLinks.map((link) => {
+          const isActive = activeSection === link.key;
+          return (
+            <NavItem
+              title={navigationDict[link.key]}
+              key={link.key}
+              href={link.href}
+              isActive={isActive}
+            />
+          );
+        })}
       </nav>
-      <SideBar navLinks={navLinks}/>
+      
+      <SideBar>
+        {navConfig.navLinks.map((link) => {
+          const isActive = activeSection === link.key;
+          return (
+            <NavItem
+              title={navigationDict[link.key]}
+              key={link.key}
+              href={link.href}
+              isActive={isActive}
+            />
+          );
+        })}
+      </SideBar>
     </div>
   );
 }

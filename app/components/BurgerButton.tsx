@@ -17,10 +17,10 @@ export default function Burger() {
 
   return (
     <Button
-      variant="link"
+      variant="ghost"
       size="icon"
       // !!! do not rewrite to classNames, it causes unexpected behaviour
-      className={isOpen ? 'bg-foreground px-2 lg:hidden' : 'lg:hidden'}
+      className={isOpen ? 'bg-foreground px-2 md:hidden' : 'md:hidden'}
       onClick={toggleSidebar}
     >
       <BurgerIcon isOpen={isOpen} />
