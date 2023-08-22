@@ -1,0 +1,33 @@
+{
+  "Index": {
+    "title": "Hello world!"
+  },
+  "theme": {
+    "lightMode": "Light",
+    "darkMode": "Dark",
+    "systemMode": "System"
+  },
+  "language": {
+    "flag": "🇬🇧",
+    "ua": "Ukrainian",
+    "en": "English"
+  },
+  "navLinks": {
+    "hello": "Hello",
+    "skills": "Skills",
+    "dashboard": "Dashboard",
+    "contact": "Contact"
+  },
+  "hello": {
+    "pageTitle": "Hello"
+  },
+  "skills": {
+    "pageTitle": "Skills"
+  },
+  "dashboard": {
+    "pageTitle": "Dashboard"
+  },
+  "contact": {
+    "pageTitle": "Contact"
+  }
+}

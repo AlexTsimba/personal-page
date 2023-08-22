@@ -1,24 +1,22 @@
-export const navConfig = {
+import NavLink from '@/types/NavLink';
+
+export const navConfig: { navLinks: NavLink[] } = {
   navLinks: [
     {
       key: 'hello',
-      headerRef: { current: null },
       href: '#hello',
     },
     {
       key: 'skills',
-      headerRef: { current: null },
       href: '#skills',
     },
     {
-      key: 'dashboard',
-      headerRef: { current: null },
-      href: '#dashboard',
+      key: 'contact',
+      href: '#contact',
     },
     {
-      key: 'contact',
-      headerRef: { current: null },
-      href: '#contact',
+      key: 'dashboard',
+      href: '#dashboard',
     },
   ],
 };

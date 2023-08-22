@@ -6,6 +6,7 @@ const durations = { sm: 0.2, md: 0.35, lg: 0.45, xl: 0.6 };
 const easeOutCirc = cubicBezier(0, 0.55, 0.45, 1);
 const easeInOutQuart = cubicBezier(0.76, 0, 0.24, 1);
 // const easeInExpo = cubicBezier(0.7, 0, 0.84, 0);
+const easeOutQuart = cubicBezier(0.25, 1, 0.5, 1);
 
 export const motionControls = {
   sidebar: {
@@ -20,8 +21,8 @@ export const motionControls = {
     exit: { opacity: 0 },
     transition: { type: 'spring', bounce: 0, duration: durations.sm },
   },
-  navItem: {
-    transition: { ease: easeInOutQuart, duration: durations.lg },
+  navLinkMotionBubble: {
+    transition: { ease: easeOutQuart, duration: durations.xl },
   },
   header: {
     variants: { hidden: { y: '-100%' } },
