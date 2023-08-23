@@ -17,7 +17,7 @@ export default function Burger() {
 
   return (
     <Button
-      variant="ghost"
+      variant="link"
       size="icon"
       // !!! do not rewrite to classNames, it causes unexpected behaviour
       className={isOpen ? 'bg-foreground px-2 md:hidden' : 'md:hidden'}

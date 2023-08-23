@@ -1,4 +1,4 @@
-export interface Dictionary {
+export default interface Dictionary {
   Index: {
     title: string;
   };
@@ -30,12 +30,4 @@ export interface Dictionary {
   contact: {
     pageTitle: string;
   };
-}
-
-type SelectedKeys = 'hello' | 'contact' | 'skills' | 'dashboard';
-
-export type MainDictionary = Pick<Dictionary, SelectedKeys>;
-
-export interface SectionInfo {
-  pageTitle: string;
 }

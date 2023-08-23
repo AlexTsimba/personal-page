@@ -3,7 +3,6 @@
 import * as React from 'react';
 import { useTheme } from 'next-themes';
 import { MoonIcon, SunIcon } from '@heroicons/react/24/solid';
-import { ThemeOption } from '@/types/ThemeOption';
 
 import { Button } from './shadcn/button';
 import {
@@ -15,7 +14,7 @@ import {
 } from './shadcn/dropdown-menu';
 
 interface ThemeSwitchProps {
-  options: ThemeOption[];
+  options: { value: string; title: string }[];
 }
 
 export default function ThemeSwitch({ options }: ThemeSwitchProps) {

@@ -1,9 +1,10 @@
+import Dictionary from '@/types/Dictionary';
+
 import Container from './Container';
 import NavBar from './NavBar';
 import Burger from './BurgerButton';
 import ThemeSwitch from './ThemeSwitch';
-import { LangSwitch } from './LangSwitch';
-import { Dictionary } from '@/types/Dictionary';
+import LangSwitch from './LangSwitch';
 
 interface HeaderProps {
   dict: Pick<Dictionary, 'theme' | 'language' | 'navLinks'>;

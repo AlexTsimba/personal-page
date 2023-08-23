@@ -1,12 +1,12 @@
 'use client';
 
 import { shallow } from 'zustand/shallow';
+import { useUiStore } from '@/store/store';
 
 import NavItem from './NavItem';
 import SideBar from './Sidebar';
-import { useUiStore } from '@/store/store';
+import Dictionary from '@/types/Dictionary';
 import { navConfig } from '../../lib/navConfig';
-import { Dictionary } from '@/types/Dictionary';
 
 interface NavBarProps {
   navigationDict: Dictionary['navLinks'];
@@ -21,7 +21,7 @@ export default function NavBar({ navigationDict }: NavBarProps) {
   );
 
   return (
-    <div className='hidden md:flex'>
+    <div className="hidden md:flex">
       <nav className="hidden gap-4 md:flex">
         {navConfig.navLinks.map((link) => {
           const isActive = activeSection === link.key;
@@ -35,7 +35,7 @@ export default function NavBar({ navigationDict }: NavBarProps) {
           );
         })}
       </nav>
-      
+
       <SideBar>
         {navConfig.navLinks.map((link) => {
           const isActive = activeSection === link.key;

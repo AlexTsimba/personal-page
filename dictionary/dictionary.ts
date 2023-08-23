@@ -1,4 +1,4 @@
-import { Dictionary } from '@/types/Dictionary';
+import Dictionary from '@/types/Dictionary';
 
 const dictionaries: Record<string, () => Promise<Dictionary>> = {
   en: () => import('./en.json').then((module) => module.default),
