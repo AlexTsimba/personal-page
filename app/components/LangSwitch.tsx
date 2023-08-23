@@ -17,7 +17,7 @@ import {
 interface LangSwitchProps {
   options: { value: string; title: string }[];
 }
-export function LangSwitch({ options }: LangSwitchProps) {
+export default function LangSwitch({ options }: LangSwitchProps) {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();

@@ -1,8 +1,8 @@
 import { getDictionary } from '@/dictionary/dictionary';
+import Dictionary from '@/types/Dictionary';
 
 import Header from '../components/Header';
 import Main from '../components/Main';
-import { Dictionary, MainDictionary } from '@/types/Dictionary';
 
 export default async function Home({
   params: { locale },
@@ -17,7 +17,7 @@ export default async function Home({
     navLinks: dictionary.navLinks,
   };
 
-  const mainDict: MainDictionary = {
+  const mainDict: Pick<Dictionary, 'hello' | 'contact' | 'skills' | 'dashboard'> = {
     hello: dictionary.hello,
     skills: dictionary.skills,
     dashboard: dictionary.dashboard,

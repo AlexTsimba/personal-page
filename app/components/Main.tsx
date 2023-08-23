@@ -1,40 +1,45 @@
 'use client';
 
 import { useRef, useEffect } from 'react';
+
 import { useUiStore } from '@/store/store';
 import { shallow } from 'zustand/shallow';
+
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+import Dictionary from '@/types/Dictionary';
+import NavLink from '@/types/NavLink';
 import { navConfig } from '@/lib/navConfig';
+
 import Section from './Section';
-import Hello from '../[locale]/hello/page';
-import Skills from '../[locale]/skills/page';
-import Dashboard from '../[locale]/dashboard/page';
-import Contact from '../[locale]/contact/page';
-import { MainDictionary } from '@/types/Dictionary';
+import Hello from './SectionHello';
+import Skills from './SectionSkills';
+import Dashboard from './SectionDashboard';
+import Contact from './SectionContact';
 
 interface MainProps {
-  dict: MainDictionary;
+  dict: Pick<Dictionary, NavLink['key']>;
 }
 
 export default function Main({ dict }: MainProps) {
-  const { navLinks } = navConfig;
-  const sectionRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
 
-  const sections: { [key: string]: JSX.Element } = {
-    hello: <Hello />,
-    skills: <Skills />,
-    contact: <Contact />,
-    dashboard: <Dashboard />,
+  const sectionComponents: Record<NavLink['key'], JSX.Element> = {
+    hello: <Hello dict={dict.hello} />,
+    skills: <Skills dict={dict.skills} />,
+    contact: <Contact dict={dict.contact} />,
+    dashboard: <Dashboard dict={dict.dashboard} />,
   };
 
-  console.log(dict)
+  // Refs for section links used in scroll animation
+  const sectionRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
+  const { navLinks } = navConfig;
 
-  const mainSections = navLinks.map((page, index) => {
+  // Create a list of sections with links, components and refs
+  const sections = navLinks.map((page, index) => {
     return {
       sectionRef: sectionRefs[index],
-      component: sections[page.key],
+      component: sectionComponents[page.key],
       ...page,
     };
   });
@@ -47,7 +52,8 @@ export default function Main({ dict }: MainProps) {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    mainSections.forEach((section) => {
+    // Create a ScrollTrigger instance for each section
+    sections.forEach((section) => {
       ScrollTrigger.create({
         trigger: section.sectionRef.current,
         start: 'top center+=25%', // Trigger point with 25% space on top
@@ -62,11 +68,11 @@ export default function Main({ dict }: MainProps) {
         },
       });
     });
-  }, [mainSections, setCurrentSection]);
+  }, [sections, setCurrentSection]);
 
   return (
     <main>
-      {mainSections.map(({ key, href, sectionRef, component }) => (
+      {sections.map(({ key, href, sectionRef, component }) => (
         <Section key={href} id={key} ref={sectionRef}>
           {component}
         </Section>
