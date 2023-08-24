@@ -1,20 +1,22 @@
-'use client';
-
 import { motion } from 'framer-motion';
 import Lenis from '@studio-freight/lenis';
 
 import { motionControls } from '@/lib/motionControls';
-import { useLenis } from '@studio-freight/react-lenis';
 
 interface NavItemProps {
   href: string;
-  isActive: boolean;
   title: string;
+  isActive: boolean;
+  scroller: Lenis;
 }
 
-export default function NavItem({ href, isActive, title }: NavItemProps) {
-  const scroller: Lenis = useLenis();
-
+export default function NavItem({
+  href,
+  title,
+  isActive,
+  scroller,
+}: NavItemProps) {
+  
   const handleScrollTo = (anchor: string) => {
     scroller.scrollTo(anchor, {});
   };
@@ -33,7 +35,7 @@ export default function NavItem({ href, isActive, title }: NavItemProps) {
           layoutId="bubble"
           className="absolute inset-0 z-10 bg-white mix-blend-exclusion"
           style={{ borderRadius: '12px' }}
-          {...motionControls.navLinkMotionBubble}
+          {...motionControls.sidebarPointer}
         />
       )}
       {title}

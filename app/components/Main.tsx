@@ -23,7 +23,6 @@ interface MainProps {
 }
 
 export default function Main({ dict }: MainProps) {
-
   const sectionComponents: Record<NavLink['key'], JSX.Element> = {
     hello: <Hello dict={dict.hello} />,
     skills: <Skills dict={dict.skills} />,

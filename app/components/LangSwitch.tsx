@@ -34,14 +34,22 @@ export default function LangSwitch({ options }: LangSwitchProps) {
           {locale}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-[3rem]" align="end">
+      <DropdownMenuContent
+        data-ignore-clickOutside // data-attibute to prevent call useOnClickOutside hook when this clicked
+        className="w-[3rem]"
+        align="end"
+      >
         <DropdownMenuRadioGroup
           value={locale}
           onValueChange={onSelectChange}
           className="flex flex-col gap-2"
         >
           {options.map((option) => (
-            <DropdownMenuRadioItem key={option.value} value={option.value}>
+            <DropdownMenuRadioItem
+              data-ignore-clickOutside // data-attibute to prevent call useOnClickOutside hook when this clicked
+              key={option.value}
+              value={option.value}
+            >
               {option.title}
             </DropdownMenuRadioItem>
           ))}
