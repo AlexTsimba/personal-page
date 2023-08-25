@@ -38,7 +38,7 @@ export default function SideBar({
         {isOpen && (
           <motion.aside
             ref={wrapperRef}
-            className="fixed left-0 top-0 h-[100vh] w-2/3 max-w-sm bg-background/70 px-8 py-4 shadow-2xl backdrop-blur-xl"
+            className="fixed left-0 top-0 h-[100vh] w-2/3 max-w-sm bg-background/70 px-6 py-4 shadow-2xl backdrop-blur-xl"
             {...motionControls.sidebar}
           >
             <div data-ignore-click className="flex h-full flex-col justify-end">

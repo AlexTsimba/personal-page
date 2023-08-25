@@ -15,9 +15,9 @@ import {
 } from './shadcn/dropdown-menu';
 
 interface LangSwitchProps {
-  options: { value: string; title: string }[];
+  variants: { value: string; title: string }[];
 }
-export default function LangSwitch({ options }: LangSwitchProps) {
+export default function LangSwitch({ variants }: LangSwitchProps) {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -44,13 +44,13 @@ export default function LangSwitch({ options }: LangSwitchProps) {
           onValueChange={onSelectChange}
           className="flex flex-col gap-2"
         >
-          {options.map((option) => (
+          {variants.map((variant) => (
             <DropdownMenuRadioItem
               data-ignore-clickOutside // data-attibute to prevent call useOnClickOutside hook when this clicked
-              key={option.value}
-              value={option.value}
+              key={variant.value}
+              value={variant.value}
             >
-              {option.title}
+              {variant.title}
             </DropdownMenuRadioItem>
           ))}
         </DropdownMenuRadioGroup>

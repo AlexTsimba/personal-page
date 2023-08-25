@@ -43,7 +43,7 @@ export default function SideBarItem({
       key={href}
       onClick={() => handleScrollTo(href)}
       className={classNames(
-        'relative z-10 w-5/6 rounded-xl border-2 border-transparent px-8 py-3 text-center  text-xl font-semibold text-foreground transition-all  hover:duration-300',
+        'relative z-10 w-full rounded-xl border-2 border-transparent px-8 py-3 text-center  text-xl font-semibold text-foreground transition-all  hover:duration-300',
         {
           'scale-105 bg-foreground/20 text-background': isActive,
         },

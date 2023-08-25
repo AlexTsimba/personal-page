@@ -17,7 +17,6 @@ import Hello from './SectionHello';
 import Skills from './SectionSkills';
 import Dashboard from './SectionDashboard';
 import Contact from './SectionContact';
-
 interface MainProps {
   dict: Pick<Dictionary, NavLink['key']>;
 }

@@ -12,6 +12,7 @@ import SideBar from './Sidebar';
 import NavBar from './NavBar';
 import PageControls from './PageControls';
 import PageVariants from '@/types/PageVariants';
+import ThemeSwitch from './ThemeSwitch';
 
 interface NavigationProps {
   navigationDict: Dictionary['navLinks'];
@@ -40,7 +41,7 @@ export default function Navigation({
         activeSection={activeSection}
         scroller={scroller}
       >
-        {!isSidebarOpen && <PageControls variants={pageVariants} />}
+        {!isSidebarOpen && <PageControls isSidebarOpen={isSidebarOpen} variants={pageVariants} />}
       </NavBar>
 
       <SideBar
@@ -50,7 +51,7 @@ export default function Navigation({
         activeSection={activeSection}
         scroller={scroller}
       >
-        <PageControls variants={pageVariants} />
+        <ThemeSwitch variants={pageVariants.themeVariants} />
       </SideBar>
     </>
   );

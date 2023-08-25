@@ -2,7 +2,7 @@ import Dictionary from '@/types/Dictionary';
 
 import Container from './Container';
 import Navigation from './Navigation';
-import Burger from './BurgerButton';
+import Burger from './Burger';
 import PageVariants from '@/types/PageVariants';
 
 interface HeaderProps {

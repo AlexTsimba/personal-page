@@ -14,10 +14,10 @@ import {
 } from './shadcn/dropdown-menu';
 
 interface ThemeSwitchProps {
-  options: { value: string; title: string }[];
+  variants: { value: string; title: string }[];
 }
 
-export default function ThemeSwitch({ options }: ThemeSwitchProps) {
+export default function ThemeSwitch({ variants }: ThemeSwitchProps) {
   const { theme, setTheme } = useTheme();
 
   return (
@@ -34,13 +34,13 @@ export default function ThemeSwitch({ options }: ThemeSwitchProps) {
         align="end"
       >
         <DropdownMenuRadioGroup value={theme} onValueChange={setTheme}>
-          {options.map((option, index) => (
+          {variants.map((variant, index) => (
             <DropdownMenuRadioItem
               data-ignore-clickOutside // data-attibute to prevent call useOnClickOutside hook when this clicked
               key={index}
-              value={option.value}
+              value={variant.value}
             >
-              {option.title}
+              {variant.title}
             </DropdownMenuRadioItem>
           ))}
         </DropdownMenuRadioGroup>

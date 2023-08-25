@@ -16,7 +16,6 @@ export default function NavItem({
   isActive,
   scroller,
 }: NavItemProps) {
-  
   const handleScrollTo = (anchor: string) => {
     scroller.scrollTo(anchor, {});
   };
@@ -25,7 +24,7 @@ export default function NavItem({
     <button
       key={href}
       onClick={() => handleScrollTo(href)}
-      className={`relative rounded-full px-4 py-1.5 text-lg font-semibold text-foreground transition `}
+      className={`relative w-full rounded-full px-4 py-1.5 text-lg font-semibold text-foreground transition`}
       style={{
         WebkitTapHighlightColor: 'transparent',
       }}
