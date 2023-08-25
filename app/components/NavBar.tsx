@@ -1,32 +1,30 @@
-'use client';
-
-import { shallow } from 'zustand/shallow';
-import { useUiStore } from '@/store/store';
-
 import NavItem from './NavItem';
-import SideBar from './Sidebar';
+import { navConfig } from '@/lib/navConfig';
+
 import Dictionary from '@/types/Dictionary';
-import { navConfig } from '../../lib/navConfig';
+import Lenis from '@studio-freight/lenis';
 
 interface NavBarProps {
+  children: React.ReactNode;
   navigationDict: Dictionary['navLinks'];
+  activeSection: string;
+  scroller: Lenis;
 }
 
-export default function NavBar({ navigationDict }: NavBarProps) {
-  const { activeSection } = useUiStore(
-    (state) => ({
-      activeSection: state.currentSection,
-    }),
-    shallow
-  );
-
+export default function NavBar({
+  children,
+  navigationDict,
+  activeSection,
+  scroller,
+}: NavBarProps) {
   return (
-    <div className="hidden md:flex">
+    <div className="flex w-full items-center justify-between">
       <nav className="hidden gap-4 md:flex">
         {navConfig.navLinks.map((link) => {
           const isActive = activeSection === link.key;
           return (
             <NavItem
+              scroller={scroller}
               title={navigationDict[link.key]}
               key={link.key}
               href={link.href}
@@ -36,19 +34,7 @@ export default function NavBar({ navigationDict }: NavBarProps) {
         })}
       </nav>
 
-      <SideBar>
-        {navConfig.navLinks.map((link) => {
-          const isActive = activeSection === link.key;
-          return (
-            <NavItem
-              title={navigationDict[link.key]}
-              key={link.key}
-              href={link.href}
-              isActive={isActive}
-            />
-          );
-        })}
-      </SideBar>
+      {children}
     </div>
   );
 }

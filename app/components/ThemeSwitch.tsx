@@ -14,10 +14,10 @@ import {
 } from './shadcn/dropdown-menu';
 
 interface ThemeSwitchProps {
-  options: { value: string; title: string }[];
+  variants: { value: string; title: string }[];
 }
 
-export default function ThemeSwitch({ options }: ThemeSwitchProps) {
+export default function ThemeSwitch({ variants }: ThemeSwitchProps) {
   const { theme, setTheme } = useTheme();
 
   return (
@@ -29,11 +29,18 @@ export default function ThemeSwitch({ options }: ThemeSwitchProps) {
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent
+        data-ignore-clickOutside // data-attibute to prevent call useOnClickOutside hook when this clicked
+        align="end"
+      >
         <DropdownMenuRadioGroup value={theme} onValueChange={setTheme}>
-          {options.map((option, index) => (
-            <DropdownMenuRadioItem key={index} value={option.value}>
-              {option.title}
+          {variants.map((variant, index) => (
+            <DropdownMenuRadioItem
+              data-ignore-clickOutside // data-attibute to prevent call useOnClickOutside hook when this clicked
+              key={index}
+              value={variant.value}
+            >
+              {variant.title}
             </DropdownMenuRadioItem>
           ))}
         </DropdownMenuRadioGroup>

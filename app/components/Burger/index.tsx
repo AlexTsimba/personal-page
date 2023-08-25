@@ -3,8 +3,8 @@
 import { shallow } from 'zustand/shallow';
 
 import { useUiStore } from '@/store/store';
-import { Button } from './shadcn/button';
-import BurgerIcon from './BurgerIcon/BurgerIcon';
+import { Button } from '../shadcn/button';
+import BurgerIcon from './BurgerIcon';
 
 export default function Burger() {
   const { isOpen, toggleSidebar } = useUiStore(

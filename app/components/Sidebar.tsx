@@ -2,26 +2,33 @@
 
 import { useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { shallow } from 'zustand/shallow';
-
-import Portal from './Portal';
 import { motionControls } from '@/lib/motionControls';
-import { useUiStore } from '@/store/store';
 import useOnClickOutside from '@/lib/hooks/useOnClickOutside';
+import { navConfig } from '@/lib/navConfig';
+
+import SideBarItem from './SideBarItem';
+import Lenis from '@studio-freight/lenis';
+import Dictionary from '@/types/Dictionary';
+import Portal from './Portal';
+import SocialMock from './SocialMock';
 
 interface SideBarProps {
+  isOpen: boolean;
+  navigationDict: Dictionary['navLinks'];
+  scroller: Lenis;
+  activeSection: string;
+  toggleSidebar: () => void;
   children: React.ReactNode;
 }
 
-export default function SideBar({ children }: SideBarProps) {
-  const { isOpen, toggleSidebar } = useUiStore(
-    (state) => ({
-      isOpen: state.isSidebarOpen,
-      toggleSidebar: state.toggleSidebar,
-    }),
-    shallow
-  );
-
+export default function SideBar({
+  navigationDict,
+  scroller,
+  activeSection,
+  toggleSidebar,
+  children,
+  isOpen,
+}: SideBarProps) {
   const wrapperRef = useRef<HTMLBaseElement>(null);
   useOnClickOutside(wrapperRef, toggleSidebar);
 
@@ -29,15 +36,33 @@ export default function SideBar({ children }: SideBarProps) {
     <Portal>
       <AnimatePresence>
         {isOpen && (
-          <>
-            <motion.aside
-              ref={wrapperRef}
-              className="fixed left-0 top-0 h-[100vh] w-2/3 max-w-sm bg-foreground/10 p-5 text-foreground shadow-2xl backdrop-blur-lg"
-              {...motionControls.sidebar}
-            >
-              <nav className="flex flex-col h-full gap-10  justify-center items-center">{children}</nav>
-            </motion.aside>
-          </>
+          <motion.aside
+            ref={wrapperRef}
+            className="fixed left-0 top-0 h-[100vh] w-2/3 max-w-sm bg-background/70 px-6 py-4 shadow-2xl backdrop-blur-xl"
+            {...motionControls.sidebar}
+          >
+            <div data-ignore-click className="flex h-full flex-col justify-end">
+              <div>{children}</div>
+
+              <nav className="flex h-full flex-col items-center  justify-center gap-10">
+                {navConfig.navLinks.map((link, index) => {
+                  const isActive = activeSection === link.key;
+                  return (
+                    <SideBarItem
+                      scroller={scroller}
+                      index={index}
+                      title={navigationDict[link.key]}
+                      key={link.key}
+                      href={link.href}
+                      isActive={isActive}
+                    />
+                  );
+                })}
+              </nav>
+
+              <SocialMock />
+            </div>
+          </motion.aside>
         )}
       </AnimatePresence>
     </Portal>

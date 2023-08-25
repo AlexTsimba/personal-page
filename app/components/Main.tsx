@@ -17,13 +17,11 @@ import Hello from './SectionHello';
 import Skills from './SectionSkills';
 import Dashboard from './SectionDashboard';
 import Contact from './SectionContact';
-
 interface MainProps {
   dict: Pick<Dictionary, NavLink['key']>;
 }
 
 export default function Main({ dict }: MainProps) {
-
   const sectionComponents: Record<NavLink['key'], JSX.Element> = {
     hello: <Hello dict={dict.hello} />,
     skills: <Skills dict={dict.skills} />,
