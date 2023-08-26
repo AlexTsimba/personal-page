@@ -1,35 +1,20 @@
-import { getDictionary } from '@/dictionary/dictionary';
-import Dictionary from '@/types/Dictionary';
-
 import Header from '../components/Header';
 import Main from '../components/Main';
+import { useTranslation as getTranslation } from '../i18n';
 
-export default async function Home({
-  params: { locale },
-}: {
+interface HomeProps {
   params: { locale: string };
-}) {
-  const dictionary = await getDictionary(locale);
+}
 
-  const headerDict: Pick<Dictionary, 'theme' | 'language' | 'navLinks'> = {
-    theme: dictionary.theme,
-    language: dictionary.language,
-    navLinks: dictionary.navLinks,
-  };
-
-  const mainDict: Pick<Dictionary, 'hello' | 'contact' | 'skills' | 'dashboard'> = {
-    hello: dictionary.hello,
-    skills: dictionary.skills,
-    dashboard: dictionary.dashboard,
-    contact: dictionary.contact,
-  };
+export default async function Home({ params }: HomeProps) {
+  const { t  } = await getTranslation(params.locale, 'translation');
 
   return (
     <>
-      <Header dict={headerDict} />
-      <Main dict={mainDict} />
+      <Header />
+      <Main />
       <footer className="flex h-20 items-center justify-center bg-slate-500">
-        footer
+        {t('index')}
       </footer>
     </>
   );

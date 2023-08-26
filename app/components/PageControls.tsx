@@ -1,7 +1,7 @@
 import PageVariants from '@/types/PageVariants';
-import LangSwitch from './LangSwitch';
+import LocaleSwitch from './LocaleSwitch';
 import ThemeSwitch from './ThemeSwitch';
-import classNames from 'classnames';
+// import classNames from 'classnames';
 
 interface PageControlsProps {
   variants: PageVariants;
@@ -13,13 +13,14 @@ export default function PageControls({
   isSidebarOpen,
 }: PageControlsProps) {
   const { themeVariants, langVariants } = variants;
+  console.log(isSidebarOpen)
 
   return (
     <div className="flex gap-4">
-      <div className={classNames('md:block', { hidden: !isSidebarOpen })}>
+      {/* <div className={classNames('md:block', { hidden: !isSidebarOpen })}> */}
         <ThemeSwitch variants={themeVariants} />
-      </div>
-      <LangSwitch variants={langVariants} />
+      {/* </div> */}
+      <LocaleSwitch variants={langVariants} />
     </div>
   );
 }

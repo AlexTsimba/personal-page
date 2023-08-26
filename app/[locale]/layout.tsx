@@ -3,6 +3,8 @@ import '../globals.css';
 import { Inter } from 'next/font/google';
 import type { Metadata } from 'next';
 import classNames from 'classnames';
+import { dir } from 'i18next';
+import { locales } from '../i18n/settings';
 
 import Providers from '../components/providers/Providers';
 
@@ -13,6 +15,11 @@ export const metadata: Metadata = {
   description: 'Personal web page',
 };
 
+
+export async function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
 export default function RootLayout({
   children,
   params,
@@ -21,7 +28,11 @@ export default function RootLayout({
   params: { locale: string };
 }) {
   return (
-    <html lang={params.locale} suppressHydrationWarning>
+    <html
+      lang={params.locale}
+      suppressHydrationWarning
+      dir={dir(params.locale)}
+    >
       <body
         id="portal"
         className={classNames(

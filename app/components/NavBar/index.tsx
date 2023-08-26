@@ -1,19 +1,15 @@
 import NavItem from './NavItem';
 import { navConfig } from '@/lib/navConfig';
-
-import Dictionary from '@/types/Dictionary';
 import Lenis from '@studio-freight/lenis';
 
 interface NavBarProps {
   children: React.ReactNode;
-  navigationDict: Dictionary['navLinks'];
   activeSection: string;
   scroller: Lenis;
 }
 
 export default function NavBar({
   children,
-  navigationDict,
   activeSection,
   scroller,
 }: NavBarProps) {
@@ -25,7 +21,7 @@ export default function NavBar({
           return (
             <NavItem
               scroller={scroller}
-              title={navigationDict[link.key]}
+              title={'title'}
               key={link.key}
               href={link.href}
               isActive={isActive}

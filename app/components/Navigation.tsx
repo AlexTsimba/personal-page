@@ -6,7 +6,6 @@ import { useUiStore } from '@/store/store';
 import Lenis from '@studio-freight/lenis';
 import { useLenis } from '@studio-freight/react-lenis';
 
-import Dictionary from '@/types/Dictionary';
 import PageVariants from '@/types/PageVariants';
 
 import SideBar from './SideBar';
@@ -15,12 +14,10 @@ import PageControls from './PageControls';
 import ThemeSwitch from './ThemeSwitch';
 
 interface NavigationProps {
-  navigationDict: Dictionary['navLinks'];
   pageVariants: PageVariants;
 }
 
 export default function Navigation({
-  navigationDict,
   pageVariants,
 }: NavigationProps) {
   const scroller: Lenis = useLenis();
@@ -37,7 +34,6 @@ export default function Navigation({
   return (
     <>
       <NavBar
-        navigationDict={navigationDict}
         activeSection={activeSection}
         scroller={scroller}
       >
@@ -49,7 +45,6 @@ export default function Navigation({
       <SideBar
         isOpen={isSidebarOpen}
         toggleSidebar={toggleSidebar}
-        navigationDict={navigationDict}
         activeSection={activeSection}
         scroller={scroller}
       >

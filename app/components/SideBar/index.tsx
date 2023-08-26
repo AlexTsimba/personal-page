@@ -8,13 +8,12 @@ import { navConfig } from '@/lib/navConfig';
 
 import SideBarItem from './SideBarItem';
 import Lenis from '@studio-freight/lenis';
-import Dictionary from '@/types/Dictionary';
+
 import Portal from '../Portal';
 import SocialProfiles from '../SocialProfiles';
 
 interface SideBarProps {
   isOpen: boolean;
-  navigationDict: Dictionary['navLinks'];
   scroller: Lenis;
   activeSection: string;
   toggleSidebar: () => void;
@@ -22,7 +21,6 @@ interface SideBarProps {
 }
 
 export default function SideBar({
-  navigationDict,
   scroller,
   activeSection,
   toggleSidebar,
@@ -51,7 +49,7 @@ export default function SideBar({
                     <SideBarItem
                       scroller={scroller}
                       index={index}
-                      title={navigationDict[link.key]}
+                      title={'title'}
                       key={link.key}
                       href={link.href}
                       isActive={isActive}

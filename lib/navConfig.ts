@@ -10,10 +10,10 @@ export const navConfig: { navLinks: NavLink[] } = {
       key: 'skills',
       href: '#skills',
     },
-    {
-      key: 'contact',
-      href: '#contact',
-    },
+    // {
+    //   key: 'contact',
+    //   href: '#contact',
+    // },
     {
       key: 'dashboard',
       href: '#dashboard',
