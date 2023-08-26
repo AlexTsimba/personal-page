@@ -7,7 +7,8 @@ import { shallow } from 'zustand/shallow';
 import { motion } from 'framer-motion';
 
 import { motionControls } from '@/lib/motionControls';
-import { ChevronRightIcon } from '@heroicons/react/24/solid';
+import MotionArrowPointer from './MotionArrowPointer';
+import { Button } from '../shadcn/button';
 
 interface NavItemProps {
   scroller: Lenis;
@@ -32,6 +33,7 @@ export default function SideBarItem({
   );
 
   const handleScrollTo = (anchor: string) => {
+    
     scroller.scrollTo(anchor, {
       ...motionControls.scrollTo,
       onComplete: toggleSidebar,
@@ -39,34 +41,25 @@ export default function SideBarItem({
   };
 
   return (
-    <button
+    <Button
+      variant="sideBarItem"
+      size="sideBarItem"
       key={href}
       onClick={() => handleScrollTo(href)}
       className={classNames(
-        'relative z-10 w-full rounded-xl border-2 border-transparent px-8 py-3 text-center  text-xl font-semibold text-foreground transition-all  hover:duration-300',
+        'relative z-10 w-full rounded-lg border-2 border-transparent transition-all hover:duration-300',
         {
-          'scale-105 bg-foreground/20 text-background': isActive,
+          'bg-foreground/10': isActive,
         },
         { 'hover:border-foreground': !isActive }
       )}
-      style={{
-        WebkitTapHighlightColor: 'transparent',
-      }}
+      style={{ WebkitTapHighlightColor: 'transparent' }}
     >
       <motion.div custom={index} {...motionControls.sidebarLinkTitle}>
         {title}
       </motion.div>
 
-      {isActive && (
-        <motion.span
-          layoutId="sidebarArrowPointer"
-          // do not rewrite on transform translate, it causes flickering on animate downwards
-          className=" absolute left-[15px] top-[5px] z-0 h-5 w-5"
-          {...motionControls.sidebarArrowPointer}
-        >
-          <ChevronRightIcon className="h-10 w-10  text-foreground" />
-        </motion.span>
-      )}
-    </button>
+      {isActive && <MotionArrowPointer />}
+    </Button>
   );
 }

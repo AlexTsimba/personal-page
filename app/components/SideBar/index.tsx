@@ -9,8 +9,8 @@ import { navConfig } from '@/lib/navConfig';
 import SideBarItem from './SideBarItem';
 import Lenis from '@studio-freight/lenis';
 import Dictionary from '@/types/Dictionary';
-import Portal from './Portal';
-import SocialMock from './SocialMock';
+import Portal from '../Portal';
+import SocialProfiles from '../SocialProfiles';
 
 interface SideBarProps {
   isOpen: boolean;
@@ -38,7 +38,7 @@ export default function SideBar({
         {isOpen && (
           <motion.aside
             ref={wrapperRef}
-            className="fixed left-0 top-0 h-[100vh] w-2/3 max-w-sm bg-background/70 px-6 py-4 shadow-2xl backdrop-blur-xl"
+            className="fixed left-0 top-0 h-[100vh] w-2/3 max-w-sm bg-background/70 px-6 pb-20 pt-4 shadow-2xl backdrop-blur-xl"
             {...motionControls.sidebar}
           >
             <div data-ignore-click className="flex h-full flex-col justify-end">
@@ -60,7 +60,7 @@ export default function SideBar({
                 })}
               </nav>
 
-              <SocialMock />
+              <SocialProfiles />
             </div>
           </motion.aside>
         )}

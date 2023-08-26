@@ -7,11 +7,11 @@ import Lenis from '@studio-freight/lenis';
 import { useLenis } from '@studio-freight/react-lenis';
 
 import Dictionary from '@/types/Dictionary';
+import PageVariants from '@/types/PageVariants';
 
-import SideBar from './Sidebar';
+import SideBar from './SideBar';
 import NavBar from './NavBar';
 import PageControls from './PageControls';
-import PageVariants from '@/types/PageVariants';
 import ThemeSwitch from './ThemeSwitch';
 
 interface NavigationProps {
@@ -41,7 +41,9 @@ export default function Navigation({
         activeSection={activeSection}
         scroller={scroller}
       >
-        {!isSidebarOpen && <PageControls isSidebarOpen={isSidebarOpen} variants={pageVariants} />}
+        {!isSidebarOpen && (
+          <PageControls isSidebarOpen={isSidebarOpen} variants={pageVariants} />
+        )}
       </NavBar>
 
       <SideBar
