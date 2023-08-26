@@ -33,6 +33,7 @@ export default function SideBarItem({
   );
 
   const handleScrollTo = (anchor: string) => {
+    
     scroller.scrollTo(anchor, {
       ...motionControls.scrollTo,
       onComplete: toggleSidebar,
@@ -52,9 +53,7 @@ export default function SideBarItem({
         },
         { 'hover:border-foreground': !isActive }
       )}
-      style={{
-        WebkitTapHighlightColor: 'transparent',
-      }}
+      style={{ WebkitTapHighlightColor: 'transparent' }}
     >
       <motion.div custom={index} {...motionControls.sidebarLinkTitle}>
         {title}

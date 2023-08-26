@@ -22,7 +22,11 @@ export const motionControls = {
     transition: { type: 'spring', bounce: 0, duration: durations.sm },
   },
 
-  sidebarArrowPointer: {
+  navBarBubblePointer: {
+    transition: { ease: easeOutQuart, duration: durations.xl },
+  },
+
+  sideBarArrowPointer: {
     transition: { ease: easeOutQuart, duration: durations.xl },
   },
 
