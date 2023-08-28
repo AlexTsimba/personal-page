@@ -20,6 +20,20 @@ module.exports = {
       fontFamily: {
         sans: ['var(--font-fixel)'],
       },
+      fontSize: {
+        clamp: 'clamp(1rem, 5vw, 3.75rem)',
+        xs: ['clamp(0.75rem, 2vw, 1rem)', { lineHeight: '1rem' }],
+        sm: ['clamp(0.875rem, 2vw, 1.25rem)', { lineHeight: '1.25rem' }],
+        base: ['clamp(1rem, 2vw, 1.5rem)', { lineHeight: '1.5rem' }],
+        lg: ['clamp(1.125rem, 2vw, 1.75rem)', { lineHeight: '1.75rem' }],
+        xl: ['clamp(1.25rem, 2vw, 1.75rem)', { lineHeight: '1.75rem' }],
+        '2xl': ['clamp(1.5rem, 2vw, 2rem)', { lineHeight: '2rem' }],
+        '3xl': ['clamp(1.875rem, 2vw, 2.25rem)', { lineHeight: '2.25rem' }],
+        '4xl': ['clamp(2.25rem, 2vw, 2.5rem)', { lineHeight: '2.5rem' }],
+        '5xl': ['clamp(3rem, 2vw, 3rem)', { lineHeight: '1' }],
+        '6xl': ['clamp(3.75rem, 2vw, 3.75rem)', { lineHeight: '1' }],
+        '7xl': ['clamp(4.5rem, 2vw, 4.5rem)', { lineHeight: '1' }],
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',

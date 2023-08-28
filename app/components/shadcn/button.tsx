@@ -17,7 +17,7 @@ const buttonVariants = cva(
           'bg-secondary text-secondary-foreground hover:bg-secondary/80',
         ghost: 'bg-foreground/10 hover:scale-110',
         link: 'text-primary underline-offset-4 hover:underline hover:scale-110',
-        sideBarItem:'text-center text-xl font-semibold text-foreground'
+        sideBarItem:'text-center text-base font-semibold text-foreground'
       },
       size: {
         default: 'h-10 px-4 py-2',
