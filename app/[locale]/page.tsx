@@ -27,9 +27,10 @@ export default async function Home({
   return (
     <>
       <Header dict={headerDict} />
+
       <Main dict={mainDict} />
       <footer className="flex h-20 items-center justify-center bg-slate-500">
-        footer
+        footer       g
       </footer>
     </>
   );
