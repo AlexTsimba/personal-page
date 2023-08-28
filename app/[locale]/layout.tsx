@@ -1,12 +1,9 @@
 import '../globals.css';
-
-import { Inter } from 'next/font/google';
 import type { Metadata } from 'next';
-import classNames from 'classnames';
 
+import { fixelFont } from '@/common/fonts/fixelFont';
 import Providers from '../components/providers/Providers';
-
-const inter = Inter({ subsets: ['latin'] });
+import classNames from 'classnames';
 
 export const metadata: Metadata = {
   title: '<AlexTsimba />',
@@ -25,12 +22,12 @@ export default function RootLayout({
       <body
         id="portal"
         className={classNames(
-          inter.className,
+          fixelFont.className,
           'lenis lenis-smooth light flex min-h-screen flex-col items-center'
         )}
       >
         <Providers>
-          <div className="relative h-screen w-full">{children}</div>
+          <div className="relative  w-full">{children}</div>
         </Providers>
       </body>
     </html>
