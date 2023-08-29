@@ -28,10 +28,7 @@ module.exports = {
         lg: ['clamp(1.125rem, 2vw, 1.75rem)', { lineHeight: '1.75rem' }],
         xl: ['clamp(1.25rem, 2vw, 1.75rem)', { lineHeight: '1.75rem' }],
         '2xl': ['clamp(1.5rem, 2vw, 2rem)', { lineHeight: '2rem' }],
-        '3xl': ['clamp(1.875rem, 2vw, 2.25rem)', { lineHeight: '2.25rem' }],
-        '4xl': ['clamp(2.25rem, 2vw, 2.5rem)', { lineHeight: '2.5rem' }],
-        '5xl': ['clamp(3rem, 2vw, 3rem)', { lineHeight: '1' }],
-        '6xl': ['clamp(3.75rem, 2vw, 3.75rem)', { lineHeight: '1' }],
+        '6xl': ['clamp(3.75rem, 5vw, 4.75rem)', { lineHeight: '1' }],
         '7xl': ['clamp(4.5rem, 2vw, 4.5rem)', { lineHeight: '1' }],
       },
       colors: {
