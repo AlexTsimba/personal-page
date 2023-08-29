@@ -11,8 +11,8 @@ interface HelloProps {
 export default function Hello({ dict }: HelloProps) {
   console.log(dict);
   return (
-    <Container className="flex h-screen flex-col items-start justify-start transition-all duration-300 ">
-      <div className=" mt-28 flex w-full flex-col items-center justify-between rounded-2xl bg-foreground/10 px-4 lg:flex-row lg:px-10">
+    <Container className="flex min-h-screen flex-col items-start justify-start transition-all duration-300 ">
+      <div className="my-[10vh] h-[80vh] flex w-full flex-col items-center justify-between rounded-2xl bg-foreground/10 px-4 lg:flex-row lg:px-10">
         <div className="flex flex-shrink flex-col pt-20">
           <div className="flex flex-col gap-4 ">
             <h1 className="flex flex-col items-start justify-between">
