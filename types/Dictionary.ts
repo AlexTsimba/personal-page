@@ -20,6 +20,12 @@ export default interface Dictionary {
   };
   hello: {
     pageTitle: string;
+    greeting: string;
+    name: string;
+    position: string;
+    location: string;
+    cvButtonTitle: string;
+    contactButtonTitle: string;
   };
   skills: {
     pageTitle: string;

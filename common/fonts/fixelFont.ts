@@ -1,4 +1,4 @@
-import localFont from "next/font/local"
+import localFont from 'next/font/local';
 
 export const fixelFont = localFont({
   src: [
@@ -9,6 +9,10 @@ export const fixelFont = localFont({
     {
       path: './FixelText-Regular.woff2',
       weight: '400',
+    },
+    {
+      path: './FixelText-Medium.woff2',
+      weight: '500',
     },
     {
       path: './FixelText-SemiBold.woff2',

@@ -15,9 +15,8 @@ export default function NavItem({
   isActive,
   scroller,
 }: NavItemProps) {
-  
   const handleScrollTo = (anchor: string) => {
-    scroller.scrollTo(anchor, {});
+    scroller.scrollTo(anchor, { offset: -40 });
   };
 
   return (

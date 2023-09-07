@@ -33,10 +33,10 @@ export default function SideBarItem({
   );
 
   const handleScrollTo = (anchor: string) => {
-    
     scroller.scrollTo(anchor, {
-      ...motionControls.scrollTo,
+      offset: -80,
       onComplete: toggleSidebar,
+      ...motionControls.scrollTo,
     });
   };
 

@@ -18,7 +18,7 @@ const buttonVariants = cva(
         ghost: 'bg-foreground/10 hover:scale-110',
         link: 'text-primary underline-offset-4 hover:underline hover:scale-110',
         sideBarItem: 'text-center text-base font-semibold text-foreground',
-        callToAction: 'border border-foreground border-2  hover:scale-105',
+        callToAction: 'transition-none border border-foreground border-2  hover:scale-105',
       },
       size: {
         default: 'h-10 px-4 py-2',

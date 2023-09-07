@@ -19,7 +19,13 @@
     "contact": "Contact"
   },
   "hello": {
-    "pageTitle": "Hello"
+    "pageTitle": "Hello",
+    "greeting": "Hey! I'm ",
+    "name": "Alex Tsimba",
+    "position": "A full stack web-developer ",
+    "location": "located in Kyiv",
+    "cvButtonTitle": "Get CV",
+    "contactButtonTitle": "Say hello!"
   },
   "skills": {
     "pageTitle": "Skills"

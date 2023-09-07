@@ -25,8 +25,8 @@ export default function Header({ dict }: HeaderProps) {
   };
 
   return (
-    <header className="fixed top-0 w-full bg-background/90 shadow-xl backdrop-blur-sm">
-      <Container className=" flex h-[5rem] flex-row items-center justify-between md:flex-row-reverse">
+    <header className="fixed top-0 w-full bg-background/90 shadow-xl backdrop-blur-sm z-10">
+      <Container className=" flex flex-row items-center justify-between py-2 md:flex-row-reverse">
         <Navigation
           navigationDict={navigationDict}
           pageVariants={pageVariants}

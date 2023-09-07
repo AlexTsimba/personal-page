@@ -22,14 +22,13 @@ module.exports = {
       },
       fontSize: {
         clamp: 'clamp(1rem, 5vw, 3.75rem)',
-        xs: ['clamp(0.75rem, 5vw, 1rem)', { lineHeight: '1rem' }],
-        sm: ['clamp(0.875rem, 5vw, 1.25rem)', { lineHeight: '1.25rem' }],
-        base: ['clamp(1rem, 5vw, 1.5rem)', { lineHeight: '1.5rem' }],
-        lg: ['clamp(1.125rem, 5vw, 1.75rem)', { lineHeight: '1.75rem' }],
-        xl: ['clamp(1.25rem, 5vw, 1.75rem)', { lineHeight: '1.75rem' }],
-        '2xl': ['clamp(1.5rem, 5vw, 2rem)', { lineHeight: '2rem' }],
-        '6xl': ['clamp(3.75rem, 5vw, 4.75rem)', { lineHeight: '1' }],
-        '7xl': ['clamp(4.5rem, 5vw, 4.5rem)', { lineHeight: '1' }],
+        clamp: 'clamp(1rem, 5vw, 3.75rem)',
+        sm: '0.8rem',
+        base: '1rem',
+        xl: '1.25rem',
+        '2xl': '1.563rem',
+        '3xl': '1.953rem',
+        '4xl': '2.441rem',
       },
       colors: {
         border: 'hsl(var(--border))',
@@ -64,6 +63,14 @@ module.exports = {
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
+        },
+        accent1: {
+          DEFAULT: 'hsl(var(--accent1))',
+          foreground: 'hsl(var(--accent1-foreground))',
+        },
+        accent2: {
+          DEFAULT: 'hsl(var(--accent2))',
+          foreground: 'hsl(var(--accent2-foreground))',
         },
       },
       borderRadius: {
