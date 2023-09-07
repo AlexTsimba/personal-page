@@ -33,6 +33,12 @@
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
+
+    --accent1: 257, 53%, 23%;
+    --accent1-foreground: 210, 11%, 79%;
+
+    --accent2: 255, 100%, 86%;
+    --accent2-foreground: 265, 83%, 57%;
   }
 
   .dark {
@@ -63,6 +69,12 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: hsl(212.7, 26.8%, 83.9);
+
+    --accent1: 48, 96%, 53%;
+    --accent1-foreground: 0, 0%, 16%;
+
+    --accent2: 40, 100%, 67%;
+    --accent2-foreground: 40, 100%, 67%;
   }
 }
 
@@ -98,4 +110,3 @@ html.lenis {
 body::-webkit-scrollbar {
   display: none;
 }
-

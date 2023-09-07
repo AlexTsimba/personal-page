@@ -1,4 +1,5 @@
 import Dictionary from '@/types/Dictionary';
+import Container from './Container';
 
 interface ContactProps {
   dict: Dictionary['contact'];
@@ -6,10 +7,10 @@ interface ContactProps {
 
 export default function Contact({ dict }: ContactProps) {
   return (
-    <div className="flex h-screen items-center justify-center bg-backround">
-      <div className="flex flex-col">
-        <h1 className=" bg-black p-20 text-2xl">{dict.pageTitle}</h1>
+    <Container className="pt-10">
+      <div className=" flex h-[80vh] w-full flex-col items-center justify-between rounded-xl bg-accent1-foreground pl-12 pt-6 shadow-xl md:flex-row md:pl-20 md:pt-0">
+        {dict.pageTitle}
       </div>
-    </div>
+    </Container>
   );
 }

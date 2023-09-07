@@ -20,6 +20,16 @@ module.exports = {
       fontFamily: {
         sans: ['var(--font-fixel)'],
       },
+      fontSize: {
+        clamp: 'clamp(1rem, 5vw, 3.75rem)',
+        clamp: 'clamp(1rem, 5vw, 3.75rem)',
+        sm: '0.8rem',
+        base: '1rem',
+        xl: '1.25rem',
+        '2xl': '1.563rem',
+        '3xl': '1.953rem',
+        '4xl': '2.441rem',
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -53,6 +63,14 @@ module.exports = {
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
+        },
+        accent1: {
+          DEFAULT: 'hsl(var(--accent1))',
+          foreground: 'hsl(var(--accent1-foreground))',
+        },
+        accent2: {
+          DEFAULT: 'hsl(var(--accent2))',
+          foreground: 'hsl(var(--accent2-foreground))',
         },
       },
       borderRadius: {

@@ -17,7 +17,8 @@ const buttonVariants = cva(
           'bg-secondary text-secondary-foreground hover:bg-secondary/80',
         ghost: 'bg-foreground/10 hover:scale-110',
         link: 'text-primary underline-offset-4 hover:underline hover:scale-110',
-        sideBarItem:'text-center text-xl font-semibold text-foreground'
+        sideBarItem: 'text-center text-base font-semibold text-foreground',
+        callToAction: 'transition-none border border-foreground border-2  hover:scale-105',
       },
       size: {
         default: 'h-10 px-4 py-2',
@@ -25,10 +26,10 @@ const buttonVariants = cva(
         lg: 'h-11 rounded-lg px-4',
         icon: 'h-12 w-12',
         sideBarItem: 'px-8 py-3',
-        navBarItem: 'px-4 py-1.5'
+        navBarItem: 'px-4 py-1.5',
       },
     },
-  defaultVariants: {
+    defaultVariants: {
       variant: 'default',
       size: 'default',
     },

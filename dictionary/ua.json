@@ -19,7 +19,13 @@
     "hello": "Привіт"
   },
   "hello": {
-    "pageTitle": "Привіт"
+    "pageTitle": "Hello",
+    "greeting": "Привіт! Мене звуть ",
+    "name": "Олександр Тсімба",
+    "position": "Я full stack web-розробник",
+    "location": "y місті Київ",
+    "cvButtonTitle": "Резюме",
+    "contactButtonTitle": "Звʼязатись"
   },
   "skills": {
     "pageTitle": "Скіли"

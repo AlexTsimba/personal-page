@@ -11,12 +11,12 @@ export const navConfig: { navLinks: NavLink[] } = {
       href: '#skills',
     },
     {
-      key: 'contact',
-      href: '#contact',
-    },
-    {
       key: 'dashboard',
       href: '#dashboard',
+    },
+    {
+      key: 'contact',
+      href: '#contact',
     },
   ],
 };

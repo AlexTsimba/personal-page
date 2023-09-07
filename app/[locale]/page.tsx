@@ -17,7 +17,10 @@ export default async function Home({
     navLinks: dictionary.navLinks,
   };
 
-  const mainDict: Pick<Dictionary, 'hello' | 'contact' | 'skills' | 'dashboard'> = {
+  const mainDict: Pick<
+    Dictionary,
+    'hello' | 'contact' | 'skills' | 'dashboard'
+  > = {
     hello: dictionary.hello,
     skills: dictionary.skills,
     dashboard: dictionary.dashboard,
@@ -29,8 +32,8 @@ export default async function Home({
       <Header dict={headerDict} />
 
       <Main dict={mainDict} />
-      <footer className="flex h-20 items-center justify-center bg-slate-500">
-        footer       g
+      <footer className="flex h-20 items-center justify-center bg-background">
+        footer g
       </footer>
     </>
   );

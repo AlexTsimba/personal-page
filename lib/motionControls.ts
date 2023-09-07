@@ -1,6 +1,14 @@
 import { cubicBezier } from 'framer-motion';
 
-const durations = { xs: 0.1, sm: 0.2, md: 0.35, lg: 0.45, xl: 0.6, xxl: 1 };
+const durations = {
+  xxs: 0.05,
+  xs: 0.1,
+  sm: 0.2,
+  md: 0.35,
+  lg: 0.45,
+  xl: 0.6,
+  xxl: 1,
+};
 
 // custom transitions
 const easeOutCirc = cubicBezier(0, 0.55, 0.45, 1);
@@ -42,6 +50,17 @@ export const motionControls = {
   scrollTo: {
     easing: easeOutQuart,
     duration: durations.xxl,
+  },
+
+  greetingImg: {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    transition: {
+      ease: easeOutQuart,
+      duration: durations.sm,
+      delay: durations.xxs,
+    },
+    viewport: { once: true },
   },
 
   sidebarLinkTitle: {
