@@ -19,16 +19,16 @@ export default function Hello({ dict }: HelloProps) {
           className="flex w-fit flex-col md:self-center"
         >
           <div className="flex flex-col">
-            <h1 className="flex flex-col items-start justify-between">
-              <span className="text-xl font-medium">{dict.greeting} </span>
-              <span className="text-3xl font-semibold text-accent2-foreground">
+            <div className="flex flex-col items-start justify-between">
+              <p className="text-xl font-medium">{dict.greeting} </p>
+              <h1 className="text-3xl font-semibold text-accent2-foreground">
                 {dict.name}
-              </span>
-            </h1>
-            <p className="flex flex-col flex-nowrap gap-1 text-xl font-medium">
-              <span>{dict.position}</span>
-              <span> {dict.location} </span>
-            </p>
+              </h1>
+            </div>
+            <div className="flex flex-col flex-nowrap gap-1 text-xl font-medium">
+              <p>{dict.position}</p>
+              <p> {dict.location} </p>
+            </div>
 
             <div className="mt-6 flex gap-6 text-xl font-medium">
               <Button variant="callToAction" className=" w-fit  p-4">
