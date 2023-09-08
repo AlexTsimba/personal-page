@@ -85,7 +85,7 @@ export const motionControls = {
       initial: { opacity: 0, x: -40 },
       animate: { opacity: 1, x: 0 },
       viewport: { once: true },
-      transition: { delay: durations.xs, duration: durations.sm },
+      transition: { duration: durations.sm },
     },
     image: {
       initial: { opacity: 0, x: 40 },

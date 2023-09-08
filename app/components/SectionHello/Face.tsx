@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import face from '@/public/images/face.png';
+import face from '@/public/images/face.webp';
 
 export default function Face() {
   return (
@@ -11,7 +11,7 @@ export default function Face() {
       >
         <Image
           src={face}
-          alt="321"
+          alt="developer"
           height={220}
           width={220}
           priority={true}

@@ -23,6 +23,7 @@ export const fixelFont = localFont({
       weight: '700',
     },
   ],
+  display: 'swap',
   fallback: ['Arial', 'system-ui'],
   adjustFontFallback: 'Arial',
   variable: '--font-fixel',
