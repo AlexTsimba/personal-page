@@ -79,4 +79,19 @@ export const motionControls = {
     initial: 'initial',
     whileInView: 'animate',
   },
+
+  hello: {
+    greeting: {
+      initial: { opacity: 0, x: -40 },
+      animate: { opacity: 1, x: 0 },
+      viewport: { once: true },
+      transition: { delay: durations.xs, duration: durations.sm },
+    },
+    image: {
+      initial: { opacity: 0, x: 40 },
+      animate: { opacity: 1, x: 0 },
+      viewport: { once: true },
+      transition: { delay: durations.xs, duration: durations.sm },
+    },
+  },
 };
