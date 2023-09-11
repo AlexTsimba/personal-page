@@ -26,7 +26,6 @@ export default function SideBar({
   scroller,
   activeSection,
   toggleSidebar,
-  children,
   isOpen,
 }: SideBarProps) {
   const wrapperRef = useRef<HTMLBaseElement>(null);
@@ -38,12 +37,12 @@ export default function SideBar({
         {isOpen && (
           <motion.aside
             ref={wrapperRef}
-            className="fixed left-0 top-0 h-[100vh] w-2/3 max-w-sm bg-background/70 px-6 pb-20 pt-4 shadow-2xl backdrop-blur-xl z-20"
+            className="fixed left-0 top-0 z-20 h-[100vh] w-2/3 max-w-sm bg-background/70 px-6 pb-20 pt-4 shadow-2xl backdrop-blur-xl"
             {...motionControls.sidebar}
           >
-            <div data-ignore-click className="flex h-full flex-col justify-end">
-              <div>{children}</div>
+            <div className="flex h-full flex-col justify-end">
 
+              <SocialProfiles />
               <nav className="flex h-full flex-col items-center  justify-center gap-10">
                 {navConfig.navLinks.map((link, index) => {
                   const isActive = activeSection === link.key;
@@ -59,8 +58,6 @@ export default function SideBar({
                   );
                 })}
               </nav>
-
-              <SocialProfiles />
             </div>
           </motion.aside>
         )}

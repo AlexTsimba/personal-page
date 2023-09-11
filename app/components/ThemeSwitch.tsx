@@ -29,14 +29,10 @@ export default function ThemeSwitch({ variants }: ThemeSwitchProps) {
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent
-        data-ignore-clickOutside // data-attibute to prevent call useOnClickOutside hook when this clicked
-        align="end"
-      >
+      <DropdownMenuContent  align="end">
         <DropdownMenuRadioGroup value={theme} onValueChange={setTheme}>
           {variants.map((variant, index) => (
             <DropdownMenuRadioItem
-              data-ignore-clickOutside // data-attibute to prevent call useOnClickOutside hook when this clicked
               key={index}
               value={variant.value}
             >
