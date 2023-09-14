@@ -34,6 +34,13 @@
     "pageTitle": "Dashboard"
   },
   "contact": {
-    "pageTitle": "Contact"
+    "pageTitle": "Contact",
+    "fieldName": "Name",
+    "fieldEmail": "E-mail",
+    "fieldCompany": "Company",
+    "submit": "Submit",
+    "fieldMessage": "Write your message here...",
+    "errorMessageToShort": "Should be at least 2 symbols length",
+    "errorInvalidEmail": "Invalid e-mail"
   }
 }

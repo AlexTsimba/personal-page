@@ -34,6 +34,13 @@
     "pageTitle": "Дешборд"
   },
   "contact": {
-    "pageTitle": "Контакт"
+    "pageTitle": "Контакт",
+    "fieldName": "Імʼя",
+    "fieldEmail": "Електронна пошта",
+    "fieldCompany": "Компанія",
+    "submit": "Надіслати",
+    "fieldMessage": "Залиште своє повідомлення...",
+    "errorMessageToShort": "Мінімум 2 символи",
+    "errorInvalidEmail": " Введіть валідний e-mail"
   }
 }

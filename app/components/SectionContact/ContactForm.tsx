@@ -4,7 +4,8 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 
-import { Button } from '@/components/ui/button';
+import { User, Mail, Users, MessageCircle } from 'react-feather';
+
 import {
   Form,
   FormControl,
@@ -16,44 +17,49 @@ import {
 } from '../shadcn/form';
 import { Input } from '../shadcn/input';
 import { Textarea } from '../shadcn/textarea';
-import { TG_URI_API, chatId } from '@/constants/constants';
+import { useState } from 'react';
+import { Button } from '../shadcn/button';
+import Dictionary from '@/types/Dictionary';
 
-const contactFormSchema = z.object({
-  name: z.string().min(2, { message: 'sho ti golova' }).max(50),
-  email: z.string().email(),
-  company: z.string().max(50).optional(),
-  message: z.string().min(2).max(500),
-});
+interface ContactFormProps {
+  dict: Dictionary['contact'];
+}
 
-export default function ContactForm() {
+export default function ContactForm({ dict }: ContactFormProps) {
+  const [isLoading, setIsloading] = useState<boolean>(false);
+
+  const contactFormSchema = z.object({
+    name: z.string().min(2, { message: dict.errorMessageToShort }).max(50).nonempty(),
+    email: z.string().email({ message: dict.errorInvalidEmail }),
+    company: z.string().min(2, { message: dict.errorMessageToShort }).max(50),
+    message: z.string().min(2, { message: dict.errorMessageToShort }).max(500),
+  });
+
   const form = useForm<z.infer<typeof contactFormSchema>>({
     mode: 'onBlur',
     resolver: zodResolver(contactFormSchema),
     defaultValues: { name: '', email: '', company: '', message: '' },
   });
 
-  async function sendToTelegram(values: z.infer<typeof contactFormSchema>) {
-    const { name, company, message } = values;
-    const text = `new feedback: \n \n *sender name*: ${name} \n *from*: ${company} \n *message*: ${message}`;
+  async function sendToTelegram(formData: z.infer<typeof contactFormSchema>) {
+    setIsloading(true);
 
-    const response = await fetch(TG_URI_API, {
+    const response = await fetch('api/contact', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: chatId, parse_mode: 'MarkdownV2', text }),
+      body: JSON.stringify(formData),
     });
 
     if (response.ok) {
       form.reset();
-    } else {
-      console.log(response.status);
     }
+    setIsloading(false);
   }
 
   return (
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(sendToTelegram)}
-        className="w-full space-y-8"
+        className=" flex w-full flex-col gap-10  rounded-2xl bg-white px-10 py-14 shadow-xl dark:bg-black lg:w-2/5"
       >
         <FormField
           control={form.control}
@@ -61,7 +67,23 @@ export default function ContactForm() {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input placeholder="Your name" {...field} />
+                <Input PlaceholderIcon={User} placeholder={dict.fieldName} {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="company"
+          render={({ field }) => (
+            <FormItem>
+              <FormControl>
+                <Input
+                  PlaceholderIcon={Users}
+                  placeholder={dict.fieldCompany}
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -74,20 +96,7 @@ export default function ContactForm() {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input placeholder="Your e-mail" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name="company"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <Input placeholder="Company" {...field} />
+                <Input PlaceholderIcon={Mail} placeholder={dict.fieldEmail} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -101,7 +110,8 @@ export default function ContactForm() {
             <FormItem>
               <FormControl>
                 <Textarea
-                  placeholder="Write your message here..."
+                  PlaceholderIcon={MessageCircle}
+                  placeholder={dict.fieldMessage}
                   className="resize-none"
                   {...field}
                 />
@@ -110,8 +120,13 @@ export default function ContactForm() {
             </FormItem>
           )}
         />
-
-        <Button type="submit">Submit</Button>
+        <Button
+          disabled={isLoading}
+          type="submit"
+          className=" w-1/2 text-base font-medium text-background hover:bg-accent2-foreground"
+        >
+          {dict.submit}
+        </Button>
       </form>
     </Form>
   );

@@ -1,3 +1,5 @@
-export const botId = process.env.NEXT_PUBLIC_TG_BOT_ID;
-export const chatId = process.env.NEXT_PUBLIC_TG_CHAT_ID;
-export const TG_URI_API = `https://api.telegram.org/bot${botId}/sendMessage`;
+export const TG_BOT_ID = process.env.NEXT_PUBLIC_TG_BOT_ID;
+export const TG_CHAT_ID = process.env.NEXT_PUBLIC_TG_CHAT_ID;
+export const TG_URI_API = `https://api.telegram.org/bot${TG_BOT_ID}/sendMessage`;
+
+export const SPECIAL_CHARACTERS = /[_[\]()~>`*#+-=|{}.!]/g;
