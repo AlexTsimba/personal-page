@@ -33,7 +33,6 @@ export default function NavBar({
           );
         })}
       </nav>
-
       {children}
     </div>
   );

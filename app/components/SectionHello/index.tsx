@@ -31,11 +31,8 @@ export default function Hello({ dict }: HelloProps) {
             </div>
 
             <div className="mt-6 flex gap-6 text-xl font-medium">
-              <Button variant="callToAction" className=" w-fit  p-4">
+              <Button variant='secondary' size='lg' className=" w-fit  px-8">
                 {dict.cvButtonTitle}
-              </Button>
-              <Button variant="callToAction" className="w-fit  p-4">
-                {dict.contactButtonTitle}
               </Button>
             </div>
           </div>

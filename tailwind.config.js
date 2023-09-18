@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const rotateY = require('./lib/plugins/tw-rotate');
+
 module.exports = {
   mode: 'JIT',
   darkMode: ['class'],
@@ -94,5 +97,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [require('tailwindcss-animate'), rotateY],
 };
