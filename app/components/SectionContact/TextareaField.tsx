@@ -9,6 +9,7 @@ interface TextarefFieldProps {
   PlaceholderIcon: Icon;
   placeholder: string;
   name: string;
+  tabIndex: -1 | 0;
 }
 
 export default function TextareaField({
@@ -16,6 +17,7 @@ export default function TextareaField({
   PlaceholderIcon,
   placeholder,
   name,
+  tabIndex
 }: TextarefFieldProps) {
   return (
     <FormField
@@ -25,9 +27,10 @@ export default function TextareaField({
         <FormItem>
           <FormControl>
             <Textarea
-            className='resize-none'
+              className="resize-none"
               PlaceholderIcon={PlaceholderIcon}
               placeholder={placeholder}
+              tabIndex={tabIndex}
               {...field}
             />
           </FormControl>

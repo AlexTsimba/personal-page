@@ -8,6 +8,7 @@ interface InputFieldProps {
   PlaceholderIcon: Icon;
   placeholder: string;
   name: string;
+  tabIndex: -1 | 0;
 }
 
 export default function InputField({
@@ -15,6 +16,7 @@ export default function InputField({
   PlaceholderIcon,
   placeholder,
   name,
+  tabIndex: tabindex
 }: InputFieldProps) {
   return (
     <FormField
@@ -24,6 +26,7 @@ export default function InputField({
         <FormItem>
           <FormControl>
             <Input
+              tabIndex={tabindex}
               PlaceholderIcon={PlaceholderIcon}
               placeholder={placeholder}
               {...field}

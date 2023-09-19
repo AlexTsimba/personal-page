@@ -13,15 +13,17 @@ import { User, Mail, Users, MessageCircle } from 'react-feather';
 import Dictionary from '@/types/Dictionary';
 import { useContactFormStore } from '@/store/store';
 import { shallow } from 'zustand/shallow';
+import classNames from 'classnames';
 
 interface ContactFormProps {
   dict: Dictionary['contact'];
 }
 
 export default function ContactForm({ dict }: ContactFormProps) {
-  const { isPending, setIsPending, setIsFlipped, setIsSuccess } =
+  const { isPending, setIsPending, setIsFlipped, setIsSuccess, isFlipped } =
     useContactFormStore(
       (state) => ({
+        isFlipped: state.isFlipped,
         isPending: state.isPending,
         setIsPending: state.setIsPending,
         setIsFlipped: state.setIsFlipped,
@@ -70,9 +72,13 @@ export default function ContactForm({ dict }: ContactFormProps) {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(sendToTelegram)}
-        className="flex h-full w-full flex-col gap-10  rounded-2xl bg-white px-10 py-14 shadow-xl dark:bg-[#282828]"
+        className={classNames(
+          'flex h-full w-full flex-col gap-10  rounded-2xl bg-white px-10 py-14 shadow-xl dark:bg-[#282828]',
+          { 'pointer-events-none': isFlipped }
+        )}
       >
         <InputField
+          tabIndex={isFlipped ? -1 : 0}
           name="name"
           control={form.control}
           placeholder={dict.fieldName}
@@ -84,6 +90,7 @@ export default function ContactForm({ dict }: ContactFormProps) {
           control={form.control}
           placeholder={dict.fieldCompany}
           PlaceholderIcon={Users}
+          tabIndex={isFlipped ? -1 : 0}
         />
 
         <InputField
@@ -91,6 +98,7 @@ export default function ContactForm({ dict }: ContactFormProps) {
           control={form.control}
           placeholder={dict.fieldEmail}
           PlaceholderIcon={Mail}
+          tabIndex={isFlipped ? -1 : 0}
         />
 
         <TextareaField
@@ -98,10 +106,11 @@ export default function ContactForm({ dict }: ContactFormProps) {
           control={form.control}
           placeholder={dict.fieldMessage}
           PlaceholderIcon={MessageCircle}
+          tabIndex={isFlipped ? -1 : 0}
         />
 
         <Button
-          disabled={isPending}
+          disabled={isPending || isFlipped}
           variant="secondary"
           type="submit"
           className="w-5/12 transition-none "

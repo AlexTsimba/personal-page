@@ -42,5 +42,13 @@
     "fieldMessage": "Write your message here...",
     "errorMessageToShort": "Should be at least 2 symbols length",
     "errorInvalidEmail": "Invalid e-mail"
+  },
+  "contactForm": {
+    "feedbackHeadingSuccess": "Thank you!",
+    "feedbackHeadingFailed": "Message sending failed",
+    "feedbackBodySuccess": "Your message has been sent",
+    "feedbackBodyFailed": "Please retry or reach me in alternate way",
+    "feedbackButtonSuccess": "Send more",
+    "feedbackButtonFailed": "Try again"
   }
 }

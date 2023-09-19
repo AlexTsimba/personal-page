@@ -8,7 +8,7 @@ interface FlipCardProps {
   BackElement: React.JSX.Element;
 }
 
-export default function FlipCard({ FrontElement, BackElement }: FlipCardProps) {
+export default function Flipper({ FrontElement, BackElement }: FlipCardProps) {
   const { isFlipped } = useContactFormStore(
     (state) => ({ isFlipped: state.isFlipped }),
     shallow
@@ -26,7 +26,7 @@ export default function FlipCard({ FrontElement, BackElement }: FlipCardProps) {
 
         <Card
           className={classNames(
-            'absolute inset-0 rounded-lg rotate-y-180 backface-visability-hidden'
+            'absolute inset-0 rounded-2xl rotate-y-180 backface-visability-hidden'
           )}
         >
           {BackElement}

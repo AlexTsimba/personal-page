@@ -15,7 +15,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         <PlaceholderIcon className='absolute text-foreground/80 left-4 top-3' />
         <textarea
           className={cn(
-            'resize-none flex min-h-[80px] w-full rounded-md bg-foreground/10 pl-14 pr-6 py-3 text-base ring-offset-background placeholder:font-medium placeholder:text-foreground/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/50 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+            'resize-none flex w-full rounded-md bg-foreground/10 pl-14 pr-6 py-3 text-base ring-offset-background placeholder:font-medium placeholder:text-foreground/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/50 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
             className
 
           )}

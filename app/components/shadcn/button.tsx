@@ -14,7 +14,7 @@ const buttonVariants = cva(
           'bg-destructive text-destructive-foreground hover:bg-destructive/90',
         outline: 'bg-background hover:bg-accent hover:text-accent-foreground',
         secondary:
-          'text-base font-medium text-background hover:bg-foreground transition-none bg-accent2-foreground',
+          'text-base font-semibold text-background hover:bg-foreground transition-none bg-accent2-foreground',
         ghost: 'bg-foreground/10 hover:scale-110',
         link: 'text-primary underline-offset-4 hover:underline hover:scale-110',
         sideBarItem: 'text-center text-base font-semibold text-foreground',
