@@ -35,7 +35,6 @@ export default function LangSwitch({ variants }: LangSwitchProps) {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        data-ignore-clickOutside // data-attibute to prevent call useOnClickOutside hook when this clicked
         className="w-[3rem]"
         align="end"
       >
@@ -46,7 +45,6 @@ export default function LangSwitch({ variants }: LangSwitchProps) {
         >
           {variants.map((variant) => (
             <DropdownMenuRadioItem
-              data-ignore-clickOutside // data-attibute to prevent call useOnClickOutside hook when this clicked
               key={variant.value}
               value={variant.value}
             >

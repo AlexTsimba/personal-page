@@ -34,6 +34,21 @@
     "pageTitle": "Дешборд"
   },
   "contact": {
-    "pageTitle": "Контакт"
+    "pageTitle": "Контакт",
+    "fieldName": "Імʼя",
+    "fieldEmail": "Електронна пошта",
+    "fieldCompany": "Компанія",
+    "submit": "Надіслати",
+    "fieldMessage": "Залиште своє повідомлення...",
+    "errorMessageToShort": "Мінімум 2 символи",
+    "errorInvalidEmail": " Введіть валідний e-mail"
+  },
+  "contactForm": {
+    "feedbackHeadingSuccess": "Дякую!",
+    "feedbackHeadingFailed": "Щось пішло не так..",
+    "feedbackBodySuccess": "Ваше повідомлення було надіслано",
+    "feedbackBodyFailed": "Повторіть спробу або зв'яжіться іншим каналом",
+    "feedbackButtonSuccess": "Ще відгук",
+    "feedbackButtonFailed": "Спробувати ще раз"
   }
 }

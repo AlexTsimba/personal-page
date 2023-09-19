@@ -9,18 +9,8 @@ const useOnClickOutside = (
       const target = event.target as HTMLElement;
 
       const isButton = target.tagName === 'BUTTON' || target.closest('button');
-      const hasIgnoreAttr = target.getAttribute(
-        'data-ignore-clickOutside'
-      )?.length;
 
-      if (
-        !isButton &&
-        ref.current &&
-        !ref.current.contains(target) &&
-        // do not call handler, if clicked element marked with this data-atribute
-        // TO-DO: find a better way to ignore click on radix dropdown-children
-        !hasIgnoreAttr
-      ) {
+      if (!isButton && ref.current && !ref.current.contains(target)) {
         handler();
       }
     };

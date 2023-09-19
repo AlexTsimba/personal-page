@@ -35,5 +35,20 @@ export default interface Dictionary {
   };
   contact: {
     pageTitle: string;
+    fieldName: string;
+    fieldEmail: string;
+    fieldCompany: string;
+    fieldMessage: string;
+    submit: string;
+    errorMessageToShort: string;
+    errorInvalidEmail: string;
+  };
+  contactForm: {
+    feedbackHeadingSuccess: string;
+    feedbackHeadingFailed: string;
+    feedbackBodySuccess: string;
+    feedbackBodyFailed: string;
+    feedbackButtonSuccess: string;
+    feedbackButtonFailed: string;
   };
 }
