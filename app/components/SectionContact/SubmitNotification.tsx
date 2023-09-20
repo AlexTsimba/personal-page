@@ -6,15 +6,15 @@ import { motion } from 'framer-motion';
 import { motionControls } from '@/lib/motionControls';
 
 import { Button } from '../shadcn/button';
-import MessageStatusAnimation from './MessageStatusAnimation';
 import Dictionary from '@/types/Dictionary';
+import dynamic from 'next/dynamic';
 
 interface SubmitNotificationProps {
   dict: Dictionary['contactForm'];
 }
 
 export default function SubmitNotification({ dict }: SubmitNotificationProps) {
-  const [complete, setComplete] = useState<boolean>(false);
+  const [animationComplete, setAnimationComplete] = useState<boolean>(false);
 
   const { setIsFlipped, isSucces, isPending, isFlipped } = useContactFormStore(
     (state) => ({
@@ -26,53 +26,61 @@ export default function SubmitNotification({ dict }: SubmitNotificationProps) {
     shallow
   );
 
-  const onClick = () => {
+  const DynamicMessageStatusAnimation = dynamic(
+    () => import('./MessageStatusAnimation'),
+    {
+      ssr: false,
+      // loading: () => <Skeleton className="m-auto h-full w-full rounded-xl" />,
+    }
+  );
+
+  const onFlipBack = () => {
     setIsFlipped(false);
-    setComplete(false);
+    setAnimationComplete(false);
   };
 
-  const headingText = dict[isSucces ? 'feedbackHeadingSuccess' : 'feedbackHeadingFailed'];
-  const bodyText = dict[isSucces ? 'feedbackBodySuccess' : 'feedbackBodyFailed'];
-  const buttonText = dict[isSucces ? 'feedbackButtonSuccess' : 'feedbackButtonFailed'];
-  
+  const headingText =
+    dict[isSucces ? 'feedbackHeadingSuccess' : 'feedbackHeadingFailed'];
+  const bodyText =
+    dict[isSucces ? 'feedbackBodySuccess' : 'feedbackBodyFailed'];
+  const buttonText =
+    dict[isSucces ? 'feedbackButtonSuccess' : 'feedbackButtonFailed'];
 
   return (
     <div className="flex h-full w-full  flex-col items-center justify-center rounded-2xl bg-white p-6 dark:bg-accent1-foreground">
-      <div className="h-1/3 w-full">
-        {!isPending && isFlipped && (
-          <div>
-            {complete && (
-              <>
-                <motion.span
-                  className="flex flex-col items-center justify-center gap-4"
-                  {...motionControls.contact.submitNotification}
-                >
-                  <h2 className="text-2xl font-semibold">{headingText}</h2>
-                  <p className="text-sm md:text-lg font-normal ">{bodyText}</p>
-                </motion.span>
-              </>
+      {isFlipped && (
+        <div>
+          <div className="h-1/3 w-full">
+            {!isPending && (
+              <DynamicMessageStatusAnimation
+                complete={animationComplete}
+                setComplete={setAnimationComplete}
+                isSuccess={isSucces}
+              />
             )}
-
-            <MessageStatusAnimation
-              complete={complete}
-              setComplete={setComplete}
-              isSuccess={isSucces}
-            />
           </div>
-        )}
-      </div>
-      {complete && (
-        <motion.div {...motionControls.contact.button}>
-          <Button
-            disabled={!isFlipped}
-            className="w-full px-12 font-semibold"
-            variant="secondary"
-            type="button"
-            onClick={onClick}
-          >
-            {buttonText}
-          </Button>
-        </motion.div>
+          {animationComplete && (
+            <motion.div
+              className="flex flex-col items-center justify-center gap-20"
+              {...motionControls.contact.submitNotification}
+            >
+              <div className="flex flex-col items-center justify-center gap-4">
+                <h2 className="text-2xl font-semibold">{headingText}</h2>
+                <p className="text-sm font-normal md:text-lg ">{bodyText}</p>
+              </div>
+
+              <Button
+                disabled={!isFlipped}
+                className="w-full px-12 font-semibold"
+                variant="secondary"
+                type="button"
+                onClick={onFlipBack}
+              >
+                {buttonText}
+              </Button>
+            </motion.div>
+          )}
+        </div>
       )}
     </div>
   );

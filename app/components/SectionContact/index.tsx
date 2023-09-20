@@ -1,8 +1,8 @@
 import Dictionary from '@/types/Dictionary';
 import Container from '@/app/components/Container';
 import ContactForm from './ContactForm';
-
 import Flipper from './Flipper';
+
 import SubmitNotification from './SubmitNotification';
 
 interface ContactProps {
