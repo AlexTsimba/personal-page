@@ -43,12 +43,21 @@
     "errorMessageToShort": "Should be at least 2 symbols length",
     "errorInvalidEmail": "Invalid e-mail"
   },
-  "contactForm": {
-    "feedbackHeadingSuccess": "Thank you!",
-    "feedbackHeadingFailed": "Message sending failed",
-    "feedbackBodySuccess": "Your message has been sent",
-    "feedbackBodyFailed": "Please retry or reach me in alternate way",
-    "feedbackButtonSuccess": "Send more",
-    "feedbackButtonFailed": "Try again"
+  "contactFormFeedback": {
+    "titleSuccess": "Thank you!",
+    "titleFailed": "Message sending failed",
+    "bodySuccess": "Your message has been sent",
+    "bodyFailed": "Please retry or reach me in alternate way",
+    "buttonSuccess": "Send more",
+    "buttonFailed": "Try again"
+  },
+  "contactDetails": {
+    "title": "Let's talk",
+    "description": "If you have any questions, proposals, or just want to say hello",
+    "proposal": "Feel free to get in touch",
+    "region": "region",
+    "telephone": "phone",
+    "mailto": "mailto",
+    "currentLocation": "Kyiv, Ukraine"
   }
 }

@@ -10,7 +10,7 @@ import Dictionary from '@/types/Dictionary';
 import dynamic from 'next/dynamic';
 
 interface SubmitNotificationProps {
-  dict: Dictionary['contactForm'];
+  dict: Dictionary['contactFormFeedback'];
 }
 
 export default function SubmitNotification({ dict }: SubmitNotificationProps) {
@@ -39,15 +39,12 @@ export default function SubmitNotification({ dict }: SubmitNotificationProps) {
     setAnimationComplete(false);
   };
 
-  const headingText =
-    dict[isSucces ? 'feedbackHeadingSuccess' : 'feedbackHeadingFailed'];
-  const bodyText =
-    dict[isSucces ? 'feedbackBodySuccess' : 'feedbackBodyFailed'];
-  const buttonText =
-    dict[isSucces ? 'feedbackButtonSuccess' : 'feedbackButtonFailed'];
+  const headingText = dict[isSucces ? 'titleSuccess' : 'titleFailed'];
+  const bodyText = dict[isSucces ? 'bodySuccess' : 'bodyFailed'];
+  const buttonText = dict[isSucces ? 'buttonSuccess' : 'buttonFailed'];
 
   return (
-    <div className="flex h-full w-full  flex-col items-center justify-center rounded-2xl bg-white p-6 dark:bg-accent1-foreground">
+    <div className="flex h-full w-full  flex-col items-center justify-center rounded-2xl bg-white p-6 shadow-md dark:bg-accent1-foreground">
       {isFlipped && (
         <div>
           <div className="h-1/3 w-full">

@@ -34,7 +34,7 @@
     "pageTitle": "Дешборд"
   },
   "contact": {
-    "pageTitle": "Контакт",
+    "pageTitle": "Контакти",
     "fieldName": "Імʼя",
     "fieldEmail": "Електронна пошта",
     "fieldCompany": "Компанія",
@@ -43,12 +43,21 @@
     "errorMessageToShort": "Мінімум 2 символи",
     "errorInvalidEmail": " Введіть валідний e-mail"
   },
-  "contactForm": {
-    "feedbackHeadingSuccess": "Дякую!",
-    "feedbackHeadingFailed": "Щось пішло не так..",
-    "feedbackBodySuccess": "Ваше повідомлення було надіслано",
-    "feedbackBodyFailed": "Повторіть спробу або зв'яжіться іншим каналом",
-    "feedbackButtonSuccess": "Ще відгук",
-    "feedbackButtonFailed": "Спробувати ще раз"
+  "contactFormFeedback": {
+    "titleSuccess": "Дякую!",
+    "titleFailed": "Щось пішло не так..",
+    "bodySuccess": "Ваше повідомлення було надіслано",
+    "bodyFailed": "Повторіть спробу або зв'яжіться іншим каналом",
+    "buttonSuccess": "Ще відгук",
+    "buttonFailed": "Спробувати ще раз"
+  },
+  "contactDetails": {
+    "title": "Поспілкуємось",
+    "description": "Якщо маєте питання, пропозиції, або просто хочете привітатись",
+    "proposal": "Зв'яжіться зі мною просто зараз",
+    "region": "регіон",
+    "telephone": "телефон",
+    "mailto": "поштова скринька",
+    "currentLocation": "Київ, Україна"
   }
 }

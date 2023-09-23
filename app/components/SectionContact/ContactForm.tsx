@@ -73,7 +73,7 @@ export default function ContactForm({ dict }: ContactFormProps) {
       <form
         onSubmit={form.handleSubmit(sendToTelegram)}
         className={classNames(
-          'flex h-full w-full flex-col gap-10  rounded-2xl bg-white px-10 py-14 shadow-xl dark:bg-[#282828]',
+          'flex h-full w-full flex-col gap-10  rounded-2xl bg-white px-6 md:px-10 py-14 shadow-md dark:bg-[#282828]',
           { 'pointer-events-none': isFlipped }
         )}
       >
@@ -113,7 +113,7 @@ export default function ContactForm({ dict }: ContactFormProps) {
           disabled={isPending || isFlipped}
           variant="secondary"
           type="submit"
-          className="w-5/12 transition-none "
+          className="w-5/12 self-end transition-none"
         >
           {dict.submit}
         </Button>

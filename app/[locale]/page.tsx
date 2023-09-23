@@ -19,13 +19,14 @@ export default async function Home({
 
   const mainDict: Pick<
     Dictionary,
-    'hello' | 'contact' | 'skills' | 'dashboard' |'contactForm'
+    'hello' | 'contact' | 'skills' | 'dashboard' |'contactFormFeedback' | 'contactDetails'
   > = {
     hello: dictionary.hello,
     skills: dictionary.skills,
     dashboard: dictionary.dashboard,
     contact: dictionary.contact,
-    contactForm: dictionary.contactForm
+    contactFormFeedback: dictionary.contactFormFeedback,
+    contactDetails: dictionary.contactDetails
   };
 
   return (
