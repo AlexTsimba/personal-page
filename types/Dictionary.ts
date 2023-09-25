@@ -40,8 +40,13 @@ export default interface Dictionary {
     fieldCompany: string;
     fieldMessage: string;
     submit: string;
+    clear: string;
     errorMessageToShort: string;
+    errorMessageToLong500: string;
+    errorMessageToLong50: string;
+    errorSpecialCharacters: string;
     errorInvalidEmail: string;
+    errorMessageisRequired: string;
   };
   contactFormFeedback: {
     titleSuccess: string;

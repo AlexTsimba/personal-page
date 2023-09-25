@@ -16,7 +16,7 @@ export default function PageControls({
 
   return (
     <div className="flex gap-4">
-      <div className={classNames('md:block', { hidden: !isSidebarOpen })}>
+      <div className={classNames('hidden md:block', { hidden: !isSidebarOpen })}>
         <ThemeSwitch variants={themeVariants} />
       </div>
       <LangSwitch variants={langVariants} />

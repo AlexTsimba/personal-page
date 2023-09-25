@@ -12,6 +12,7 @@ import {
 
 import { cn } from '@/lib/utils';
 import { Label } from '@/app/components/shadcn/label';
+import { ChevronUp } from 'react-feather';
 
 const Form = FormProvider;
 
@@ -79,7 +80,7 @@ const FormItem = React.forwardRef<
 
   return (
     <FormItemContext.Provider value={{ id }}>
-      <div ref={ref} className={cn('space-y-2', className)} {...props} />
+      <div ref={ref} className={cn('space-y-1', className)} {...props} />
     </FormItemContext.Provider>
   );
 });
@@ -154,17 +155,17 @@ const FormMessage = React.forwardRef<
   }
 
   return (
-    <p
-      ref={ref}
-      id={formMessageId}
-      className={cn(
-        'absolute text-sm font-medium text-red-500',
-        className
-      )}
-      {...props}
-    >
-      {body}
-    </p>
+    <div className="absolute flex items-center gap-2 ">
+      <ChevronUp size={20} />
+      <p
+        ref={ref}
+        id={formMessageId}
+        className={cn(' text-sm font-semibold ', className)}
+        {...props}
+      >
+        {body}
+      </p>
+    </div>
   );
 });
 FormMessage.displayName = 'FormMessage';

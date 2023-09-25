@@ -44,7 +44,7 @@ export default function SubmitNotification({ dict }: SubmitNotificationProps) {
   const buttonText = dict[isSucces ? 'buttonSuccess' : 'buttonFailed'];
 
   return (
-    <div className="flex h-full w-full  flex-col items-center justify-center rounded-2xl bg-white p-6 shadow-md dark:bg-accent1-foreground">
+    <div className="flex h-full w-full  flex-col items-center justify-center rounded-2xl p-6 shadow-md bg-routine">
       {isFlipped && (
         <div>
           <div className="h-1/3 w-full">

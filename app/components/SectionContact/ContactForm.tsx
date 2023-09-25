@@ -8,23 +8,24 @@ import { Form } from '../shadcn/form';
 import { Button } from '../shadcn/button';
 import InputField from './InputField';
 import TextareaField from './TextareaField';
-import { User, Mail, Users, MessageCircle } from 'react-feather';
 
 import Dictionary from '@/types/Dictionary';
 import { useContactFormStore } from '@/store/store';
 import { shallow } from 'zustand/shallow';
+
 import classNames from 'classnames';
+import { User, Mail, Users, MessageCircle } from 'react-feather';
+import { NAME_CHARACTERS } from '@/constants/constants';
 
 interface ContactFormProps {
   dict: Dictionary['contact'];
 }
 
 export default function ContactForm({ dict }: ContactFormProps) {
-  const { isPending, setIsPending, setIsFlipped, setIsSuccess, isFlipped } =
+  const { setIsPending, setIsFlipped, setIsSuccess, isFlipped } =
     useContactFormStore(
       (state) => ({
         isFlipped: state.isFlipped,
-        isPending: state.isPending,
         setIsPending: state.setIsPending,
         setIsFlipped: state.setIsFlipped,
         setIsSuccess: state.setIsSuccess,
@@ -35,16 +36,35 @@ export default function ContactForm({ dict }: ContactFormProps) {
   const contactFormSchema = z.object({
     name: z
       .string()
+      .trim()
+      .nonempty({ message: dict.errorMessageisRequired })
       .min(2, { message: dict.errorMessageToShort })
-      .max(50)
-      .nonempty(),
-    email: z.string().email({ message: dict.errorInvalidEmail }),
-    company: z.string().min(2, { message: dict.errorMessageToShort }).max(50),
-    message: z.string().min(2, { message: dict.errorMessageToShort }).max(500),
+      .max(50, { message: dict.errorMessageToLong50 })
+      .refine((value) => NAME_CHARACTERS.test(value), {
+        message: dict.errorSpecialCharacters,
+      }),
+
+    email: z
+      .string()
+      .trim()
+      .nonempty({ message: dict.errorMessageisRequired })
+      .email({ message: dict.errorInvalidEmail }),
+    company: z
+      .string()
+      .trim()
+      .nonempty({ message: dict.errorMessageisRequired })
+      .min(2, { message: dict.errorMessageToShort })
+      .max(50, { message: dict.errorMessageToLong50 }),
+    message: z
+      .string()
+      .trim()
+      .nonempty({ message: dict.errorMessageisRequired })
+      .min(2, { message: dict.errorMessageToShort })
+      .max(500, { message: dict.errorMessageToLong500 }),
   });
 
   const form = useForm<z.infer<typeof contactFormSchema>>({
-    mode: 'onBlur',
+    mode: 'onTouched',
     resolver: zodResolver(contactFormSchema),
     defaultValues: { name: '', email: '', company: '', message: '' },
   });
@@ -68,21 +88,24 @@ export default function ContactForm({ dict }: ContactFormProps) {
     setIsPending(false);
   }
 
+  const isAllFieldsValid = form.formState.isValid;
+  const isFormDirty = form.formState.isDirty;
+
   return (
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(sendToTelegram)}
         className={classNames(
-          'flex h-full w-full flex-col gap-10  rounded-2xl bg-white px-6 md:px-10 py-14 shadow-md dark:bg-[#282828]',
+          'flex h-full w-full flex-col gap-10 rounded-2xl bg-routine px-6 py-14 shadow-md  md:px-10',
           { 'pointer-events-none': isFlipped }
         )}
       >
         <InputField
-          tabIndex={isFlipped ? -1 : 0}
           name="name"
           control={form.control}
           placeholder={dict.fieldName}
           PlaceholderIcon={User}
+          tabIndex={isFlipped ? -1 : 0}
         />
 
         <InputField
@@ -109,14 +132,25 @@ export default function ContactForm({ dict }: ContactFormProps) {
           tabIndex={isFlipped ? -1 : 0}
         />
 
-        <Button
-          disabled={isPending || isFlipped}
-          variant="secondary"
-          type="submit"
-          className="w-5/12 self-end transition-none"
-        >
-          {dict.submit}
-        </Button>
+        <div className="flex w-full items-baseline justify-end gap-4">
+          <Button
+            disabled={isFormDirty && isAllFieldsValid}
+            variant="link"
+            type="reset"
+            onClick={() => form.reset()}
+          >
+            {dict.clear}
+          </Button>
+
+          <Button
+            disabled={isFormDirty && !isAllFieldsValid}
+            variant="secondary"
+            type="submit"
+            className="w-1/2"
+          >
+            {dict.submit}
+          </Button>
+        </div>
       </form>
     </Form>
   );

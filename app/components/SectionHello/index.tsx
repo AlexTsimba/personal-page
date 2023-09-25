@@ -21,7 +21,7 @@ export default function Hello({ dict }: HelloProps) {
           <div className="flex flex-col">
             <div className="flex flex-col items-start justify-between">
               <p className="text-xl font-medium">{dict.greeting} </p>
-              <h1 className="text-3xl font-semibold text-accent2-foreground">
+              <h1 className="text-3xl font-semibold text-accent">
                 {dict.name}
               </h1>
             </div>

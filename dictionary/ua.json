@@ -39,9 +39,14 @@
     "fieldEmail": "Електронна пошта",
     "fieldCompany": "Компанія",
     "submit": "Надіслати",
+    "clear": "Очистити поля",
     "fieldMessage": "Залиште своє повідомлення...",
-    "errorMessageToShort": "Мінімум 2 символи",
-    "errorInvalidEmail": " Введіть валідний e-mail"
+    "errorMessageToShort": "Повідомлення занадто коротке (від 2 символів)",
+    "errorMessageToLong50": "Повідомлення занадто довге (до 50 символів)",
+    "errorMessageToLong500": "Повідомлення занадто довге (до 500 символів)",
+    "errorSpecialCharacters": "Спеціальні символи недоступні для цього поля",
+    "errorInvalidEmail": "Введіть валідний e-mail",
+    "errorMessageisRequired": "Це поле обов'язкове та не може бути порожнім"
   },
   "contactFormFeedback": {
     "titleSuccess": "Дякую!",

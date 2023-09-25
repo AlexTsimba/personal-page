@@ -39,9 +39,14 @@
     "fieldEmail": "E-mail",
     "fieldCompany": "Company",
     "submit": "Submit",
+    "clear": "Clear fields",
     "fieldMessage": "Write your message here...",
-    "errorMessageToShort": "Should be at least 2 symbols length",
-    "errorInvalidEmail": "Invalid e-mail"
+    "errorMessageToShort": "Message is too short. Should be at least 2 characters",
+    "errorMessageToLong50": "Message is too long. Should be no more than 500 characters",
+    "errorSpecialCharacters": "Special characters are not allowed in this field",
+    "errorMessageToLong500": "Message is too long. Should be no more than 50 characters",
+    "errorInvalidEmail": "Please enter a valid e-mail address",
+    "errorMessageisRequired": "This field can't be empty"
   },
   "contactFormFeedback": {
     "titleSuccess": "Thank you!",
