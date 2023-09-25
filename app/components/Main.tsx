@@ -21,15 +21,29 @@ import Contact from './SectionContact';
 interface MainProps {
   dict: Pick<
     Dictionary,
-    'contact' | 'dashboard' | 'hello' | 'skills' | 'contactForm'
+    | 'hello'
+    | 'contact'
+    | 'skills'
+    | 'dashboard'
+    | 'contactFormFeedback'
+    | 'contactDetails'
   >;
 }
 
 export default function Main({ dict }: MainProps) {
+  const contactDict: Pick<
+    Dictionary,
+    'contact' | 'contactDetails' | 'contactFormFeedback'
+  > = {
+    contact: dict.contact,
+    contactFormFeedback: dict.contactFormFeedback,
+    contactDetails: dict.contactDetails,
+  };
+
   const sectionComponents: Record<NavLink['key'], JSX.Element> = {
     hello: <Hello dict={dict.hello} />,
     skills: <Skills dict={dict.skills} />,
-    contact: <Contact dict={dict.contact} formDict={dict.contactForm} />,
+    contact: <Contact dict={contactDict} />,
     dashboard: <Dashboard dict={dict.dashboard} />,
   };
 

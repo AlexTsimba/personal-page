@@ -58,6 +58,11 @@ module.exports = {
         accent: {
           DEFAULT: 'hsl(var(--accent))',
           foreground: 'hsl(var(--accent-foreground))',
+          soft:'hsl(var(--accent-foreground))',
+        },
+        routine: {
+          DEFAULT: 'hsl(var(--routine))',
+          foreground: 'hsl(var(--routine-foreground))',
         },
         popover: {
           DEFAULT: 'hsl(var(--popover))',
@@ -66,14 +71,6 @@ module.exports = {
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
-        },
-        accent1: {
-          DEFAULT: 'hsl(var(--accent1))',
-          foreground: 'hsl(var(--accent1-foreground))',
-        },
-        accent2: {
-          DEFAULT: 'hsl(var(--accent2))',
-          foreground: 'hsl(var(--accent2-foreground))',
         },
       },
       borderRadius: {

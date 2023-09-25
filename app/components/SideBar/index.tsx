@@ -10,7 +10,6 @@ import SideBarItem from './SideBarItem';
 import Lenis from '@studio-freight/lenis';
 import Dictionary from '@/types/Dictionary';
 import Portal from '../Portal';
-import SocialProfiles from '../SocialProfiles';
 
 interface SideBarProps {
   isOpen: boolean;
@@ -41,8 +40,6 @@ export default function SideBar({
             {...motionControls.sidebar}
           >
             <div className="flex h-full flex-col justify-end">
-
-              <SocialProfiles />
               <nav className="flex h-full flex-col items-center  justify-center gap-10">
                 {navConfig.navLinks.map((link, index) => {
                   const isActive = activeSection === link.key;

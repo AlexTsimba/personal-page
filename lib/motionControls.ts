@@ -96,17 +96,11 @@ export const motionControls = {
   },
 
   contact: {
-    button: {
-      initial: { opacity: 0 },
-      animate: { opacity: 1 },
-      exit: { opacity: 0 },
-      transition: { duration: durations.xxl, delay: durations.xl },
-    },
     submitNotification: {
       initial: { opacity: 0 },
       animate: { opacity: 1 },
       exit: { opacity: 0 },
-      transition: { duration: durations.xxl, delay: durations.sm },
+      transition: { duration: durations.xxl, delay: durations.xl },
     },
   },
 };

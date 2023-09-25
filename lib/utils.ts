@@ -10,7 +10,7 @@ export function escapeSpecialCharacters(str: string) {
   return str.replace(SPECIAL_CHARACTERS, '\\$&');
 }
 
-export async function loadMessageAnimation(
+export async function loadFeedbackAnimation(
   isSuccess: boolean,
   theme: string,
   setAnimation: (data: any) => void,

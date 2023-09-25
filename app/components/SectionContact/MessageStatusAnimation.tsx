@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Lottie, { LottieRefCurrentProps } from 'lottie-react';
 import { useTheme } from 'next-themes';
 
-import { loadMessageAnimation } from '@/lib/utils';
+import { loadFeedbackAnimation } from '@/lib/utils';
 
 interface ResultProps {
   complete: boolean;
@@ -24,8 +24,10 @@ export default function MessageStatusAnimation({
   };
 
   useEffect(() => {
-    loadMessageAnimation(isSuccess, theme, setAnimationData);
+    loadFeedbackAnimation(isSuccess, theme, setAnimationData);
   }, [isSuccess, theme]);
+
+  console.log('anim loaded');
 
   return (
     <div className="flex h-36 items-center justify-center">

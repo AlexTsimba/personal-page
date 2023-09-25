@@ -40,15 +40,29 @@ export default interface Dictionary {
     fieldCompany: string;
     fieldMessage: string;
     submit: string;
+    clear: string;
     errorMessageToShort: string;
+    errorMessageToLong500: string;
+    errorMessageToLong50: string;
+    errorSpecialCharacters: string;
     errorInvalidEmail: string;
+    errorMessageisRequired: string;
   };
-  contactForm: {
-    feedbackHeadingSuccess: string;
-    feedbackHeadingFailed: string;
-    feedbackBodySuccess: string;
-    feedbackBodyFailed: string;
-    feedbackButtonSuccess: string;
-    feedbackButtonFailed: string;
+  contactFormFeedback: {
+    titleSuccess: string;
+    titleFailed: string;
+    bodySuccess: string;
+    bodyFailed: string;
+    buttonSuccess: string;
+    buttonFailed: string;
+  };
+  contactDetails: {
+    title: string;
+    description: string;
+    proposal: string;
+    region: string;
+    telephone: string;
+    mailto: string;
+    currentLocation: string;
   };
 }
