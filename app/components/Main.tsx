@@ -14,7 +14,7 @@ import { navConfig } from '@/lib/navConfig';
 
 import Section from './Section';
 import Hello from './SectionHello';
-import Skills from './SectionSkills';
+import Skills from './SectionSkills/SectionSkills';
 import Dashboard from './SectionDashboard';
 import Contact from './SectionContact';
 

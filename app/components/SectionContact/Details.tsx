@@ -48,7 +48,7 @@ export default function Details({ dict }: DetailsProps) {
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-1">
         {details.map((detail) => (
-          <div key={detail.title} className="flex items-center gap-3">
+          <div key={detail.title} className="flex items-center gap-3 ">
             {detail.icon}
             <div className="flex flex-col">
               <span className=" text-lg font-semibold capitalize leading-tight text-accent after:content-[':']">
