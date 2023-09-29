@@ -15,7 +15,7 @@ export default interface Dictionary {
   navLinks: {
     [skills: string]: string;
     contact: string;
-    dashboard: string;
+    projects: string;
     hello: string;
   };
   hello: {
@@ -30,7 +30,7 @@ export default interface Dictionary {
   skills: {
     pageTitle: string;
   };
-  dashboard: {
+  projects: {
     pageTitle: string;
   };
   contact: {

@@ -1,13 +1,12 @@
 import Dictionary from '@/types/Dictionary';
-import Container from './Container';
-import PageTitle from './PageTitle';
+import Container from '../Container';
+import PageTitle from '../PageTitle';
 
-interface DashboardProps {
-  dict: Dictionary['dashboard'];
+interface SkillsProps {
+  dict: Dictionary['skills'];
 }
 
-
-export default function skills({ dict }: DashboardProps) {
+export default function skills({ dict }: SkillsProps) {
   return (
     <Container className="mt-10 flex h-fit flex-col items-center justify-between">
       <PageTitle title={dict.pageTitle} />

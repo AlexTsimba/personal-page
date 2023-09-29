@@ -15,7 +15,7 @@
   "navLinks": {
     "skills": "Скіли",
     "contact": "Контакти",
-    "dashboard": "Дешборд",
+    "projects": "Проєкти",
     "hello": "Привіт"
   },
   "hello": {
@@ -30,7 +30,7 @@
   "skills": {
     "pageTitle": "Скіли"
   },
-  "dashboard": {
+  "projects": {
     "pageTitle": "Дешборд"
   },
   "contact": {

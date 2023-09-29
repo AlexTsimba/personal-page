@@ -103,4 +103,21 @@ export const motionControls = {
       transition: { duration: durations.xxl, delay: durations.xl },
     },
   },
+  projects: {
+    illustration: {
+      initial: { scale: 0, x: '-50%', y: '-50%' },
+      enter: {
+        scale: 1,
+        x: '-50%',
+        y: '-50%',
+        transition: { duration: durations.lg, ease: easeInOutQuart },
+      },
+      closed: {
+        scale: 0,
+        x: '-50%',
+        y: '-50%',
+        transition: { duration: durations.sm, ease: easeOutQuart },
+      },
+    },
+  },
 };

@@ -11,8 +11,8 @@ export const navConfig: { navLinks: NavLink[] } = {
       href: '#skills',
     },
     {
-      key: 'dashboard',
-      href: '#dashboard',
+      key: 'projects',
+      href: '#projects',
     },
     {
       key: 'contact',

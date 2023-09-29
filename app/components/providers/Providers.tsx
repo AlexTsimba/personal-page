@@ -13,7 +13,9 @@ export default function Providers({ children }: ProvidersProps) {
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <LocaleProvider locale={locale}>
-        <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        <SmoothScrollProvider>
+          {children}
+          </SmoothScrollProvider>
       </LocaleProvider>
     </ThemeProvider>
   );

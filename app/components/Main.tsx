@@ -15,7 +15,7 @@ import { navConfig } from '@/lib/navConfig';
 import Section from './Section';
 import Hello from './SectionHello';
 import Skills from './SectionSkills/SectionSkills';
-import Dashboard from './SectionDashboard';
+import Projects from './SectionProjects.tsx';
 import Contact from './SectionContact';
 
 interface MainProps {
@@ -24,7 +24,7 @@ interface MainProps {
     | 'hello'
     | 'contact'
     | 'skills'
-    | 'dashboard'
+    | 'projects'
     | 'contactFormFeedback'
     | 'contactDetails'
   >;
@@ -44,7 +44,7 @@ export default function Main({ dict }: MainProps) {
     hello: <Hello dict={dict.hello} />,
     skills: <Skills dict={dict.skills} />,
     contact: <Contact dict={contactDict} />,
-    dashboard: <Dashboard dict={dict.dashboard} />,
+    projects: <Projects dict={dict.projects} />,
   };
 
   // Refs for section links used in scroll animation

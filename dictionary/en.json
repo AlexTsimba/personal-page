@@ -15,7 +15,7 @@
   "navLinks": {
     "hello": "Hello",
     "skills": "Skills",
-    "dashboard": "Dashboard",
+    "projects": "Projects",
     "contact": "Contact"
   },
   "hello": {
@@ -30,8 +30,8 @@
   "skills": {
     "pageTitle": "Skills"
   },
-  "dashboard": {
-    "pageTitle": "Dashboard"
+  "projects": {
+    "pageTitle": "Projects"
   },
   "contact": {
     "pageTitle": "Contact",
