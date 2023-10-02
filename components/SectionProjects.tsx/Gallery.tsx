@@ -4,13 +4,14 @@ import Image from 'next/image';
 import gsap from 'gsap';
 import Project from '@/types/Project';
 import { motionControls } from '@/lib/motionControls';
+import classNames from 'classnames';
 
-interface IllustrationProps {
+interface GalleryProps {
   status: { active: boolean; index: number };
   projects: Project[];
 }
 
-export default function Illustration({ status, projects }: IllustrationProps) {
+export default function Gallery({ status, projects }: GalleryProps) {
   const { active, index } = status;
   const showHideAnimation = motionControls.projects.illustration;
   const illustrationRef = useRef(null);
@@ -37,20 +38,23 @@ export default function Illustration({ status, projects }: IllustrationProps) {
       ref={illustrationRef}
       variants={showHideAnimation}
       animate={active ? 'enter' : 'closed'}
-      className="pointer-events-none absolute hidden items-center justify-center overflow-hidden md:flex"
+      className={classNames(
+        { 'scale-0 transition-transform duration-75 ': !active },
+        'pointer-events-none absolute hidden items-center justify-center overflow-hidden md:flex'
+      )}
       style={{ height: '400px', width: '350px' }}
     >
       <div
         style={{ top: index * -100 + '%', transition: 'top 0.5s' }}
         className="absolute h-full w-full transition-transform "
       >
-        {projects.map((project, i) => {
+        {projects.map((project) => {
           const { src, color } = project;
           return (
             <div
               className="flex h-full w-full items-center justify-center"
               style={{ backgroundColor: color }}
-              key={`modal_${i}`}
+              key={project.title}
             >
               <Image
                 src={`/images/${src}`}

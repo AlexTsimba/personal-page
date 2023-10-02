@@ -1,5 +1,5 @@
 import Dictionary from '@/types/Dictionary';
-import Container from '@/app/components/Container';
+import Container from '@/components/Container';
 import ContactForm from './ContactForm';
 import Flipper from './Flipper';
 

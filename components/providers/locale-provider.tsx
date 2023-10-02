@@ -12,7 +12,7 @@ export default async function LocaleProvider({
 }: LocaleLayoutProps) {
   let messages;
   try {
-    messages = (await import(`../../../dictionary/${locale}.json`)).default;
+    messages = (await import(`@/dictionary/${locale}.json`)).default;
   } catch (error) {
     notFound();
   }

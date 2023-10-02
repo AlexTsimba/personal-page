@@ -1,8 +1,8 @@
 import { getDictionary } from '@/dictionary/dictionary';
 import Dictionary from '@/types/Dictionary';
 
-import Header from '../components/Header';
-import Main from '../components/Main';
+import Header from '../../components/Header';
+import Main from '../../components/Main';
 
 export default async function Home({
   params: { locale },

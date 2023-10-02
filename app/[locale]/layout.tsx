@@ -2,7 +2,7 @@ import '../globals.css';
 import type { Metadata } from 'next';
 
 import { fixelFont } from '@/common/fonts/fixelFont';
-import Providers from '../components/providers/Providers';
+import Providers from '../../components/providers/Providers';
 import classNames from 'classnames';
 
 export const metadata: Metadata = {

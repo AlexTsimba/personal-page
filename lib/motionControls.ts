@@ -116,7 +116,10 @@ export const motionControls = {
         scale: 0,
         x: '-50%',
         y: '-50%',
-        transition: { duration: durations.sm, ease: easeOutQuart },
+        transition: {
+          duration: durations.lg,
+          ease: easeOutQuart,
+        },
       },
     },
   },

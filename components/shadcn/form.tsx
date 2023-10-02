@@ -11,7 +11,7 @@ import {
 } from 'react-hook-form';
 
 import { cn } from '@/lib/utils';
-import { Label } from '@/app/components/shadcn/label';
+import { Label } from '@/components/shadcn/label';
 import { ChevronUp } from 'react-feather';
 
 const Form = FormProvider;
