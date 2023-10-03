@@ -31,22 +31,26 @@
     "pageTitle": "Skills"
   },
   "projects": {
-    "pageTitle": "Projects"
+    "pageTitle": "Projects",
+    "titleQuote": "Talk is cheap. Show me the code",
+    "quoteAuthor": "Linus Torvalds",
+    "invitation": "For more, visit my",
+    "ghProfile": "GitHub profile"
   },
   "contact": {
     "pageTitle": "Contact",
     "fieldName": "Name",
     "fieldEmail": "E-mail",
     "fieldCompany": "Company",
-    "submit": "Submit",
-    "clear": "Clear fields",
     "fieldMessage": "Write your message here...",
     "errorMessageToShort": "Message is too short. Should be at least 2 characters",
-    "errorMessageToLong50": "Message is too long. Should be no more than 500 characters",
     "errorSpecialCharacters": "Special characters are not allowed in this field",
+    "errorMessageToLong50": "Message is too long. Should be no more than 500 characters",
     "errorMessageToLong500": "Message is too long. Should be no more than 50 characters",
     "errorInvalidEmail": "Please enter a valid e-mail address",
-    "errorMessageisRequired": "This field can't be empty"
+    "errorMessageisRequired": "This field can't be empty",
+    "clear": "Clear fields",
+    "submit": "Submit"
   },
   "contactFormFeedback": {
     "titleSuccess": "Thank you!",

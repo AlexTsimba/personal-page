@@ -41,7 +41,7 @@ export default function Details({ dict }: DetailsProps) {
           {dict.title}
         </span>
         <div>
-          <p className="after:content-[',']">{dict.description}</p>
+          <p className="text-lg after:content-[',']">{dict.description}</p>
           <p> {dict.proposal}</p>
         </div>
       </div>

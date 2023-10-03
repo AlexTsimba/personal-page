@@ -32,6 +32,10 @@ export default interface Dictionary {
   };
   projects: {
     pageTitle: string;
+    titleQuote: string;
+    quoteAuthor: string;
+    invitation: string;
+    ghProfile: string;
   };
   contact: {
     pageTitle: string;

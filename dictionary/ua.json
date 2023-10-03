@@ -31,7 +31,11 @@
     "pageTitle": "Скіли"
   },
   "projects": {
-    "pageTitle": "Дешборд"
+    "pageTitle": "Проєкти",
+    "titleQuote": "Балачки це дешево. Покажи мені код",
+    "quoteAuthor": "Лінус Торвальдс",
+    "invitation": "Перегляньте більше прикладів у моєму ",
+    "ghProfile": "профілі на GitHub"
   },
   "contact": {
     "pageTitle": "Контакти",

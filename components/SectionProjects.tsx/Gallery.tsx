@@ -18,11 +18,11 @@ export default function Gallery({ status, projects }: GalleryProps) {
 
   useEffect(() => {
     let xMoveContainer = gsap.quickTo(illustrationRef.current, 'left', {
-      duration: 0.8,
+      duration: 0.4,
       ease: 'power3',
     });
     let yMoveContainer = gsap.quickTo(illustrationRef.current, 'top', {
-      duration: 0.8,
+      duration: 0.4,
       ease: 'power3',
     });
 
@@ -45,7 +45,7 @@ export default function Gallery({ status, projects }: GalleryProps) {
       style={{ height: '400px', width: '350px' }}
     >
       <div
-        style={{ top: index * -100 + '%', transition: 'top 0.5s' }}
+        style={{ top: index * -100 + '%', transition: 'top 0.3s' }}
         className="absolute h-full w-full transition-transform "
       >
         {projects.map((project) => {
@@ -56,6 +56,7 @@ export default function Gallery({ status, projects }: GalleryProps) {
               style={{ backgroundColor: color }}
               key={project.title}
             >
+              {/* to-do:add placeholder='blur' and coresponding data-url(after moving images from local to external) */}
               <Image
                 src={`/images/${src}`}
                 width={300}
