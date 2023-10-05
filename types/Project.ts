@@ -1,6 +1,6 @@
 export default interface Project {
   title: string;
-  src: string;
+  cover: string;
+  heroImage: string;
   color: string;
-  tools: string;
 }

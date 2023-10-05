@@ -7,7 +7,7 @@ export default function Container({ children, className }: ContainerProps) {
   return (
     <div
       className={classNames(
-        'mx-auto w-11/12 max-w-7xl transition-all md:w-5/6',
+        'mx-auto w-11/12 max-w-7xl transition-all',
 
         className
       )}

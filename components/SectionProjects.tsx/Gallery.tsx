@@ -49,7 +49,7 @@ export default function Gallery({ status, projects }: GalleryProps) {
         className="absolute h-full w-full transition-transform "
       >
         {projects.map((project) => {
-          const { src, color } = project;
+          const { cover, color } = project;
           return (
             <div
               className="flex h-full w-full items-center justify-center"
@@ -58,7 +58,7 @@ export default function Gallery({ status, projects }: GalleryProps) {
             >
               {/* to-do:add placeholder='blur' and coresponding data-url(after moving images from local to external) */}
               <Image
-                src={`/images/${src}`}
+                src={`/images/${cover}`}
                 width={300}
                 height={300}
                 alt="image"

@@ -13,10 +13,14 @@ export function escapeSpecialCharacters(str: string) {
 export async function loadFeedbackAnimation(
   isSuccess: boolean,
   theme: string,
-  setAnimation: (data: any) => void,
+  setAnimation: (data: any) => void
 ) {
   const status = isSuccess ? 'success' : 'failed';
   const animationPath = `email-${status}-${theme}`;
   const animation = await import(`@/public/lotties/${animationPath}`);
   setAnimation(animation.default);
+}
+
+export function getImageSrc(folder: string, name: string, theme: string) {
+  return folder + name + `-${theme}`;
 }

@@ -3,29 +3,34 @@ import { useState } from 'react';
 const projects = [
   {
     title: 'Todo App',
-    src: 'todoApp.webp',
+    cover: 'todoApp.webp',
+    heroImage: 'todo',
     color: '#000000',
-    tools: 'React, Tailwind, Framer Motion',
+    // tools: 'React, Tailwind, Framer Motion',
   },
   {
     title: 'Personal Page',
-    src: 'personalPage.webp',
+    cover: 'personalPage.webp',
+    heroImage: 'page',
     color: '#8C8C8C',
-    tools: 'Next 13, Framer Motion, GSAP',
+    // tools: 'Next 13, Framer Motion, GSAP',
   },
   {
     title: 'Bose Landing Page',
-    src: 'bose.webp',
+    cover: 'bose.webp',
+    heroImage: 'bose',
     color: '#EFE8D3',
-    tools: 'HTML, SCSS, JS',
+    // tools: 'HTML, SCSS, JS',
   },
   {
     title: 'Under Construction',
-    src: 'silencio.png',
+    cover: 'silencio.png',
+    heroImage: 'personal',
     color: '#706D63',
-    tools: 'under constructuion',
+    // tools: 'under constructuion',
   },
 ];
+
 import Container from '../Container';
 import PageTitle from '../PageTitle';
 import Dictionary from '@/types/Dictionary';
@@ -53,16 +58,16 @@ export default function Projects({ dict }: ProjectsProps) {
     >
       <PageTitle title={dict.pageTitle} />
       <div
-        className="flex w-full flex-col items-center justify-center gap-16 rounded-xl py-[5vh] md:my-[5vh] md:bg-routine-foreground md:px-16"
+        className="flex w-full flex-col items-center justify-center gap-16 rounded-xl px-clamp"
         onMouseEnter={() => setIsActive(true)}
       >
         <blockquote className="flex flex-col items-start gap-2 self-start border-l-2 border-foreground/50 px-6 font-medium">
           <p
-            className={`text-2xl font-bold text-accent before:content-['"'] after:content-['"'] md:text-3xl`}
+            className={`text-clamp-xl font-bold text-accent before:content-['"'] after:content-['"']`}
           >
             {dict.titleQuote}
           </p>
-          <cite className="text-lg font-semibold text-foreground/70 before:content-['—_'] md:text-xl">
+          <cite className="font-semibold text-foreground/70 before:content-['—_']">
             {dict.quoteAuthor}
           </cite>
         </blockquote>
@@ -71,13 +76,11 @@ export default function Projects({ dict }: ProjectsProps) {
           {projects.map((project, index) => {
             return (
               <ProjectDetails
-                scroller={scroller}
-                onHover={setIllustration}
-                color={project.color}
-                src={project.src}
-                title={project.title}
                 key={project.color}
                 index={index}
+                project={project}
+                onHover={setIllustration}
+                scroller={scroller}
               />
             );
           })}
@@ -89,7 +92,7 @@ export default function Projects({ dict }: ProjectsProps) {
           <Link
             target="_blank"
             href="https://github.com/"
-            className='text-lg font-medium text-accent before:content-["_"] after:content-["_↗"]'
+            className='left-0 top-0 z-[-1]  text-lg font-medium  text-accent after:absolute after:text-accent after:content-["_↗"] hover:underline hover:after:text-foreground'
           >
             {dict.ghProfile}
           </Link>
