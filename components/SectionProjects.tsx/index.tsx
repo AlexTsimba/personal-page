@@ -3,31 +3,71 @@ import { useState } from 'react';
 const projects = [
   {
     title: 'Todo App',
-    cover: 'todoApp.webp',
-    heroImage: 'todo',
-    color: '#000000',
-    // tools: 'React, Tailwind, Framer Motion',
+    coverImage: {
+      src: 'todo',
+      backgroundColor: '#000000',
+      alt: 'a computer screen with app interface',
+      blurHash: 'L9J%a_af4Ts:ibozkWR54Toz?^RP',
+    },
+    heroImage: {
+      src: 'todos',
+      blurHash: {
+        light: 'LCG*7~ay00niMdt7ozMx00oz?^RP',
+        dark: 'L9J%a_af4Ts:ibozkWR54Toz?^RP',
+      },
+      alt: 'a computer, tablet, and phone all displaying an app on the screen',
+    },
   },
   {
     title: 'Personal Page',
-    cover: 'personalPage.webp',
-    heroImage: 'page',
-    color: '#8C8C8C',
-    // tools: 'Next 13, Framer Motion, GSAP',
+    coverImage: {
+      src: 'page',
+      backgroundColor: '#8C8C8C',
+      alt: 'a computer screen with app interface',
+      blurHash: 'L9J%a_af4Ts:ibozkWR54Toz?^RP',
+    },
+    heroImage: {
+      src: 'page',
+      blurHash: {
+        light: 'L7Lg^bj]00xtoea~M{V?00t7_NNG',
+        dark: 'LRHeqPj[~qofj[WBxuxu-;ayIUj[',
+      },
+      alt: 'a computer, tablet, and phone all displaying an app on the screen',
+    },
   },
   {
     title: 'Bose Landing Page',
-    cover: 'bose.webp',
-    heroImage: 'bose',
-    color: '#EFE8D3',
-    // tools: 'HTML, SCSS, JS',
+    coverImage: {
+      src: 'bose',
+      backgroundColor: '#EFE8D3',
+      alt: 'a computer screen with app interface',
+      blurHash: 'L9J%a_af4Ts:ibozkWR54Toz?^RP',
+    },
+    heroImage: {
+      src: 'bose',
+      blurHash: {
+        light: 'TAJt-[-:00-qt7IV00NG_MbWRjxb',
+        dark: 'TEFFgY-:00ofxuM{00Rk~qxuRjf8',
+      },
+      alt: 'a computer, tablet, and phone all displaying an app on the screen',
+    },
   },
   {
     title: 'Under Construction',
-    cover: 'silencio.png',
-    heroImage: 'personal',
-    color: '#706D63',
-    // tools: 'under constructuion',
+    coverImage: {
+      src: 'placeholder',
+      backgroundColor: '#706D63',
+      alt: 'a computer screen with app interface',
+      blurHash: 'L9J%a_af4Ts:ibozkWR54Toz?^RP',
+    },
+    heroImage: {
+      src: 'personal',
+      blurHash: {
+        light: 'L7Lg^bj]00xtoea~M{V?00t7_NNG',
+        dark: 'LRHeqPj[~qofj[WBxuxu-;ayIUj[',
+      },
+      alt: 'a computer, tablet, and phone all displaying an app on the screen',
+    },
   },
 ];
 
@@ -52,7 +92,6 @@ export default function Projects({ dict }: ProjectsProps) {
 
   return (
     <Container
-      id="35"
       className="flex flex-col items-center justify-center"
       onMouseLeave={() => setIsActive(false)}
     >
@@ -76,7 +115,7 @@ export default function Projects({ dict }: ProjectsProps) {
           {projects.map((project, index) => {
             return (
               <ProjectDetails
-                key={project.color}
+                key={project.title}
                 index={index}
                 project={project}
                 onHover={setIllustration}

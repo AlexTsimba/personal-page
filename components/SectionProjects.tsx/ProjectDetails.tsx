@@ -21,7 +21,7 @@ export default function ProjectDetails({
   onHover,
   index,
 }: ProjectDetailsProps) {
-  const { title, cover, heroImage } = project;
+  const { title, heroImage } = project;
 
   // This function handles scrolling to the target section when it expands.
   // It checks the state of the AccordionItem and, if closed, scrolls to the target with an offset of -200 pixels.
@@ -42,7 +42,7 @@ export default function ProjectDetails({
   return (
     <AccordionItem
       id={`accordion-${index}`}
-      value={cover}
+      value={title}
       className="border-t-2 border-foreground/50 p-0 first:border-none"
       onClick={handleExpandScroll}
     >

@@ -1,10 +1,11 @@
 import { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import gsap from 'gsap';
 import Project from '@/types/Project';
 import { motionControls } from '@/lib/motionControls';
 import classNames from 'classnames';
+
+import GalleryImage from './GalleryImage';
 
 interface GalleryProps {
   status: { active: boolean; index: number };
@@ -49,22 +50,8 @@ export default function Gallery({ status, projects }: GalleryProps) {
         className="absolute h-full w-full transition-transform "
       >
         {projects.map((project) => {
-          const { cover, color } = project;
-          return (
-            <div
-              className="flex h-full w-full items-center justify-center"
-              style={{ backgroundColor: color }}
-              key={project.title}
-            >
-              {/* to-do:add placeholder='blur' and coresponding data-url(after moving images from local to external) */}
-              <Image
-                src={`/images/${cover}`}
-                width={300}
-                height={300}
-                alt="image"
-              />
-            </div>
-          );
+          const { coverImage } = project;
+          return <GalleryImage key={project.title} image={coverImage} />;
         })}
       </div>
     </motion.div>
