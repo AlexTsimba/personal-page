@@ -24,7 +24,9 @@ module.exports = {
         clamp: 'clamp(9rem, 30vw, 20rem)',
       },
       padding: {
+        'clamp-sm':'clamp(0rem, calc(3vw - 3px), 3rem)',
         clamp: 'clamp(0rem, calc(5vw - 5px), 5rem)',
+        
       },
       keyframes: {
         'accordion-down': {
@@ -44,8 +46,9 @@ module.exports = {
         sans: ['var(--font-fixel)'],
       },
       fontSize: {
+        'clamp-sm': 'clamp(0.8rem, 3vw, 1.2rem)',
         'clamp-lg': 'clamp(1rem, 3vw, 1.5rem)',
-        'clamp-xl': 'clamp(1.2rem, 3vw, 1.563rem)',
+        'clamp-xl': 'clamp(1.2rem, 3vw, 1.5rem)',
         clamp: 'clamp(1rem, 5vw, 3.75rem)',
         sm: '0.8rem',
         base: '1rem',
