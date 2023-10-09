@@ -1,5 +1,5 @@
 import { motionControls } from '@/lib/motionControls';
-import { ChevronRightIcon } from '@heroicons/react/24/solid';
+import { ChevronRight } from 'react-feather';
 import { m } from 'framer-motion';
 
 export default function MotionArrowPointer() {
@@ -10,7 +10,7 @@ export default function MotionArrowPointer() {
     className=" absolute left-[15px] top-[5px] z-0 h-5 w-5"
     {...motionControls.sideBarArrowPointer}
   >
-    <ChevronRightIcon className="h-10 w-10  text-foreground" />
+    <ChevronRight className="h-10 w-10  text-foreground" />
   </m.span>
   )
 }

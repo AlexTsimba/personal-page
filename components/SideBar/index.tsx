@@ -13,15 +13,14 @@ import Portal from '../Portal';
 
 interface SideBarProps {
   isOpen: boolean;
-  navigationDict: Dictionary['navLinks'];
+  dict: Dictionary['navLinks'];
   scroller: Lenis;
   activeSection: string;
   toggleSidebar: () => void;
-  children: React.ReactNode;
 }
 
 export default function SideBar({
-  navigationDict,
+  dict: navigationDict,
   scroller,
   activeSection,
   toggleSidebar,

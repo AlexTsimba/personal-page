@@ -1,6 +1,6 @@
 const plugin = require('tailwindcss/plugin');
 
-const rotateY = plugin(({ addUtilities }) => {
+const rotateY = plugin(({ addUtilities } : any) => {
   addUtilities({
     '.rotate-y-180': {
       transform: 'rotateY(180deg)',

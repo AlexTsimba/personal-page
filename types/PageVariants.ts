@@ -1,10 +1,10 @@
-export default interface PageVariants {
-  themeVariants: {
-    value: string;
-    title: string;
-  }[];
-  langVariants: {
-    value: string;
-    title: string;
-  }[];
+export interface Langs {
+  english: string;
+  ukrainian: string;
+}
+
+export interface Themes {
+  dark: string;
+  light: string;
+  system: string;
 }

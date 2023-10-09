@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { useTheme } from 'next-themes';
-import { MoonIcon, SunIcon } from '@heroicons/react/24/solid';
+import { Moon, Sun} from 'react-feather';
 
 import { Button } from './shadcn/button';
 import {
@@ -24,8 +24,8 @@ export default function ThemeSwitch({ variants }: ThemeSwitchProps) {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="lg">
-          <SunIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 dark:-rotate-90 dark:scale-0" />
+          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 dark:rotate-0 dark:scale-100" />
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>

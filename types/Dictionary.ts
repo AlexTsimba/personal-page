@@ -9,7 +9,7 @@ export default interface Dictionary {
   };
   language: {
     flag: string;
-    ua: string;
+    uk: string;
     en: string;
   };
   navLinks: {
