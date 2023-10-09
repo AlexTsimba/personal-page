@@ -43,7 +43,7 @@ module.exports = {
         'accordion-up': 'accordion-up 0.4s ease-in-out',
       },
       fontFamily: {
-        sans: ['var(--font-fixel)'],
+        monserrat: ['var(--font-monserrat)'],
       },
       fontSize: {
         'clamp-sm': 'clamp(0.8rem, 3vw, 1.2rem)',

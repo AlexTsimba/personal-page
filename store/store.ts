@@ -1,5 +1,5 @@
 import { createWithEqualityFn } from 'zustand/traditional';
-import { devtools } from 'zustand/middleware';
+// import { devtools } from 'zustand/middleware';
 
 interface UiState {
   isSidebarOpen: boolean;
@@ -9,21 +9,14 @@ interface UiState {
 }
 
 export const useUiStore = createWithEqualityFn<UiState>()(
-  devtools(
-    // persist(
-    (set) => ({
-      isSidebarOpen: false,
-      toggleSidebar: () =>
-        set((state) => ({ isSidebarOpen: !state.isSidebarOpen })),
-      currentSection: '',
-      setCurrentSection: (sectionName: string) =>
-        set(() => ({ currentSection: sectionName })),
-    }),
-    {
-      name: 'ui-store',
-    }
-    // )
-  ),
+  (set) => ({
+    isSidebarOpen: false,
+    toggleSidebar: () =>
+      set((state) => ({ isSidebarOpen: !state.isSidebarOpen })),
+    currentSection: '',
+    setCurrentSection: (sectionName: string) =>
+      set(() => ({ currentSection: sectionName })),
+  }),
   Object.is
 );
 
@@ -37,21 +30,14 @@ interface ContactFormState {
 }
 
 export const useContactFormStore = createWithEqualityFn<ContactFormState>()(
-  devtools(
-    // persist(
-    (set) => ({
-      isPending: false,
-      setIsPending: (isPending) => set(() => ({ isPending: isPending })),
-      isFlipped: false,
-      setIsFlipped: (isFlipped) => set(() => ({ isFlipped: isFlipped })),
+  (set) => ({
+    isPending: false,
+    setIsPending: (isPending) => set(() => ({ isPending: isPending })),
+    isFlipped: false,
+    setIsFlipped: (isFlipped) => set(() => ({ isFlipped: isFlipped })),
 
-      isSuccess: false,
-      setIsSuccess: (isSuccess) => set(() => ({ isSuccess: isSuccess })),
-    }),
-    {
-      name: 'contactForm-store',
-    }
-    // )
-  ),
+    isSuccess: false,
+    setIsSuccess: (isSuccess) => set(() => ({ isSuccess: isSuccess })),
+  }),
   Object.is
 );

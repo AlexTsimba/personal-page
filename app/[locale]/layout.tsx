@@ -1,9 +1,9 @@
 import '../globals.css';
 import type { Metadata } from 'next';
-
-import { fixelFont } from '@/common/fonts/fixelFont';
-import Providers from '../../components/providers/Providers';
 import classNames from 'classnames';
+
+import monserrat from '@/public/fonts/Monserrat';
+import Providers from '@/components/providers/Providers';
 
 export const metadata: Metadata = {
   title: '<AlexTsimba />',
@@ -22,7 +22,7 @@ export default function RootLayout({
       <body
         id="portal"
         className={classNames(
-          fixelFont.className,
+          monserrat.className,
           'lenis lenis-smooth light flex min-h-screen flex-col items-center'
         )}
       >
