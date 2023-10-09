@@ -12,6 +12,8 @@ import PageVariants from '@/types/PageVariants';
 import SideBar from './SideBar';
 import NavBar from './NavBar';
 import PageControls from './PageControls';
+import { LazyMotion } from 'framer-motion';
+import { loadDomMaxFeatures } from '@/lib/framer-motion/features';
 
 interface NavigationProps {
   navigationDict: Dictionary['navLinks'];
@@ -34,24 +36,23 @@ export default function Navigation({
   );
 
   return (
-    <>
-      <NavBar
-        navigationDict={navigationDict}
-        activeSection={activeSection}
-        scroller={scroller}
-      >
-        <PageControls isSidebarOpen={isSidebarOpen} variants={pageVariants} />
-      </NavBar>
-
-      <SideBar
-        isOpen={isSidebarOpen}
-        toggleSidebar={toggleSidebar}
-        navigationDict={navigationDict}
-        activeSection={activeSection}
-        scroller={scroller}
-      >
-
-      </SideBar>
-    </>
+      <LazyMotion features={loadDomMaxFeatures}>
+        <NavBar
+          navigationDict={navigationDict}
+          activeSection={activeSection}
+          scroller={scroller}
+        >
+          <PageControls isSidebarOpen={isSidebarOpen} variants={pageVariants} />
+        </NavBar>
+        <SideBar
+          isOpen={isSidebarOpen}
+          toggleSidebar={toggleSidebar}
+          navigationDict={navigationDict}
+          activeSection={activeSection}
+          scroller={scroller}
+        >
+        </SideBar>
+      </LazyMotion>
+  
   );
 }

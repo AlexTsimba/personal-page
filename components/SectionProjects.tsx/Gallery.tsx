@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import gsap from 'gsap';
 import Project from '@/types/Project';
 import { motionControls } from '@/lib/motionControls';
@@ -35,7 +35,7 @@ export default function Gallery({ status, projects }: GalleryProps) {
   }, []);
 
   return (
-    <motion.div
+    <m.div
       ref={illustrationRef}
       variants={showHideAnimation}
       animate={active ? 'enter' : 'closed'}
@@ -54,6 +54,6 @@ export default function Gallery({ status, projects }: GalleryProps) {
           return <GalleryImage key={project.title} image={coverImage} />;
         })}
       </div>
-    </motion.div>
+    </m.div>
   );
 }

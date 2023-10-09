@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import { m, useAnimation } from 'framer-motion';
 import path from './path.json';
 import { motionControls } from '@/lib/motionControls';
 
@@ -34,7 +34,7 @@ export default function BurgerIcon({ isOpen }: BurgerIconProps) {
       style={{ transform: 'scale(1.1)' }}
     >
       {variants.map((variant, index) => (
-        <motion.path
+        <m.path
           key={index}
           // !!! do not rewrite to classNames, it causes unexpected behaviour
           className={

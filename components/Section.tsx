@@ -10,9 +10,9 @@ interface SectionProps {
 const Section = forwardRef<HTMLDivElement, SectionProps>(
   ({ children, id, className }, ref) => {
     return (
-      <div id={id} ref={ref} className={classNames('w-full', className)}>
+      <section id={id} ref={ref} className={classNames('w-full', className)}>
         {children}
-      </div>
+      </section>
     );
   }
 );

@@ -1,5 +1,5 @@
 import Dictionary from '@/types/Dictionary';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 import Container from '../Container';
 import { Button } from '../shadcn/button';
@@ -14,7 +14,7 @@ export default function Hello({ dict }: HelloProps) {
   return (
     <Container className="pt-20">
       <div className="flex w-full flex-col items-center justify-around rounded-xl pt-6 md:flex-row md:pl-20">
-        <motion.div
+        <m.div
           {...motionControls.hello.greeting}
           className="flex w-fit flex-col md:self-center"
         >
@@ -36,10 +36,10 @@ export default function Hello({ dict }: HelloProps) {
               </Button>
             </div>
           </div>
-        </motion.div>
-        <motion.div {...motionControls.hello.image}>
+        </m.div>
+        <m.div {...motionControls.hello.image}>
           <Face />
-        </motion.div>
+        </m.div>
       </div>
     </Container>
   );

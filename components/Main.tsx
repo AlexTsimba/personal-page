@@ -72,8 +72,8 @@ export default function Main({ dict }: MainProps) {
     sections.forEach((section) => {
       ScrollTrigger.create({
         trigger: section.sectionRef.current,
-        start: 'top center+=25%', // Trigger point with 25% space on top
-        end: 'bottom center-=25%', // End point with 25% space on bottom
+        start: 'top center+=50%', // Trigger point with 25% space on top
+        end: 'bottom center-=50%', // End point with 25% space on bottom
         onEnter: () => {
           const currentSection = section.key;
           setCurrentSection(currentSection);

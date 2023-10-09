@@ -26,7 +26,7 @@ export default function RootLayout({
           'lenis lenis-smooth light flex min-h-screen flex-col items-center'
         )}
       >
-        <Providers>
+        <Providers locale={params.locale}>
           <div className="relative  w-full">{children}</div>
         </Providers>
       </body>

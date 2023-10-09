@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useContactFormStore } from '@/store/store';
 import { shallow } from 'zustand/shallow';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { motionControls } from '@/lib/motionControls';
 
 import { Button } from '../shadcn/button';
@@ -57,7 +57,7 @@ export default function SubmitNotification({ dict }: SubmitNotificationProps) {
             )}
           </div>
           {animationComplete && (
-            <motion.div
+            <m.div
               className="flex flex-col items-center justify-center gap-20"
               {...motionControls.contact.submitNotification}
             >
@@ -75,7 +75,7 @@ export default function SubmitNotification({ dict }: SubmitNotificationProps) {
               >
                 {buttonText}
               </Button>
-            </motion.div>
+            </m.div>
           )}
         </div>
       )}

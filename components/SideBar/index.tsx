@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import { motionControls } from '@/lib/motionControls';
 import useOnClickOutside from '@/lib/hooks/useOnClickOutside';
 import { navConfig } from '@/lib/navConfig';
@@ -34,7 +34,7 @@ export default function SideBar({
     <Portal>
       <AnimatePresence>
         {isOpen && (
-          <motion.aside
+          <m.aside
             ref={wrapperRef}
             className="fixed left-0 top-0 z-20 h-[100vh] w-2/3 max-w-sm bg-background/70 px-6 pb-20 pt-4 shadow-2xl backdrop-blur-xl"
             {...motionControls.sidebar}
@@ -56,7 +56,7 @@ export default function SideBar({
                 })}
               </nav>
             </div>
-          </motion.aside>
+          </m.aside>
         )}
       </AnimatePresence>
     </Portal>

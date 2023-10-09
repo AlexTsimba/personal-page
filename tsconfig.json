@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/plugins/tw-rotate.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/plugins/tw-rotate.js", "framer-motion/features.js", "framer-motion/dom-max.js", "framer-motion/dom-animation.js"],
   "exclude": ["node_modules"]
 }

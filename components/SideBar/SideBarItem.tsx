@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Lenis from '@studio-freight/lenis';
 import { useUiStore } from '@/store/store';
 import { shallow } from 'zustand/shallow';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 import { motionControls } from '@/lib/motionControls';
 import MotionArrowPointer from './MotionArrowPointer';
@@ -34,7 +34,6 @@ export default function SideBarItem({
 
   const handleScrollTo = (anchor: string) => {
     scroller.scrollTo(anchor, {
-      offset: -80,
       onComplete: toggleSidebar,
       ...motionControls.scrollTo,
     });
@@ -55,9 +54,9 @@ export default function SideBarItem({
       )}
       style={{ WebkitTapHighlightColor: 'transparent' }}
     >
-      <motion.div custom={index} {...motionControls.sidebarLinkTitle}>
+      <m.div custom={index} {...motionControls.sidebarLinkTitle}>
         {title}
-      </motion.div>
+      </m.div>
 
       {isActive && <MotionArrowPointer />}
     </Button>
