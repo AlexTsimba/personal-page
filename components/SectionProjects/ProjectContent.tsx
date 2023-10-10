@@ -3,25 +3,30 @@
 import React from 'react';
 import HeroImage from './HeroImage';
 import Project from '@/types/Project';
-import Link from 'next/link';
+import ExternalLInk from '../ExternalLInk';
+import classNames from 'classnames';
 
-interface Props {
-  heroImage: Project['heroImage'];
+interface ProjectContentProps {
+  content: Project;
 }
 
-export default function ProjectContent({ heroImage }: Props) {
+export default function ProjectContent({ content }: ProjectContentProps) {
+  const { demo, heroImage } = content;
   return (
     <div className="relative overflow-hidden rounded-xl bg-routine text-base font-normal text-foreground">
       <HeroImage image={heroImage} />
 
-      <div className="absolute right-0 top-0 flex">
-        <Link
-          href="#"
-          className="rounded-none rounded-bl-xl rounded-tr-xl bg-foreground px-2 py-1 text-clamp-sm font-medium text-background after:content-['_↗'] hover:bg-accent"
-        >
-          live demo
-        </Link>
-      </div>
+      {demo && (
+        <ExternalLInk
+          href={demo}
+          title="live demo"
+          className={classNames(
+            'absolute right-0 top-0',
+            'rounded-bl-xl bg-foreground px-2 py-1 hover:bg-accent',
+            ' text-background'
+          )}
+        />
+      )}
 
       <div className="p-clamp-sm">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
@@ -29,7 +34,7 @@ export default function ProjectContent({ heroImage }: Props) {
         labore, incidunt repellat nam corporis doloremque earum quia aperiam
         nihil quibusdam esse. Mollitia ullam, obcaecati beatae quae nulla est
         quod temporibus iste, maiores dignissimos fugiat rerum officiis vitae
-        nam harum possimus eos reprehenderit?
+        nam harum possimus eos reprehenderit?s
       </div>
     </div>
   );

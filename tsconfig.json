@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/plugins/tw-rotate.ts", "lib/framer-motion/features.ts", "lib/framer-motion/dom-max.ts", "lib/framer-motion/dom-animation.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/plugins/tw-rotate.ts", "lib/framer-motion/features.ts", "lib/framer-motion/dom-max.ts", "lib/framer-motion/dom-animation.ts", "components/SectionProjects"],
   "exclude": ["node_modules"]
 }

@@ -46,7 +46,8 @@ module.exports = {
         monserrat: ['var(--font-monserrat)'],
       },
       fontSize: {
-        'clamp-sm': 'clamp(0.8rem, 3vw, 1.2rem)',
+        'clamp-sm': 'clamp(0.7rem, 3vw, 1rem)',
+        'clamp-md': 'clamp(0.9rem, 3vw, 1.2rem',
         'clamp-lg': 'clamp(1rem, 3vw, 1.5rem)',
         'clamp-xl': 'clamp(1.2rem, 3vw, 1.5rem)',
         clamp: 'clamp(1rem, 5vw, 3.75rem)',

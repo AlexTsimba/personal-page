@@ -21,7 +21,7 @@ export async function loadFeedbackAnimation(
   setAnimation(animation.default);
 }
 
-export function getImagePath(folder: string, name: string, theme?: string) {
+export function getImageURL(folder: string, name: string, theme?: string) {
   if (theme) {
     return `${folder}${name}-${theme}`;
   } else {

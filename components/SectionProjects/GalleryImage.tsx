@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { CldImage } from 'next-cloudinary';
 import { Blurhash } from 'react-blurhash';
-import classNames from 'classnames';
 
-import Project from '@/types/Project';
-import { getImagePath } from '@/lib/utils';
 import { IMAGES_GALLERY } from '@/constants/constants';
+import { getImageURL } from '@/lib/utils';
+import classNames from 'classnames';
+import Project from '@/types/Project';
 
 interface HeroImageProps {
   image: Project['coverImage'];
@@ -13,8 +13,8 @@ interface HeroImageProps {
 
 export default function GalleryImage({ image }: HeroImageProps) {
   const [imageIsReady, setReady] = useState<boolean>(false);
-  const { src, blurHash, alt, backgroundColor } = image;
-  const path = getImagePath(IMAGES_GALLERY, src);
+  const { src, blurHash, alt, backgroundColor, sizes } = image;
+  const path = getImageURL(IMAGES_GALLERY, src);
 
   return (
     <div
@@ -22,6 +22,19 @@ export default function GalleryImage({ image }: HeroImageProps) {
       style={{ backgroundColor: backgroundColor }}
     >
       <div className="relative h-fit w-full items-center justify-start marker:flex">
+        <CldImage
+          className={classNames('mx-auto transition-all duration-1000', {
+            'opacity-0': !imageIsReady,
+          })}
+          onLoadingComplete={() => setReady(true)}
+          alt={alt}
+          src={path}
+          height={sizes.height}
+          width={sizes.width}
+          quality={80}
+          sizes="100vh"
+          style={{ objectFit: 'cover' }}
+        />
         <Blurhash
           hash={blurHash}
           width="100%"
@@ -35,20 +48,6 @@ export default function GalleryImage({ image }: HeroImageProps) {
               'opacity-0': imageIsReady,
             }
           )}
-        />
-
-        <CldImage
-          className={classNames('mx-auto transition-all duration-1000', {
-            'opacity-0': !imageIsReady,
-          })}
-          onLoadingComplete={() => setReady(true)}
-          alt={alt}
-          src={path}
-          width={300}
-          height={0}
-          quality={80}
-          sizes="100vh"
-          style={{ objectFit: 'cover' }}
         />
       </div>
     </div>

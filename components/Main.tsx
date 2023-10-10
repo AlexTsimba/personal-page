@@ -15,7 +15,7 @@ import { navConfig } from '@/lib/navConfig';
 import Section from './Section';
 import Hello from './SectionHello';
 import Skills from './SectionSkills/SectionSkills';
-import Projects from './SectionProjects.tsx';
+import Projects from './SectionProjects';
 import Contact from './SectionContact';
 
 interface MainProps {

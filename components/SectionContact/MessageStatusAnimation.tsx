@@ -27,8 +27,6 @@ export default function MessageStatusAnimation({
     loadFeedbackAnimation(isSuccess, theme, setAnimationData);
   }, [isSuccess, theme]);
 
-  console.log('anim loaded');
-
   return (
     <div className="flex h-36 items-center justify-center">
       {!complete && (

@@ -18,7 +18,7 @@ export default function ProjectCard({
   onHover,
   index,
 }: ProjectDetailsProps) {
-  const { title, heroImage } = project;
+  const { title } = project;
 
   return (
     <AccordionItem
@@ -45,7 +45,7 @@ export default function ProjectCard({
         </div>
       </AccordionTrigger>
       <AccordionContent>
-        <ProjectContent heroImage={heroImage} />
+        <ProjectContent content={project} />
       </AccordionContent>
     </AccordionItem>
   );
