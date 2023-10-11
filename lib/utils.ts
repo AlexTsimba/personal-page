@@ -1,6 +1,9 @@
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { SPECIAL_CHARACTERS } from '@/constants/constants';
+import Project from '@/types/Project';
+import { PostgrestSingleResponse } from '@supabase/supabase-js';
+import supabase from './supabase/supabase';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -27,4 +30,29 @@ export function getImageURL(folder: string, name: string, theme?: string) {
   } else {
     return `${folder}${name}`;
   }
+}
+
+export async function fetchProjects() {
+  const response = await fetch('api/projects', {
+    method: 'GET',
+    // cache: 'force-cache',
+  });
+  if (response.ok) {
+    const data: Project[] = await response.json();
+    return data;
+  }
+}
+
+export async function wait(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+export async function getProjects() {
+  const { data }: PostgrestSingleResponse<Project[]> = await supabase
+    .from('projects')
+    .select();
+
+  await wait(2000);
+
+  return data;
 }

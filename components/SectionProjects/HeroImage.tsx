@@ -28,7 +28,7 @@ export default function HeroImage({ image }: HeroImageProps) {
         onLoadingComplete={() => setIsLoaded(true)}
         alt={alt}
         src={path}
-        width={sizes.width}
+        width={2530}
         height={sizes.height}
         sizes="100vw"
         quality={90}

@@ -7,13 +7,14 @@ import Gallery from './Gallery';
 import { Accordion } from '@/components/shadcn/accordion';
 import ProjectCard from './ProjectCard';
 import ExternalLInk from '../ExternalLInk';
-import { projects } from './data';
+import Project from '@/types/Project';
 
 interface ProjectsProps {
   dict: Dictionary['projects'];
+  projects: Project[] | null;
 }
 
-export default function Projects({ dict }: ProjectsProps) {
+export default function Projects({ dict, projects }: ProjectsProps) {
   const [illustration, setIllustration] = useState({ active: false, index: 0 });
   const [isActive, setIsActive] = useState<boolean>(false); // to-do: use currentSection from uiStore (after scrolltrigger fix)
 
@@ -38,19 +39,21 @@ export default function Projects({ dict }: ProjectsProps) {
           </cite>
         </blockquote>
 
-        <Accordion type="single" collapsible className="w-full">
-          {projects.map((project, index) => {
-            return (
-              <ProjectCard
-                project={project}
-                onHover={setIllustration}
-                index={index}
-                key={project.title}
-              />
-            );
-          })}
-          {isActive && <Gallery status={illustration} projects={projects} />}
-        </Accordion>
+        {projects && (
+          <Accordion type="single" collapsible className="w-full">
+            {projects.map((project, index) => {
+              return (
+                <ProjectCard
+                  project={project}
+                  onHover={setIllustration}
+                  index={index}
+                  key={project.title}
+                />
+              );
+            })}
+            {isActive && <Gallery status={illustration} projects={projects} />}
+          </Accordion>
+        )}
 
         <div className="self-end">
           <span className="text-clamp-md after:content-['_']">

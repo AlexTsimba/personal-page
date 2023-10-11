@@ -17,6 +17,8 @@ import Hello from './SectionHello';
 import Skills from './SectionSkills/SectionSkills';
 import Projects from './SectionProjects';
 import Contact from './SectionContact';
+import Project from '@/types/Project';
+
 
 interface MainProps {
   dict: Pick<
@@ -28,9 +30,10 @@ interface MainProps {
     | 'contactFormFeedback'
     | 'contactDetails'
   >;
+  projects: Project[] | null;
 }
 
-export default function Main({ dict }: MainProps) {
+export default function Main({ dict, projects }: MainProps) {
   const contactDict: Pick<
     Dictionary,
     'contact' | 'contactDetails' | 'contactFormFeedback'
@@ -44,7 +47,7 @@ export default function Main({ dict }: MainProps) {
     hello: <Hello dict={dict.hello} />,
     skills: <Skills dict={dict.skills} />,
     contact: <Contact dict={contactDict} />,
-    projects: <Projects dict={dict.projects} />,
+    projects: <Projects dict={dict.projects} projects={projects} />,
   };
 
   // Refs for section links used in scroll animation
