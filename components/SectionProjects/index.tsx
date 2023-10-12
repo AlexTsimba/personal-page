@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 
 import Container from '../Container';
@@ -17,7 +19,22 @@ interface ProjectsProps {
 export default function Projects({ dict, projects }: ProjectsProps) {
   const [illustration, setIllustration] = useState({ active: false, index: 0 });
   const [isActive, setIsActive] = useState<boolean>(false); // to-do: use currentSection from uiStore (after scrolltrigger fix)
+  // const [projects, setProjects] = useState<Project[] | null>(null);
 
+  // fetch api route
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const response = await fetch('/api/projects', { cache: 'force-cache' });
+
+  //     const data = await response.json();
+
+  //     setProjects(data);
+  //   }
+
+  //   fetchData();
+  // }, []);
+
+  console.log('123');
   return (
     <Container
       className="flex flex-col items-center justify-center"
@@ -39,21 +56,19 @@ export default function Projects({ dict, projects }: ProjectsProps) {
           </cite>
         </blockquote>
 
-        {projects && (
-          <Accordion type="single" collapsible className="w-full">
-            {projects.map((project, index) => {
-              return (
-                <ProjectCard
-                  project={project}
-                  onHover={setIllustration}
-                  index={index}
-                  key={project.title}
-                />
-              );
-            })}
-            {isActive && <Gallery status={illustration} projects={projects} />}
-          </Accordion>
-        )}
+        <Accordion type="single" collapsible className="w-full">
+          {projects?.map((project, index) => {
+            return (
+              <ProjectCard
+                project={project}
+                onHover={setIllustration}
+                index={index}
+                key={project.title}
+              />
+            );
+          })}
+          {isActive && <Gallery status={illustration} projects={projects} />}
+        </Accordion>
 
         <div className="self-end">
           <span className="text-clamp-md after:content-['_']">

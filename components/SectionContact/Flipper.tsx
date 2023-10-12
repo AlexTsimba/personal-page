@@ -1,3 +1,5 @@
+'use client';
+
 import { useContactFormStore } from '@/store/store';
 import classNames from 'classnames';
 import { shallow } from 'zustand/shallow';

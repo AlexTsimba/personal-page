@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { useContactFormStore } from '@/store/store';
 import { shallow } from 'zustand/shallow';
@@ -44,7 +46,7 @@ export default function SubmitNotification({ dict }: SubmitNotificationProps) {
   const buttonText = dict[isSucces ? 'buttonSuccess' : 'buttonFailed'];
 
   return (
-    <div className="flex h-full w-full  flex-col items-center justify-center rounded-2xl p-6 shadow-md bg-routine">
+    <div className="flex h-full w-full  flex-col items-center justify-center rounded-2xl bg-routine p-6 shadow-md">
       {isFlipped && (
         <div>
           <div className="h-1/3 w-full">

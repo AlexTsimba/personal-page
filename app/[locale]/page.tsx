@@ -3,15 +3,16 @@ import Dictionary from '@/types/Dictionary';
 
 import Header from '../../components/Header';
 import Main from '../../components/Main';
-import { getProjects } from '@/lib/utils';
+// import { locales } from '@/i18n';
+import { unstable_setRequestLocale } from 'next-intl/server';
 
 export default async function Home({
   params: { locale },
 }: {
   params: { locale: string };
 }) {
+  unstable_setRequestLocale(locale);
   const dictionary = await getDictionary(locale);
-  const projects = await getProjects();
 
   const headerDict: Pick<Dictionary, 'theme' | 'language' | 'navLinks'> = {
     theme: dictionary.theme,
@@ -40,9 +41,9 @@ export default async function Home({
     <>
       <Header dict={headerDict} />
 
-      <Main dict={mainDict} projects={projects} />
-      <footer className="flex h-20 items-center justify-center bg-background">
-        footer g
+      <Main dict={mainDict} />
+      <footer className="flex h-20 items-center justify-center bg-background transition-colors">
+        footer
       </footer>
     </>
   );

@@ -9,7 +9,7 @@ import GalleryImage from './GalleryImage';
 
 interface GalleryProps {
   status: { active: boolean; index: number };
-  projects: Project[];
+  projects: Project[] | null;
 }
 
 export default function Gallery({ status, projects }: GalleryProps) {
@@ -49,7 +49,7 @@ export default function Gallery({ status, projects }: GalleryProps) {
         style={{ top: index * -100 + '%', transition: 'top 0.3s' }}
         className="absolute h-full w-full transition-transform "
       >
-        {projects.map((project) => {
+        {projects?.map((project) => {
           const { coverImage } = project;
           return <GalleryImage key={project.title} image={coverImage} />;
         })}

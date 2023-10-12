@@ -1,13 +1,3 @@
-'use client';
-
-import { useRef, useEffect } from 'react';
-
-import { useUiStore } from '@/store/store';
-import { shallow } from 'zustand/shallow';
-
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
 import Dictionary from '@/types/Dictionary';
 import NavLink from '@/types/NavLink';
 import { navConfig } from '@/lib/navConfig';
@@ -17,8 +7,7 @@ import Hello from './SectionHello';
 import Skills from './SectionSkills/SectionSkills';
 import Projects from './SectionProjects';
 import Contact from './SectionContact';
-import Project from '@/types/Project';
-
+import { getProjects } from '@/lib/utils';
 
 interface MainProps {
   dict: Pick<
@@ -30,10 +19,9 @@ interface MainProps {
     | 'contactFormFeedback'
     | 'contactDetails'
   >;
-  projects: Project[] | null;
 }
 
-export default function Main({ dict, projects }: MainProps) {
+export default async function Main({ dict }: MainProps) {
   const contactDict: Pick<
     Dictionary,
     'contact' | 'contactDetails' | 'contactFormFeedback'
@@ -43,6 +31,8 @@ export default function Main({ dict, projects }: MainProps) {
     contactDetails: dict.contactDetails,
   };
 
+  const projects = await getProjects();
+
   const sectionComponents: Record<NavLink['key'], JSX.Element> = {
     hello: <Hello dict={dict.hello} />,
     skills: <Skills dict={dict.skills} />,
@@ -51,48 +41,48 @@ export default function Main({ dict, projects }: MainProps) {
   };
 
   // Refs for section links used in scroll animation
-  const sectionRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
+  // const sectionRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
   const { navLinks } = navConfig;
 
   // Create a list of sections with links, components and refs
-  const sections = navLinks.map((page, index) => {
+  const sections = navLinks.map((page) => {
     return {
-      sectionRef: sectionRefs[index],
+      // sectionRef: sectionRefs[index],
       component: sectionComponents[page.key],
       ...page,
     };
   });
 
-  const { setCurrentSection } = useUiStore(
-    (state) => ({ setCurrentSection: state.setCurrentSection }),
-    shallow
-  );
+  // const { setCurrentSection } = useUiStore(
+  //   (state) => ({ setCurrentSection: state.setCurrentSection }),
+  //   shallow
+  // );
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+  // useEffect(() => {
+  //   gsap.registerPlugin(ScrollTrigger);
 
-    // Create a ScrollTrigger instance for each section
-    sections.forEach((section) => {
-      ScrollTrigger.create({
-        trigger: section.sectionRef.current,
-        start: 'top center+=50%', // Trigger point with 25% space on top
-        end: 'bottom center-=50%', // End point with 25% space on bottom
-        onEnter: () => {
-          const currentSection = section.key;
-          setCurrentSection(currentSection);
-        },
-        onEnterBack: () => {
-          const currentSection = section.key;
-          setCurrentSection(currentSection);
-        },
-      });
-    });
-  }, [sections, setCurrentSection]);
+  //   // Create a ScrollTrigger instance for each section
+  //   sections.forEach((section) => {
+  //     ScrollTrigger.create({
+  //       trigger: section.sectionRef.current,
+  //       start: 'top center+=50%', // Trigger point with 25% space on top
+  //       end: 'bottom center-=50%', // End point with 25% space on bottom
+  //       onEnter: () => {
+  //         const currentSection = section.key;
+  //         setCurrentSection(currentSection);
+  //       },
+  //       onEnterBack: () => {
+  //         const currentSection = section.key;
+  //         setCurrentSection(currentSection);
+  //       },
+  //     });
+  //   });
+  // }, [sections, setCurrentSection]);
 
   return (
     <main>
-      {sections.map(({ key, href, sectionRef, component }) => (
-        <Section key={href} id={key} ref={sectionRef}>
+      {sections.map(({ key, href, component }) => (
+        <Section key={href} id={key}>
           {component}
         </Section>
       ))}
