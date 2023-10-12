@@ -10,6 +10,8 @@ import { Accordion } from '@/components/shadcn/accordion';
 import ProjectCard from './ProjectCard';
 import ExternalLInk from '../ExternalLInk';
 import Project from '@/types/Project';
+import { useUiStore } from '@/store/store';
+import { shallow } from 'zustand/shallow';
 
 interface ProjectsProps {
   dict: Dictionary['projects'];
@@ -17,34 +19,18 @@ interface ProjectsProps {
 }
 
 export default function Projects({ dict, projects }: ProjectsProps) {
+  const { currentSection } = useUiStore(
+    (state) => ({ currentSection: state.currentSection }),
+    shallow
+  );
+
+  const isActive = currentSection === 'projects';
   const [illustration, setIllustration] = useState({ active: false, index: 0 });
-  const [isActive, setIsActive] = useState<boolean>(false); // to-do: use currentSection from uiStore (after scrolltrigger fix)
-  // const [projects, setProjects] = useState<Project[] | null>(null);
 
-  // fetch api route
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const response = await fetch('/api/projects', { cache: 'force-cache' });
-
-  //     const data = await response.json();
-
-  //     setProjects(data);
-  //   }
-
-  //   fetchData();
-  // }, []);
-
-  console.log('123');
   return (
-    <Container
-      className="flex flex-col items-center justify-center"
-      onMouseLeave={() => setIsActive(false)}
-    >
+    <Container className="flex flex-col items-center justify-center">
       <PageTitle title={dict.pageTitle} />
-      <div
-        className="flex w-full flex-col items-center justify-center gap-16 rounded-xl px-clamp"
-        onMouseEnter={() => setIsActive(true)}
-      >
+      <div className="flex w-full flex-col items-center justify-center gap-16 rounded-xl px-clamp">
         <blockquote className="flex flex-col items-start gap-2 self-start border-l-2 border-foreground/50 px-6 font-medium">
           <p
             className={`text-clamp-xl font-bold text-accent before:content-['"'] after:content-['"']`}

@@ -2,8 +2,6 @@ import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { SPECIAL_CHARACTERS } from '@/constants/constants';
 import Project from '@/types/Project';
-import { PostgrestSingleResponse } from '@supabase/supabase-js';
-import supabase from './supabase/supabase';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -47,12 +45,3 @@ export async function wait(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-export async function getProjects() {
-  const { data }: PostgrestSingleResponse<Project[]> = await supabase
-    .from('projects')
-    .select();
-
-  await wait(2000);
-
-  return data;
-}

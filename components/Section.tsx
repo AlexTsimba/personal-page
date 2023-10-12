@@ -1,5 +1,10 @@
-import React, { forwardRef } from 'react';
+'use client';
+
+import { useUiStore } from '@/store/store';
 import classNames from 'classnames';
+import { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+import { shallow } from 'zustand/shallow';
 
 interface SectionProps {
   children: React.ReactNode;
@@ -7,16 +12,25 @@ interface SectionProps {
   className?: string;
 }
 
-const Section = forwardRef<HTMLDivElement, SectionProps>(
-  ({ children, id, className }, ref) => {
-    return (
-      <section id={id} ref={ref} className={classNames('w-full', className)}>
-        {children}
-      </section>
-    );
-  }
-);
+export default function Section({ children, id, className }: SectionProps) {
+  const { ref, inView } = useInView({
+    threshold: 0.6,
+  });
 
-Section.displayName = 'Section';
+  const { setCurrentSection } = useUiStore(
+    (state) => ({ setCurrentSection: state.setCurrentSection }),
+    shallow
+  );
 
-export default Section;
+  useEffect(() => {
+    if (inView) {
+      setCurrentSection(id);
+    }
+  }, [id, inView, setCurrentSection]);
+
+  return (
+    <section ref={ref} id={id} className={classNames('w-full', className)}>
+      {children}
+    </section>
+  );
+}

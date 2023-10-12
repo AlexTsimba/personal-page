@@ -7,7 +7,7 @@ import Hello from './SectionHello';
 import Skills from './SectionSkills/SectionSkills';
 import Projects from './SectionProjects';
 import Contact from './SectionContact';
-import { getProjects } from '@/lib/utils';
+import { getProjects } from '@/lib/supabase/supabase';
 
 interface MainProps {
   dict: Pick<
@@ -40,44 +40,14 @@ export default async function Main({ dict }: MainProps) {
     projects: <Projects dict={dict.projects} projects={projects} />,
   };
 
-  // Refs for section links used in scroll animation
-  // const sectionRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
   const { navLinks } = navConfig;
 
-  // Create a list of sections with links, components and refs
   const sections = navLinks.map((page) => {
     return {
-      // sectionRef: sectionRefs[index],
       component: sectionComponents[page.key],
       ...page,
     };
   });
-
-  // const { setCurrentSection } = useUiStore(
-  //   (state) => ({ setCurrentSection: state.setCurrentSection }),
-  //   shallow
-  // );
-
-  // useEffect(() => {
-  //   gsap.registerPlugin(ScrollTrigger);
-
-  //   // Create a ScrollTrigger instance for each section
-  //   sections.forEach((section) => {
-  //     ScrollTrigger.create({
-  //       trigger: section.sectionRef.current,
-  //       start: 'top center+=50%', // Trigger point with 25% space on top
-  //       end: 'bottom center-=50%', // End point with 25% space on bottom
-  //       onEnter: () => {
-  //         const currentSection = section.key;
-  //         setCurrentSection(currentSection);
-  //       },
-  //       onEnterBack: () => {
-  //         const currentSection = section.key;
-  //         setCurrentSection(currentSection);
-  //       },
-  //     });
-  //   });
-  // }, [sections, setCurrentSection]);
 
   return (
     <main>
