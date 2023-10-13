@@ -6,6 +6,8 @@ interface UiState {
   toggleSidebar: () => void;
   currentSection: string;
   setCurrentSection: (sectionName: string) => void;
+  gallery: { active: boolean; index: number };
+  setGallery: ({ active, index }: { active: boolean; index: number }) => void;
 }
 
 export const useUiStore = createWithEqualityFn<UiState>()(
@@ -13,9 +15,14 @@ export const useUiStore = createWithEqualityFn<UiState>()(
     isSidebarOpen: false,
     toggleSidebar: () =>
       set((state) => ({ isSidebarOpen: !state.isSidebarOpen })),
+
     currentSection: '',
-    setCurrentSection: (sectionName: string) =>
+    setCurrentSection: (sectionName) =>
       set(() => ({ currentSection: sectionName })),
+      
+    gallery: { active: false, index: 0 },
+    setGallery: ({ active, index }) =>
+      set(() => ({ gallery: { active, index } })),
   }),
   Object.is
 );

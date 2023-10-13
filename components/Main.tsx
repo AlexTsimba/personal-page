@@ -7,7 +7,6 @@ import Hello from './SectionHello';
 import Skills from './SectionSkills/SectionSkills';
 import Projects from './SectionProjects';
 import Contact from './SectionContact';
-import { getProjects } from '@/lib/supabase/supabase';
 
 interface MainProps {
   dict: Pick<
@@ -31,13 +30,11 @@ export default async function Main({ dict }: MainProps) {
     contactDetails: dict.contactDetails,
   };
 
-  const projects = await getProjects();
-
   const sectionComponents: Record<NavLink['key'], JSX.Element> = {
     hello: <Hello dict={dict.hello} />,
     skills: <Skills dict={dict.skills} />,
     contact: <Contact dict={contactDict} />,
-    projects: <Projects dict={dict.projects} projects={projects} />,
+    projects: <Projects dict={dict.projects} />,
   };
 
   const { navLinks } = navConfig;

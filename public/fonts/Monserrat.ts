@@ -5,7 +5,7 @@ const monserrat = Montserrat({
   weight: 'variable',
   variable: '--font-monserrat',
   display: 'optional',
-  fallback: ['Roboto'],
+  // fallback: ['Roboto'],
 });
 
 export default monserrat;

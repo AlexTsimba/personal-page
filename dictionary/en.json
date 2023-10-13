@@ -32,7 +32,7 @@
   },
   "projects": {
     "pageTitle": "Projects",
-    "titleQuote": "Talk is cheap. Show me the code",
+    "quoteTitle": "Talk is cheap. Show me the code",
     "quoteAuthor": "Linus Torvalds",
     "invitation": "For more, visit my profile on",
     "ghProfile": "GitHub"

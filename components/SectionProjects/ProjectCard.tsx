@@ -1,4 +1,3 @@
-import React, { Dispatch, SetStateAction } from 'react';
 import {
   AccordionItem,
   AccordionTrigger,
@@ -10,7 +9,7 @@ import Project from '@/types/Project';
 interface ProjectDetailsProps {
   index: number;
   project: Project;
-  onHover: Dispatch<SetStateAction<{ active: boolean; index: number }>>;
+  onHover: ({ active, index }: { active: boolean; index: number }) => void;
 }
 
 export default function ProjectCard({

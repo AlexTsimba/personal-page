@@ -6,7 +6,7 @@ const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 
-export async function getProjects() {
+export async function getAllProjects() {
   const { data }: PostgrestSingleResponse<Project[]> = await supabase
     .from('projects')
     .select();

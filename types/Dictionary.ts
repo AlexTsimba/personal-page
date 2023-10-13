@@ -32,7 +32,7 @@ export default interface Dictionary {
   };
   projects: {
     pageTitle: string;
-    titleQuote: string;
+    quoteTitle: string;
     quoteAuthor: string;
     invitation: string;
     ghProfile: string;

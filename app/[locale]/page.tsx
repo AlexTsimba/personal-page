@@ -40,7 +40,6 @@ export default async function Home({
   return (
     <>
       <Header dict={headerDict} />
-
       <Main dict={mainDict} />
       <footer className="flex h-20 items-center justify-center bg-background transition-colors">
         footer
