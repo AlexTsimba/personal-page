@@ -5,7 +5,7 @@ import Project from '@/types/Project';
 import { motionControls } from '@/lib/motionControls';
 import classNames from 'classnames';
 
-import GalleryImage from './GalleryImage';
+import ImageWithBlur from '../Image';
 
 interface GalleryProps {
   status: { active: boolean; index: number };
@@ -50,8 +50,17 @@ export default function Gallery({ status, projects }: GalleryProps) {
         className="absolute h-full w-full transition-transform "
       >
         {projects?.map((project) => {
-          const { coverImage } = project;
-          return <GalleryImage key={project.title} image={coverImage} />;
+          const { cover } = project.images;
+          const { backgroundColor } = cover;
+          return (
+            <div
+              key={project.title}
+              className="relative flex h-full w-full items-center justify-center"
+              style={{ backgroundColor: backgroundColor }}
+            >
+              <ImageWithBlur image={cover} type="image" />
+            </div>
+          );
         })}
       </div>
     </m.div>

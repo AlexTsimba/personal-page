@@ -1,10 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    dangerouslyAllowSVG: true,
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'placehold.co',
+        hostname: 'img.shields.io',
+      },
+      {
+        protocol: 'https',
+        hostname: 'shields.io',
       },
       {
         protocol: 'https',

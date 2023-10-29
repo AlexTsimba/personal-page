@@ -3,7 +3,6 @@ import Dictionary from '@/types/Dictionary';
 
 import Header from '../../components/Header';
 import Main from '../../components/Main';
-// import { locales } from '@/i18n';
 import { unstable_setRequestLocale } from 'next-intl/server';
 
 export default async function Home({

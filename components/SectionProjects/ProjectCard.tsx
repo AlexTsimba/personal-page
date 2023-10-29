@@ -25,15 +25,11 @@ export default function ProjectCard({
       value={title}
       className="border-t-2 border-foreground/50 p-0 first:border-none"
     >
-      <AccordionTrigger className="m-0 p-0">
+      <AccordionTrigger>
         <div
           className="block w-full cursor-pointer px-clamp py-8 text-start"
-          onMouseEnter={() => {
-            onHover({ active: true, index });
-          }}
-          onMouseLeave={() => {
-            onHover({ active: false, index });
-          }}
+          onMouseEnter={() => { onHover({ active: true, index })}}
+          onMouseLeave={() => { onHover({ active: false, index })}}
         >
           <h3
             id={title}

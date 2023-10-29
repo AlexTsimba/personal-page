@@ -4,7 +4,7 @@ import face from '@/public/images/face.webp';
 
 export default function Face() {
   return (
-    <div className="self-center pt-20 transition-all duration-300 md:pt-0">
+    <div className="self-center transition-all duration-300 ">
       <div
         style={{ willChange: 'transform' }} // this fixes safari bug, when overflow + border-radius doesn't work together
         className="group/avatar relative overflow-hidden rounded-b-full pt-10 transition-all duration-200 hover:scale-105"

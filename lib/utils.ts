@@ -2,6 +2,7 @@ import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { SPECIAL_CHARACTERS } from '@/constants/constants';
 import Project from '@/types/Project';
+import { Locale } from '@/types/PageVariants';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -45,3 +46,9 @@ export async function wait(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+export function resolveLocale(currentLocale: string | string[]) {
+  const resolvedLocale = Array.isArray(currentLocale)
+    ? currentLocale[0]
+    : currentLocale;
+  return resolvedLocale as Locale;
+}

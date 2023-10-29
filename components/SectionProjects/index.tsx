@@ -1,24 +1,27 @@
-import { getAllProjects } from '@/lib/supabase/supabase';
 import Dictionary from '@/types/Dictionary';
+import { getLocale } from 'next-intl/server';
+import { Locale } from '@/types/PageVariants';
 
 import Container from '../Container';
 import ProjectsList from './ProjectsList';
 import PageTitle from '../PageTitle';
-import QuoteHeading from './QuoteHeading';
+import Quote from './Quote';
 import ExternalLInk from '../ExternalLInk';
+import { getAllProjects } from '@/lib/supabase/supabase';
 
 interface ProjectsProps {
   dict: Dictionary['projects'];
 }
 
 export default async function Projects({ dict }: ProjectsProps) {
-  const projects = await getAllProjects();
+  const locale = getLocale() as Locale;
+  const projects = await getAllProjects(locale);
 
   return (
     <Container className="flex flex-col items-center justify-center">
       <PageTitle title={dict.pageTitle} />
       <div className="flex w-full flex-col items-center justify-center gap-16 rounded-xl px-clamp">
-        <QuoteHeading title={dict.quoteTitle} author={dict.quoteAuthor} />
+        <Quote title={dict.quoteTitle} author={dict.quoteAuthor} />
 
         <ProjectsList projects={projects} />
 
