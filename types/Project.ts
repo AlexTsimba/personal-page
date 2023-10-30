@@ -1,19 +1,43 @@
-import Img from './Img';
-import ThemedImg from './ThemedImg';
-
 export default interface Project {
-  title: string;
-  // heroImage: ThemedImg;
-  // coverImage: Img;
-  description: { title: string; text: string };
-  toolsBages: { title: string; list: Img[] };
-  images: {
-    hero: ThemedImg;
-    cover: Img;
+  id: number;
+  coverImage: {
+    alt: string;
+    src: string;
+    sizes: {
+      width: number;
+      height: number;
+    };
+    blurHash: string;
+    backgroundColor: string;
   };
-  links: {
+  heroImage: {
+    alt: string;
+    src: string;
+    sizes: {
+      width: number;
+      height: number;
+    };
+    themedBlurHash: { dark: string; light: string };
+  };
+  links: { href: string; title: string }[];
+  toolsBadges: {
+    alt: string;
+    src: string;
+    sizes: {
+      width: number;
+      height: number;
+    };
+    blurHash: string;
+  }[];
+  translations: {
+    locale: 'uk' | 'en';
+    projectId: string;
     title: string;
-    list: { href: string; title: string }[];
-  };
-  features: { title: string; list: string[] };
+    descriptionTitle: string;
+    descriptionText: string;
+    linksTitle: string;
+    toolsBadgesTitle: string;
+    featuresTitle: string;
+    featuresList: string[];
+  }[];
 }

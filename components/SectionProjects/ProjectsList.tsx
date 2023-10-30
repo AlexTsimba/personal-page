@@ -1,19 +1,18 @@
 'use client';
 
-import { Accordion } from '@radix-ui/react-accordion';
 import { shallow } from 'zustand/shallow';
 
 import { useUiStore } from '@/store/store';
-import Project from '@/types/Project';
 
-import Gallery from './Gallery';
+import Project from '@/types/Project';
 import ProjectCard from './ProjectCard';
+import Gallery from './Gallery';
 
 interface ProjectsListProps {
   projects: Project[] | null;
 }
 export default function ProjectsList({ projects }: ProjectsListProps) {
-  const { currentSection, gallery, setGallery } = useUiStore(
+  const { setGallery, gallery } = useUiStore(
     (state) => ({
       currentSection: state.currentSection,
       gallery: state.gallery,
@@ -22,21 +21,21 @@ export default function ProjectsList({ projects }: ProjectsListProps) {
     shallow
   );
 
-  const isActive = currentSection === 'projects';
+  // const isActive = currentSection === 'projects';
 
   return (
-    <Accordion type="single" collapsible className="w-full">
+    <div>
       {projects?.map((project, index) => {
         return (
           <ProjectCard
             project={project}
             onHover={setGallery}
             index={index}
-            key={project.title}
+            key={project.id}
           />
         );
       })}
-      {isActive && <Gallery status={gallery} projects={projects} />}
-    </Accordion>
+      { <Gallery status={gallery} projects={projects} />}
+    </div>
   );
 }

@@ -2,11 +2,11 @@ import Project from '@/types/Project';
 import ExternalLInk from '../ExternalLInk';
 
 interface LinksProps {
-  links: Project['links'];
+  title: string;
+  list: Project['links'];
 }
 
-export default function Links({ links }: LinksProps) {
-  const { title, list } = links;
+export default function Links({ title, list }: LinksProps) {
   return (
     <>
       <h4 className="text-clamp-lg font-semibold">{title}</h4>

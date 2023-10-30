@@ -50,15 +50,16 @@ export default function Gallery({ status, projects }: GalleryProps) {
         className="absolute h-full w-full transition-transform "
       >
         {projects?.map((project) => {
-          const { cover } = project.images;
-          const { backgroundColor } = cover;
+          const { coverImage } = project;
+          const { backgroundColor } = coverImage;
+          const { title } = project.translations[0];
           return (
             <div
-              key={project.title}
+              key={title}
               className="relative flex h-full w-full items-center justify-center"
               style={{ backgroundColor: backgroundColor }}
             >
-              <ImageWithBlur image={cover} type="image" />
+              <ImageWithBlur image={coverImage} type="image" />
             </div>
           );
         })}

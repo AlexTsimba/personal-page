@@ -1,13 +1,11 @@
-import Project from '@/types/Project';
-
 interface DescriptionProps {
-  description: Project['description'];
+  title: string;
+  text: string;
 }
 
-export default function Description({ description }: DescriptionProps) {
-  const { title, text } = description;
+export default function Description({ title, text }: DescriptionProps) {
   return (
-    <div className="flex h-min w-full flex-col lg:w-1/2 gap-4">
+    <div className="flex h-min w-full flex-col gap-4 lg:w-1/2">
       <h4 className="text-clamp-lg font-semibold">{title}</h4>
       <div
         className="text-clamp-sm"

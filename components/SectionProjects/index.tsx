@@ -3,11 +3,13 @@ import { getLocale } from 'next-intl/server';
 import { Locale } from '@/types/PageVariants';
 
 import Container from '../Container';
-import ProjectsList from './ProjectsList';
+
 import PageTitle from '../PageTitle';
 import Quote from './Quote';
 import ExternalLInk from '../ExternalLInk';
-import { getAllProjects } from '@/lib/supabase/supabase';
+import { getAllProjectsWithLocale } from '@/lib/utils';
+
+import ProjectsList from './ProjectsList';
 
 interface ProjectsProps {
   dict: Dictionary['projects'];
@@ -15,7 +17,7 @@ interface ProjectsProps {
 
 export default async function Projects({ dict }: ProjectsProps) {
   const locale = getLocale() as Locale;
-  const projects = await getAllProjects(locale);
+  const projects = await getAllProjectsWithLocale(locale)
 
   return (
     <Container className="flex flex-col items-center justify-center">

@@ -15,3 +15,4 @@ export const BLURHASH_PUNCH = 1;
 export const LANGS: Locales = { english: 'en', ukrainian: 'uk' };
 export const THEMES: Themes = { dark: 'dark', light: 'light', system: 'system' };
 
+export const TRANSFORMATIONS_DEPTH = 3;

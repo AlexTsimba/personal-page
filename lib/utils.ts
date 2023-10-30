@@ -1,8 +1,11 @@
-import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import { SPECIAL_CHARACTERS } from '@/constants/constants';
-import Project from '@/types/Project';
+import { type ClassValue, clsx } from 'clsx';
+import { SPECIAL_CHARACTERS, TRANSFORMATIONS_DEPTH } from '@/constants/constants';
+import * as changeKeys from 'change-case/keys';
+
+import db from './supabase/supabase';
 import { Locale } from '@/types/PageVariants';
+import Project from '@/types/Project';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -23,25 +26,6 @@ export async function loadFeedbackAnimation(
   setAnimation(animation.default);
 }
 
-export function getImageURL(folder: string, name: string, theme?: string) {
-  if (theme) {
-    return `${folder}${name}-${theme}`;
-  } else {
-    return `${folder}${name}`;
-  }
-}
-
-export async function fetchProjects() {
-  const response = await fetch('api/projects', {
-    method: 'GET',
-    // cache: 'force-cache',
-  });
-  if (response.ok) {
-    const data: Project[] = await response.json();
-    return data;
-  }
-}
-
 export async function wait(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -51,4 +35,28 @@ export function resolveLocale(currentLocale: string | string[]) {
     ? currentLocale[0]
     : currentLocale;
   return resolvedLocale as Locale;
+}
+
+export async function getLocalizedProjectData(locale: Locale) {
+  const { data, error } = await db
+    .from('projects')
+    .select(`*, translations(*)`)
+    .eq('translations.locale', locale);
+
+  if (error) throw new Error(error.message);
+
+  return data;
+}
+
+const camelizeKeys = (data: object[]) => {
+  const camelised = data.map((project) => changeKeys.camelCase(project, TRANSFORMATIONS_DEPTH));
+
+  return camelised;
+};
+
+export async function getAllProjectsWithLocale(locale: Locale) {
+  const projectsData = await getLocalizedProjectData(locale);
+  const projects = camelizeKeys(projectsData) as Project[];
+
+  return projects;
 }

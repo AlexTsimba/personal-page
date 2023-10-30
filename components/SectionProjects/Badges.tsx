@@ -2,12 +2,11 @@ import Project from '@/types/Project';
 import ImageWithBlur from '../Image';
 
 interface BagesProps {
-  tools: Project['toolsBages'];
+  title: string;
+  list: Project['toolsBadges'];
 }
 
-export default function Badges({ tools }: BagesProps) {
-  const { title, list } = tools;
-
+export default function Badges({ title, list }: BagesProps) {
   return (
     <>
       <h4 className="text-clamp-lg font-semibold">{title}</h4>

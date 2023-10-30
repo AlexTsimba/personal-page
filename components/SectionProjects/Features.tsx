@@ -1,11 +1,9 @@
-import Project from '@/types/Project';
-
 interface FeaturesProps {
-  features: Project['features'];
+  title: string;
+  list: string[];
 }
 
-export default function Features({ features }: FeaturesProps) {
-  const { title, list } = features;
+export default function Features({ title, list }: FeaturesProps) {
   return (
     <div className="flex w-full flex-col gap-4 lg:w-fit">
       <h4 className="text-clamp-lg font-semibold">{title}</h4>
