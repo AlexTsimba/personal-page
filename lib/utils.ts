@@ -1,6 +1,9 @@
 import { twMerge } from 'tailwind-merge';
 import { type ClassValue, clsx } from 'clsx';
-import { SPECIAL_CHARACTERS, TRANSFORMATIONS_DEPTH } from '@/constants/constants';
+import {
+  SPECIAL_CHARACTERS,
+  TRANSFORMATIONS_DEPTH,
+} from '@/constants/constants';
 import * as changeKeys from 'change-case/keys';
 
 import db from './supabase/supabase';
@@ -13,6 +16,15 @@ export function cn(...inputs: ClassValue[]) {
 
 export function escapeSpecialCharacters(str: string) {
   return str.replace(SPECIAL_CHARACTERS, '\\$&');
+}
+
+export function preventPageScroll(isOpen: boolean) {
+  const body = document.getElementById('portal');
+
+  if (body) {
+    body.style.overflow = isOpen ? 'hidden' : 'auto';
+    body.toggleAttribute('data-lenis-prevent-wheel', isOpen);
+  }
 }
 
 export async function loadFeedbackAnimation(
@@ -49,7 +61,9 @@ export async function getLocalizedProjectData(locale: Locale) {
 }
 
 const camelizeKeys = (data: object[]) => {
-  const camelised = data.map((project) => changeKeys.camelCase(project, TRANSFORMATIONS_DEPTH));
+  const camelised = data.map((project) =>
+    changeKeys.camelCase(project, TRANSFORMATIONS_DEPTH)
+  );
 
   return camelised;
 };

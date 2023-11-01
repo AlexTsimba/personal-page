@@ -15,25 +15,16 @@ interface MainProps {
     | 'contact'
     | 'skills'
     | 'projects'
-    | 'contactFormFeedback'
-    | 'contactDetails'
   >;
 }
 
 export default async function Main({ dict }: MainProps) {
-  const contactDict: Pick<
-    Dictionary,
-    'contact' | 'contactDetails' | 'contactFormFeedback'
-  > = {
-    contact: dict.contact,
-    contactFormFeedback: dict.contactFormFeedback,
-    contactDetails: dict.contactDetails,
-  };
+
 
   const sectionComponents: Record<NavLink['key'], JSX.Element> = {
     hello: <Hello dict={dict.hello} />,
     skills: <Skills dict={dict.skills} />,
-    contact: <Contact dict={contactDict} />,
+    contact: <Contact dict={dict.contact} />,
     projects: <Projects dict={dict.projects} />,
   };
 
@@ -47,7 +38,7 @@ export default async function Main({ dict }: MainProps) {
   });
 
   return (
-    <main>
+    <main className='overflow-hidden'>
       {sections.map(({ key, href, component }) => (
         <Section key={href} id={key}>
           {component}

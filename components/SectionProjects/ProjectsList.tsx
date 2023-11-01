@@ -7,11 +7,13 @@ import { useUiStore } from '@/store/store';
 import Project from '@/types/Project';
 import ProjectCard from './ProjectCard';
 import Gallery from './Gallery';
+import Dictionary from '@/types/Dictionary';
 
 interface ProjectsListProps {
-  projects: Project[] | null;
+  projects: Project[];
+  dict: Dictionary['projects']['project'];
 }
-export default function ProjectsList({ projects }: ProjectsListProps) {
+export default function ProjectsList({ projects, dict }: ProjectsListProps) {
   const { setGallery, gallery } = useUiStore(
     (state) => ({
       currentSection: state.currentSection,
@@ -24,10 +26,11 @@ export default function ProjectsList({ projects }: ProjectsListProps) {
   // const isActive = currentSection === 'projects';
 
   return (
-    <div>
-      {projects?.map((project, index) => {
+    <div className="w-full">
+      {projects.map((project, index) => {
         return (
           <ProjectCard
+            dict={dict}
             project={project}
             onHover={setGallery}
             index={index}
@@ -35,7 +38,7 @@ export default function ProjectsList({ projects }: ProjectsListProps) {
           />
         );
       })}
-      { <Gallery status={gallery} projects={projects} />}
+      {<Gallery status={gallery} projects={projects} />}
     </div>
   );
 }

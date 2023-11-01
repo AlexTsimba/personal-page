@@ -35,38 +35,47 @@
     "quoteTitle": "Балачки це дешево. Покажи мені код",
     "quoteAuthor": "Лінус Торвальдс",
     "invitation": "Більше коду у профілі на",
-    "ghProfile": "GitHub"
+    "ghProfile": "GitHub",
+    "project": {
+      "linksTitle": "Посилання",
+      "featuresTitle": "Особливості",
+      "descriptionTitle": "Огляд",
+      "close": "Закрити деталі",
+      "toolBoxTitle": "Інструменти"
+    }
   },
   "contact": {
     "pageTitle": "Контакти",
-    "fieldName": "Імʼя",
-    "fieldEmail": "Електронна пошта",
-    "fieldCompany": "Компанія",
-    "submit": "Надіслати",
-    "clear": "Очистити поля",
-    "fieldMessage": "Залиште своє повідомлення...",
-    "errorMessageToShort": "Повідомлення занадто коротке (від 2 символів)",
-    "errorMessageToLong50": "Повідомлення занадто довге (до 50 символів)",
-    "errorMessageToLong500": "Повідомлення занадто довге (до 500 символів)",
-    "errorSpecialCharacters": "Спеціальні символи недоступні для цього поля",
-    "errorInvalidEmail": "Введіть валідний e-mail",
-    "errorMessageisRequired": "Це поле обов'язкове та не може бути порожнім"
-  },
-  "contactFormFeedback": {
-    "titleSuccess": "Дякую!",
-    "titleFailed": "Щось пішло не так..",
-    "bodySuccess": "Ваше повідомлення було надіслано",
-    "bodyFailed": "Повторіть спробу або зв'яжіться іншим каналом",
-    "buttonSuccess": "Ще відгук",
-    "buttonFailed": "Спробувати ще раз"
-  },
-  "contactDetails": {
-    "title": "Поспілкуємось",
-    "description": "Якщо маєте питання, пропозиції, або просто хочете привітатись",
-    "proposal": "Зв'яжіться зі мною просто зараз",
-    "region": "регіон",
-    "telephone": "телефон",
-    "mailto": "поштова скринька",
-    "currentLocation": "Київ, Україна"
+    "form": {
+      "fieldName": "Імʼя",
+      "fieldEmail": "Електронна пошта",
+      "fieldCompany": "Компанія",
+      "submit": "Надіслати",
+      "clear": "Очистити поля",
+      "fieldMessage": "Залиште своє повідомлення...",
+      "errorMessageToShort": "Повідомлення занадто коротке (від 2 символів)",
+      "errorMessageToLong50": "Повідомлення занадто довге (до 50 символів)",
+      "errorMessageToLong500": "Повідомлення занадто довге (до 500 символів)",
+      "errorSpecialCharacters": "Спеціальні символи недоступні для цього поля",
+      "errorInvalidEmail": "Введіть валідний e-mail",
+      "errorMessageisRequired": "Це поле обов'язкове та не може бути порожнім"
+    },
+    "formFeedback": {
+      "titleSuccess": "Дякую!",
+      "titleFailed": "Щось пішло не так..",
+      "bodySuccess": "Ваше повідомлення було надіслано",
+      "bodyFailed": "Повторіть спробу або зв'яжіться іншим каналом",
+      "buttonSuccess": "Ще відгук",
+      "buttonFailed": "Спробувати ще раз"
+    },
+    "details": {
+      "title": "Поспілкуємось",
+      "description": "Якщо маєте питання, пропозиції, або просто хочете привітатись",
+      "proposal": "Зв'яжіться зі мною просто зараз",
+      "region": "регіон",
+      "telephone": "телефон",
+      "mailto": "поштова скринька",
+      "currentLocation": "Київ, Україна"
+    }
   }
 }

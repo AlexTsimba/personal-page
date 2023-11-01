@@ -33,15 +33,15 @@ export default function RootLayout({
   unstable_setRequestLocale(locale);
   return (
     <html lang={params.locale} suppressHydrationWarning>
-      <body
+      <body 
         id="portal"
         className={classNames(
           monserrat.className,
-          'lenis lenis-smooth light flex min-h-screen flex-col items-center'
+          'lenis lenis-smooth flex min-h-screen flex-col items-center '
         )}
       >
         <Providers locale={params.locale}>
-          <div className="relative  w-full">{children}</div>
+          <div className="relative w-full">{children}</div>
         </Providers>
       </body>
     </html>

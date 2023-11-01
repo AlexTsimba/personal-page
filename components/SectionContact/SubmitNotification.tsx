@@ -12,7 +12,7 @@ import Dictionary from '@/types/Dictionary';
 import dynamic from 'next/dynamic';
 
 interface SubmitNotificationProps {
-  dict: Dictionary['contactFormFeedback'];
+  dict: Dictionary['contact']['formFeedback'];
 }
 
 export default function SubmitNotification({ dict }: SubmitNotificationProps) {

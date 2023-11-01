@@ -36,37 +36,46 @@ export default interface Dictionary {
     quoteAuthor: string;
     invitation: string;
     ghProfile: string;
+    project: {
+      linksTitle: string;
+      featuresTitle: string;
+      descriptionTitle: string;
+      close: string;
+      toolBoxTitle: string;
+    };
   };
   contact: {
     pageTitle: string;
-    fieldName: string;
-    fieldEmail: string;
-    fieldCompany: string;
-    fieldMessage: string;
-    submit: string;
-    clear: string;
-    errorMessageToShort: string;
-    errorMessageToLong500: string;
-    errorMessageToLong50: string;
-    errorSpecialCharacters: string;
-    errorInvalidEmail: string;
-    errorMessageisRequired: string;
-  };
-  contactFormFeedback: {
-    titleSuccess: string;
-    titleFailed: string;
-    bodySuccess: string;
-    bodyFailed: string;
-    buttonSuccess: string;
-    buttonFailed: string;
-  };
-  contactDetails: {
-    title: string;
-    description: string;
-    proposal: string;
-    region: string;
-    telephone: string;
-    mailto: string;
-    currentLocation: string;
+    form: {
+      fieldName: string;
+      fieldEmail: string;
+      fieldCompany: string;
+      fieldMessage: string;
+      submit: string;
+      clear: string;
+      errorMessageToShort: string;
+      errorMessageToLong500: string;
+      errorMessageToLong50: string;
+      errorSpecialCharacters: string;
+      errorInvalidEmail: string;
+      errorMessageisRequired: string;
+    };
+    formFeedback: {
+      titleSuccess: string;
+      titleFailed: string;
+      bodySuccess: string;
+      bodyFailed: string;
+      buttonSuccess: string;
+      buttonFailed: string;
+    };
+    details: {
+      title: string;
+      description: string;
+      proposal: string;
+      region: string;
+      telephone: string;
+      mailto: string;
+      currentLocation: string;
+    };
   };
 }

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { PhoneCall, AtSign, Linkedin, MapPin } from 'react-feather';
 
 interface DetailsProps {
-  dict: Dictionary['contactDetails'];
+  dict: Dictionary['contact']['details']
 }
 
 export default function Details({ dict }: DetailsProps) {

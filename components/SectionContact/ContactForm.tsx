@@ -18,7 +18,7 @@ import { User, Mail, Users, MessageCircle } from 'react-feather';
 import { NAME_CHARACTERS } from '@/constants/constants';
 
 interface ContactFormProps {
-  dict: Dictionary['contact'];
+  dict: Dictionary['contact']['form']
 }
 
 export default function ContactForm({ dict }: ContactFormProps) {

@@ -24,6 +24,7 @@ module.exports = {
         clamp: 'clamp(9rem, 30vw, 20rem)',
       },
       padding: {
+        'clamp-xs':'clamp(0rem, calc(3vw - 3px), 2rem)',
         'clamp-sm':'clamp(0rem, calc(3vw - 3px), 3rem)',
         clamp: 'clamp(0rem, calc(5vw - 5px), 5rem)',
         

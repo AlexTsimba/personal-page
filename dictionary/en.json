@@ -35,38 +35,48 @@
     "quoteTitle": "Talk is cheap. Show me the code",
     "quoteAuthor": "Linus Torvalds",
     "invitation": "For more, visit my profile on",
-    "ghProfile": "GitHub"
+    "ghProfile": "GitHub",
+    "project": {
+      "linksTitle": "Links",
+      "featuresTitle": "Features",
+      "descriptionTitle": "Overview",
+      "close": "Close project details",
+      "toolBoxTitle": "Toolbox"
+    }
   },
   "contact": {
     "pageTitle": "Contact",
-    "fieldName": "Name",
-    "fieldEmail": "E-mail",
-    "fieldCompany": "Company",
-    "fieldMessage": "Write your message here...",
-    "errorMessageToShort": "Message is too short. Should be at least 2 characters",
-    "errorSpecialCharacters": "Special characters are not allowed in this field",
-    "errorMessageToLong50": "Message is too long. Should be no more than 500 characters",
-    "errorMessageToLong500": "Message is too long. Should be no more than 50 characters",
-    "errorInvalidEmail": "Please enter a valid e-mail address",
-    "errorMessageisRequired": "This field can't be empty",
-    "clear": "Clear fields",
-    "submit": "Submit"
-  },
-  "contactFormFeedback": {
-    "titleSuccess": "Thank you!",
-    "titleFailed": "Message sending failed",
-    "bodySuccess": "Your message has been sent",
-    "bodyFailed": "Please retry or reach me in alternate way",
-    "buttonSuccess": "Send more",
-    "buttonFailed": "Try again"
-  },
-  "contactDetails": {
-    "title": "Got thoughts",
-    "description": "If you have any questions, proposals, or just want to say hello",
-    "proposal": "Feel free to get in touch",
-    "region": "region",
-    "telephone": "phone",
-    "mailto": "mailto",
-    "currentLocation": "Kyiv, Ukraine"
+    "form": {
+      "fieldName": "Name",
+      "fieldEmail": "E-mail",
+      "fieldCompany": "Company",
+      "fieldMessage": "Write your message here...",
+      "errorMessageToShort": "Message is too short. Should be at least 2 characters",
+      "errorSpecialCharacters": "Special characters are not allowed in this field",
+      "errorMessageToLong50": "Message is too long. Should be no more than 500 characters",
+      "errorMessageToLong500": "Message is too long. Should be no more than 50 characters",
+      "errorInvalidEmail": "Please enter a valid e-mail address",
+      "errorMessageisRequired": "This field can't be empty",
+      "clear": "Clear fields",
+      "submit": "Submit"
+    },
+
+    "formFeedback": {
+      "titleSuccess": "Thank you!",
+      "titleFailed": "Message sending failed",
+      "bodySuccess": "Your message has been sent",
+      "bodyFailed": "Please retry or reach me in alternate way",
+      "buttonSuccess": "Send more",
+      "buttonFailed": "Try again"
+    },
+    "details": {
+      "title": "Got thoughts",
+      "description": "If you have any questions, proposals, or just want to say hello",
+      "proposal": "Feel free to get in touch",
+      "region": "region",
+      "telephone": "phone",
+      "mailto": "mailto",
+      "currentLocation": "Kyiv, Ukraine"
+    }
   }
 }

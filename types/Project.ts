@@ -33,11 +33,7 @@ export default interface Project {
     locale: 'uk' | 'en';
     projectId: string;
     title: string;
-    descriptionTitle: string;
     descriptionText: string;
-    linksTitle: string;
-    toolsBadgesTitle: string;
-    featuresTitle: string;
     featuresList: string[];
   }[];
 }
