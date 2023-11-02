@@ -1,8 +1,10 @@
-import LangSwitch from './LangSwitch';
-import ThemeSwitch from './ThemeSwitch';
 import classNames from 'classnames';
-import { THEMES, LANGS } from '@/constants/constants';
+
 import Dictionary from '@/types/Dictionary';
+import { THEMES, LANGS } from '@/lib/constants/constants';
+
+import ThemeSwitch from './ThemeSwitch';
+import LangSwitch from './LangSwitch';
 
 interface PageControlsProps {
   dict: Dictionary['header']['language'] & Dictionary['header']['theme'];

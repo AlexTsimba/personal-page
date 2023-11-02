@@ -3,10 +3,9 @@ export interface Locales {
   ukrainian: string;
 }
 
-export type Locale = 'en' | 'uk';
-
 export interface Themes {
   dark: string;
   light: string;
   system: string;
 }
+export type Locale = 'en' | 'uk';

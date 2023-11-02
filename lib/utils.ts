@@ -3,7 +3,7 @@ import { type ClassValue, clsx } from 'clsx';
 import {
   SPECIAL_CHARACTERS,
   TRANSFORMATIONS_DEPTH,
-} from '@/constants/constants';
+} from '@/lib/constants/constants';
 import * as changeKeys from 'change-case/keys';
 
 import db from './database/supabase';

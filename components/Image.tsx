@@ -7,7 +7,7 @@ import Img from '@/types/Img';
 import {
   BLURHASH_RESOLUTION_SMALL,
   BLURHASH_PUNCH,
-} from '@/constants/constants';
+} from '@/lib/constants/constants';
 
 interface ImageWithBlurProps {
   image: Img;

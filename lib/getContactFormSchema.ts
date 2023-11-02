@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 import { getDictionary } from '@/dictionary/dictionary';
 import { Locale } from '@/types/PageVariants';
-import { NAME_CHARACTERS } from '@/constants/constants';
+import { NAME_CHARACTERS } from '@/lib/constants/constants';
 
 export const getLocalizedContactFormSchema = async (locale: Locale) => {
   const { zodErrors } = await getDictionary(locale);

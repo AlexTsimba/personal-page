@@ -39,7 +39,7 @@
       "linksTitle": "Links",
       "featuresTitle": "Features",
       "descriptionTitle": "Overview",
-      "close": "Close project details",
+      "close": "Close details",
       "toolBoxTitle": "Toolbox"
     }
   },
@@ -74,8 +74,8 @@
   "zodErrors": {
     "tooShort": "Message is too short. Should be at least 2 characters",
     "specialCharacters": "Special characters are not allowed in this field",
-    "tooLong50": "Message is too long. Should be no more than 500 characters",
-    "tooLong500": "Message is too long. Should be no more than 50 characters",
+    "tooLong50": "Message is too long. Should be less, than 500 characters",
+    "tooLong500": "Message is too long. Should be less, than 50 characters",
     "invalidEmail": "Please enter a valid e-mail address",
     "required": "This field can't be empty"
   }

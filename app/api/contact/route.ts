@@ -1,4 +1,4 @@
-import { TG_CHAT_ID, TG_URI_API } from '@/constants/constants';
+import { TG_CHAT_ID, TG_URI_API } from '@/lib/constants/constants';
 import { escapeSpecialCharacters } from '@/lib/utils';
 
 interface FormData {

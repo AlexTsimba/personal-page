@@ -7,7 +7,7 @@ import ThemedImg from '@/types/ThemedImg';
 import {
   BLURHASH_PUNCH,
   BLURHASH_RESOLUTION_LARGE,
-} from '@/constants/constants';
+} from '@/lib/constants/constants';
 import classNames from 'classnames';
 
 interface ThemedImageProps {
