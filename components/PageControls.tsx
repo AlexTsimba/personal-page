@@ -5,7 +5,7 @@ import { THEMES, LANGS } from '@/constants/constants';
 import Dictionary from '@/types/Dictionary';
 
 interface PageControlsProps {
-  dict: Pick<Dictionary, 'theme' | 'language'>;
+  dict: Dictionary['header']['language'] & Dictionary['header']['theme'];
   isSidebarOpen: boolean;
 }
 
@@ -13,8 +13,8 @@ export default function PageControls({
   isSidebarOpen,
   dict,
 }: PageControlsProps) {
-  const { lightMode, darkMode, systemMode } = dict.theme;
-  const { en, uk } = dict.language;
+  const { lightMode, darkMode, systemMode } = dict;
+  const { en, uk } = dict;
 
   const themeVariants = [
     { value: THEMES.light, title: lightMode },

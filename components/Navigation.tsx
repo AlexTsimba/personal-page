@@ -15,7 +15,7 @@ import { LazyMotion } from 'framer-motion';
 import { loadDomMaxFeatures } from '@/lib/framer-motion/features';
 
 interface NavigationProps {
-  dict: Pick<Dictionary, 'theme' | 'language' | 'navLinks'>;
+  dict: Dictionary['header'];
 }
 
 export default function Navigation({ dict }: NavigationProps) {
@@ -39,7 +39,7 @@ export default function Navigation({ dict }: NavigationProps) {
       >
         <PageControls
           isSidebarOpen={isSidebarOpen}
-          dict={{ language: dict.language, theme: dict.theme }}
+          dict={{ ...dict.language, ...dict.theme }}
         />
       </NavBar>
       <SideBar

@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { AnimatePresence, m } from 'framer-motion';
-import { motionControls } from '@/lib/motionControls';
+import { motionControls } from '@/lib/framer-motion/motionControls';
 import useOnClickOutside from '@/lib/hooks/useOnClickOutside';
 import { navConfig } from '@/lib/navConfig';
 
@@ -13,7 +13,7 @@ import Portal from '../Portal';
 
 interface SideBarProps {
   isOpen: boolean;
-  dict: Dictionary['navLinks'];
+  dict: Dictionary['header']['navLinks'];
   scroller: Lenis;
   activeSection: string;
   toggleSidebar: () => void;

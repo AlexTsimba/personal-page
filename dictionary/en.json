@@ -1,22 +1,21 @@
 {
-  "Index": {
-    "title": "Hello world!"
-  },
-  "theme": {
-    "lightMode": "Light",
-    "darkMode": "Dark",
-    "systemMode": "System"
-  },
-  "language": {
-    "flag": "🇬🇧",
-    "uk": "Ukrainian",
-    "en": "English"
-  },
-  "navLinks": {
-    "hello": "Hello",
-    "skills": "Skills",
-    "projects": "Projects",
-    "contact": "Contact"
+  "header": {
+    "theme": {
+      "lightMode": "Light",
+      "darkMode": "Dark",
+      "systemMode": "System"
+    },
+    "language": {
+      "flag": "🇬🇧",
+      "uk": "Ukrainian",
+      "en": "English"
+    },
+    "navLinks": {
+      "hello": "Hello",
+      "skills": "Skills",
+      "projects": "Projects",
+      "contact": "Contact"
+    }
   },
   "hello": {
     "pageTitle": "Hello",
@@ -51,16 +50,9 @@
       "fieldEmail": "E-mail",
       "fieldCompany": "Company",
       "fieldMessage": "Write your message here...",
-      "errorMessageToShort": "Message is too short. Should be at least 2 characters",
-      "errorSpecialCharacters": "Special characters are not allowed in this field",
-      "errorMessageToLong50": "Message is too long. Should be no more than 500 characters",
-      "errorMessageToLong500": "Message is too long. Should be no more than 50 characters",
-      "errorInvalidEmail": "Please enter a valid e-mail address",
-      "errorMessageisRequired": "This field can't be empty",
       "clear": "Clear fields",
       "submit": "Submit"
     },
-
     "formFeedback": {
       "titleSuccess": "Thank you!",
       "titleFailed": "Message sending failed",
@@ -78,5 +70,13 @@
       "mailto": "mailto",
       "currentLocation": "Kyiv, Ukraine"
     }
+  },
+  "zodErrors": {
+    "tooShort": "Message is too short. Should be at least 2 characters",
+    "specialCharacters": "Special characters are not allowed in this field",
+    "tooLong50": "Message is too long. Should be no more than 500 characters",
+    "tooLong500": "Message is too long. Should be no more than 50 characters",
+    "invalidEmail": "Please enter a valid e-mail address",
+    "required": "This field can't be empty"
   }
 }

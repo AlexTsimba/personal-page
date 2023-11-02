@@ -6,7 +6,7 @@ import { useUiStore } from '@/store/store';
 import { shallow } from 'zustand/shallow';
 import { m } from 'framer-motion';
 
-import { motionControls } from '@/lib/motionControls';
+import { motionControls } from '@/lib/framer-motion/motionControls';
 import MotionArrowPointer from './MotionArrowPointer';
 import { Button } from '../shadcn/button';
 

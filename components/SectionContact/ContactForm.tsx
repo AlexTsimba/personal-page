@@ -1,27 +1,34 @@
 'use client';
 
 import * as z from 'zod';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { useParams } from 'next/navigation';
+import { useContactFormStore } from '@/store/store';
+import { useLocalizedContactForm } from '@/lib/hooks/useContactForm';
 
+import classNames from 'classnames';
+import { shallow } from 'zustand/shallow';
+import { resolveLocale } from '@/lib/utils';
+
+import Dictionary from '@/types/Dictionary';
+import ContactFormSchema from '@/types/ContactFormSchema';
+
+import { User, Mail, Users, MessageCircle } from 'react-feather';
 import { Form } from '../shadcn/form';
 import { Button } from '../shadcn/button';
 import InputField from './InputField';
 import TextareaField from './TextareaField';
 
-import Dictionary from '@/types/Dictionary';
-import { useContactFormStore } from '@/store/store';
-import { shallow } from 'zustand/shallow';
-
-import classNames from 'classnames';
-import { User, Mail, Users, MessageCircle } from 'react-feather';
-import { NAME_CHARACTERS } from '@/constants/constants';
-
 interface ContactFormProps {
-  dict: Dictionary['contact']['form']
+  dict: Dictionary['contact']['form'];
 }
 
 export default function ContactForm({ dict }: ContactFormProps) {
+  const params = useParams();
+  const locale = resolveLocale(params.locale);
+
+  const { form } = useLocalizedContactForm(locale);
+  const { isValid, isDirty } = form.formState;
+
   const { setIsPending, setIsFlipped, setIsSuccess, isFlipped } =
     useContactFormStore(
       (state) => ({
@@ -33,43 +40,7 @@ export default function ContactForm({ dict }: ContactFormProps) {
       shallow
     );
 
-  const contactFormSchema = z.object({
-    name: z
-      .string()
-      .trim()
-      .nonempty({ message: dict.errorMessageisRequired })
-      .min(2, { message: dict.errorMessageToShort })
-      .max(50, { message: dict.errorMessageToLong50 })
-      .refine((value) => NAME_CHARACTERS.test(value), {
-        message: dict.errorSpecialCharacters,
-      }),
-
-    email: z
-      .string()
-      .trim()
-      .nonempty({ message: dict.errorMessageisRequired })
-      .email({ message: dict.errorInvalidEmail }),
-    company: z
-      .string()
-      .trim()
-      .nonempty({ message: dict.errorMessageisRequired })
-      .min(2, { message: dict.errorMessageToShort })
-      .max(50, { message: dict.errorMessageToLong50 }),
-    message: z
-      .string()
-      .trim()
-      .nonempty({ message: dict.errorMessageisRequired })
-      .min(2, { message: dict.errorMessageToShort })
-      .max(500, { message: dict.errorMessageToLong500 }),
-  });
-
-  const form = useForm<z.infer<typeof contactFormSchema>>({
-    mode: 'onTouched',
-    resolver: zodResolver(contactFormSchema),
-    defaultValues: { name: '', email: '', company: '', message: '' },
-  });
-
-  async function sendToTelegram(formData: z.infer<typeof contactFormSchema>) {
+  async function sendToTelegram(formData: z.infer<ContactFormSchema>) {
     setIsPending(true);
     setIsFlipped(true);
 
@@ -78,18 +49,13 @@ export default function ContactForm({ dict }: ContactFormProps) {
       body: JSON.stringify(formData),
     });
 
-    if (response.ok) {
-      form.reset();
-      setIsSuccess(true);
-    } else {
-      setIsSuccess(false);
-    }
+    const success = response.ok;
+
+    setIsSuccess(success);
+    if (success) form.reset();
 
     setIsPending(false);
   }
-
-  const isAllFieldsValid = form.formState.isValid;
-  const isFormDirty = form.formState.isDirty;
 
   return (
     <Form {...form}>
@@ -134,7 +100,7 @@ export default function ContactForm({ dict }: ContactFormProps) {
 
         <div className="flex w-full items-baseline justify-end gap-4">
           <Button
-            disabled={isFormDirty && isAllFieldsValid}
+            disabled={isDirty && isValid}
             variant="link"
             type="reset"
             onClick={() => form.reset()}
@@ -143,7 +109,7 @@ export default function ContactForm({ dict }: ContactFormProps) {
           </Button>
 
           <Button
-            disabled={isFormDirty && !isAllFieldsValid}
+            disabled={isDirty && !isValid}
             variant="secondary"
             type="submit"
             className="w-1/2"

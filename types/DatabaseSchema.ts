@@ -6,7 +6,7 @@ export type Json =
   | { [key: string]: Json | undefined }
   | Json[];
 
-export interface Database {
+export interface DatabaseSchema {
   public: {
     Tables: {
       projects: {
@@ -73,12 +73,6 @@ export interface Database {
     };
     Enums: {
       locale: 'uk' | 'en';
-    };
-    CompositeTypes: {
-      somefeatures: {
-        list: unknown;
-        title: string;
-      };
     };
   };
 }

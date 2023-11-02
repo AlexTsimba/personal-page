@@ -6,14 +6,14 @@ import Lenis from '@studio-freight/lenis';
 
 interface NavBarProps {
   children: React.ReactNode;
-  dict: Dictionary['navLinks'];
+  dict: Dictionary['header']['navLinks'];
   activeSection: string;
   scroller: Lenis;
 }
 
 export default function NavBar({
   children,
-  dict: navigationDict,
+  dict,
   activeSection,
   scroller,
 }: NavBarProps) {
@@ -25,7 +25,7 @@ export default function NavBar({
           return (
             <NavItem
               scroller={scroller}
-              title={navigationDict[link.key]}
+              title={dict[link.key]}
               key={link.key}
               href={link.href}
               isActive={isActive}

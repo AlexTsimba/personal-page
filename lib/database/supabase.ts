@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
-import { Database } from '@/types/Database';
+import { DatabaseSchema } from '@/types/DatabaseSchema';
 
-const db = createClient<Database>(
+const db = createClient<DatabaseSchema>(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );

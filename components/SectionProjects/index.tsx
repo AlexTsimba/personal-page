@@ -1,5 +1,4 @@
 import Dictionary from '@/types/Dictionary';
-import { getLocale } from 'next-intl/server';
 import { Locale } from '@/types/PageVariants';
 
 import Container from '../Container';
@@ -13,12 +12,11 @@ import ProjectsList from './ProjectsList';
 
 interface ProjectsProps {
   dict: Dictionary['projects'];
+  locale: Locale;
 }
 
-export default async function Projects({ dict }: ProjectsProps) {
-  const locale = getLocale() as Locale;
-  const projects = await getAllProjectsWithLocale(locale)
-
+export default async function Projects({ dict, locale }: ProjectsProps) {
+  const projects = await getAllProjectsWithLocale(locale);
 
   return (
     <Container className="flex flex-col items-center justify-center">
@@ -26,7 +24,7 @@ export default async function Projects({ dict }: ProjectsProps) {
       <div className="flex w-full flex-col items-center justify-center gap-16 rounded-xl px-clamp">
         <Quote title={dict.quoteTitle} author={dict.quoteAuthor} />
 
-        <ProjectsList projects={projects} dict={dict.project} /> 
+        <ProjectsList projects={projects} dict={dict.project} />
 
         <div className="self-end">
           <span className="text-clamp-md after:content-['_']">

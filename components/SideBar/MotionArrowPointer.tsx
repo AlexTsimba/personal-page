@@ -1,4 +1,4 @@
-import { motionControls } from '@/lib/motionControls';
+import { motionControls } from '@/lib/framer-motion/motionControls';
 import { ChevronRight } from 'react-feather';
 import { m } from 'framer-motion';
 

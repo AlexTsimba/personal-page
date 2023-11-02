@@ -2,7 +2,7 @@ import { useRef, useEffect } from 'react';
 import { m } from 'framer-motion';
 import gsap from 'gsap';
 import Project from '@/types/Project';
-import { motionControls } from '@/lib/motionControls';
+import { motionControls } from '@/lib/framer-motion/motionControls';
 import classNames from 'classnames';
 
 import ImageWithBlur from '../Image';

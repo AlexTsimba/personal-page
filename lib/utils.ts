@@ -6,7 +6,7 @@ import {
 } from '@/constants/constants';
 import * as changeKeys from 'change-case/keys';
 
-import db from './supabase/supabase';
+import db from './database/supabase';
 import { Locale } from '@/types/PageVariants';
 import Project from '@/types/Project';
 

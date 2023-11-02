@@ -1,22 +1,21 @@
 export default interface Dictionary {
-  Index: {
-    title: string;
-  };
-  theme: {
-    lightMode: string;
-    darkMode: string;
-    systemMode: string;
-  };
-  language: {
-    flag: string;
-    uk: string;
-    en: string;
-  };
-  navLinks: {
-    [skills: string]: string;
-    contact: string;
-    projects: string;
-    hello: string;
+  header: {
+    theme: {
+      lightMode: string;
+      darkMode: string;
+      systemMode: string;
+    };
+    language: {
+      flag: string;
+      uk: string;
+      en: string;
+    };
+    navLinks: {
+      [skills: string]: string;
+      contact: string;
+      projects: string;
+      hello: string;
+    };
   };
   hello: {
     pageTitle: string;
@@ -53,13 +52,7 @@ export default interface Dictionary {
       fieldMessage: string;
       submit: string;
       clear: string;
-      errorMessageToShort: string;
-      errorMessageToLong500: string;
-      errorMessageToLong50: string;
-      errorSpecialCharacters: string;
-      errorInvalidEmail: string;
-      errorMessageisRequired: string;
-    };
+    }
     formFeedback: {
       titleSuccess: string;
       titleFailed: string;
@@ -77,5 +70,13 @@ export default interface Dictionary {
       mailto: string;
       currentLocation: string;
     };
+  };
+  zodErrors: {
+    tooShort: string;
+    tooLong500: string;
+    tooLong50: string;
+    specialCharacters: string;
+    invalidEmail: string;
+    required: string;
   };
 }

@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 import { m, useAnimation } from 'framer-motion';
 import path from './path.json';
-import { motionControls } from '@/lib/motionControls';
+import { motionControls } from '@/lib/framer-motion/motionControls';
 
 interface BurgerIconProps {
   isOpen: boolean;

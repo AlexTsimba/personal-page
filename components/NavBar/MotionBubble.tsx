@@ -1,4 +1,4 @@
-import { motionControls } from '@/lib/motionControls';
+import { motionControls } from '@/lib/framer-motion/motionControls';
 import { m } from 'framer-motion';
 
 export default function MotionBubble() {

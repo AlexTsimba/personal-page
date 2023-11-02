@@ -5,7 +5,7 @@ import Navigation from './Navigation';
 import Burger from './Burger';
 
 interface HeaderProps {
-  dict: Pick<Dictionary, 'theme' | 'language' | 'navLinks'>;
+  dict: Dictionary['header'];
 }
 
 export default function Header({ dict }: HeaderProps) {

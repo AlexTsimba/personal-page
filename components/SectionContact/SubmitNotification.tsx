@@ -5,7 +5,7 @@ import { useContactFormStore } from '@/store/store';
 import { shallow } from 'zustand/shallow';
 
 import { m } from 'framer-motion';
-import { motionControls } from '@/lib/motionControls';
+import { motionControls } from '@/lib/framer-motion/motionControls';
 
 import { Button } from '../shadcn/button';
 import Dictionary from '@/types/Dictionary';

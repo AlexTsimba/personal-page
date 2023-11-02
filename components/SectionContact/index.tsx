@@ -8,10 +8,10 @@ import Details from './Details';
 import PageTitle from '../PageTitle';
 
 interface ContactProps {
-  dict: Dictionary['contact']
+  dict: Dictionary['contact'];
 }
 
-export default function Contact({ dict }: ContactProps) {
+export default async function Contact({ dict }: ContactProps) {
   return (
     <Container className="mt-10 flex h-fit flex-col items-center justify-between">
       <PageTitle title={dict.pageTitle} />
